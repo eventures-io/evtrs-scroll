@@ -1,20 +1,37 @@
-.intro-section {
+div.padding-top {
+  padding-top: 80px;
+}
+
+section.intro-section {
   padding-top: 150px;
   height: 100vh;
   background: orange;
 }
 
-.about-section {
+div.intro-container {
+  text-align: center;
+  height: 100%;
+}
+
+div.intro-btn {
+  left: 0;
+  right: 0;
+  position: absolute;
+  bottom: 50px;
+}
+
+section.about-section {
   height: 100vh;
-  background: #ffffff;
+  background: #FFFFEB;
   padding-top: 150px;
   text-align: center;
 }
 
-.services-section {
+section.services-section {
   height: 100vh;
+  color: #FFFFEB;
   padding-top: 150px;
   text-align: center;
-  background: #d3d3d3;
+  background: #333329;
 }
 
