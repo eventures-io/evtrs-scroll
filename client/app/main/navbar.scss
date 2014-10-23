@@ -7,10 +7,12 @@
     -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
     transition: background .5s ease-in-out, padding .5s ease-in-out;
     border: none;
+    font-size: large;
   }
 
   .top-nav-collapse {
     padding: 0;
     opacity: 0.9;
+
   }
 }

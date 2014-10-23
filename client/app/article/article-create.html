@@ -1,0 +1,12 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container padding-top">
+    <h2>Create new post</h2>
+
+    <form novalidate="novalidate" >
+    <text-angular ng-model="articleHtml"></text-angular>
+
+    <button class="btn btn-default btn-primary pull-right" ng-click="save()">Save</button>
+
+    </form>
+</div>

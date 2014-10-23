@@ -11,7 +11,8 @@ angular.module('evtrsScrollApp')
       .state('register', {
         url: '/register',
         templateUrl: 'app/account/signup/register.html',
-        controller: 'SignupCtrl'
+        controller: 'RegistrationCtrl',
+        authenticate: true
       })
       .state('settings', {
         url: '/settings',

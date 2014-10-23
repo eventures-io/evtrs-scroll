@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evtrsScrollApp')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
+  .controller('RegistrationCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
 

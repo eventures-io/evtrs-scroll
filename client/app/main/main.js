@@ -5,7 +5,7 @@ var evtrs = evtrs || {};
 evtrs.scrollToAnchor = function (anchorName) {
     $('html, body').animate({
         scrollTop: $('#'.concat(anchorName)).offset().top
-    }, 1200, 'easeInOutExpo')
+    }, 1200, 'easeInOutExpo');
 };
 
 angular.module('evtrsScrollApp')
@@ -20,7 +20,7 @@ angular.module('evtrsScrollApp')
             })
             .state('base.home', {
                 abstract: true,
-                url: "",
+                url: '',
                 views: {
                     'intro-view@base': { templateUrl: 'app/main/partials/intro.part.html' },
                     'about-view@base': { templateUrl: 'app/main/partials/about.part.html' },
@@ -28,12 +28,12 @@ angular.module('evtrsScrollApp')
                 }
             })
             .state('base.home.intro', {
-                url: "",
+                url: '',
                 views: {
                     'intro-sub-view@base.home': { template: '',
-                        controller: function ($scope, $location, $anchorScroll) {
+                        controller: function ($scope) {
                             $scope.$on('$viewContentLoaded',
-                                function (event) {
+                                function () {
                                     evtrs.scrollToAnchor('page-top');
                                 });
                         }
@@ -41,12 +41,12 @@ angular.module('evtrsScrollApp')
                 }
             })
             .state('base.home.about', {
-                url: "about",
+                url: 'about',
                 views: {
                     'about-sub-view@base.home': { template: '',
                         controller: function ($scope) {
                             $scope.$on('$viewContentLoaded',
-                                function (event) {
+                                function ( ) {
                                     evtrs.scrollToAnchor('about');
 
                                 });
@@ -55,12 +55,12 @@ angular.module('evtrsScrollApp')
                 }
             })
             .state('base.home.services', {
-                url: "services",
+                url: 'services',
                 views: {
                     'services-sub-view@base.home': { template: '',
                         controller: function ($scope) {
                             $scope.$on('$viewContentLoaded',
-                                function (event) {
+                                function ( ) {
                                     evtrs.scrollToAnchor('services');
 
                                 });
@@ -69,12 +69,12 @@ angular.module('evtrsScrollApp')
                 }
             })
             .state('base.home.contact', {
-                url: "contact",
+                url: 'contact',
                 views: {
                     'contact-sub-view@base.home': { template: '',
                         controller: function ($scope) {
                             $scope.$on('$viewContentLoaded',
-                                function (event) {
+                                function ( ) {
                                     evtrs.scrollToAnchor('contact');
 
                                 });
@@ -83,13 +83,13 @@ angular.module('evtrsScrollApp')
                 }
             })
             .state('base.home.services.things', {
-                url: "/things",
+                url: '/things',
                 views: {
                     'services-sub-view@base.home': { templateUrl: 'app/main/partials/services.things.html',
                         controller: function ($scope) {
-                            $scope.things = ["A", "Set", "Of", "Things"];
+                            $scope.things = ['A', 'Set', 'Of', 'Things'];
                             $scope.$on('$viewContentLoaded',
-                                function (event) {
+                                function ( ) {
                                     evtrs.scrollToAnchor('services');
 
                                 });
@@ -98,13 +98,13 @@ angular.module('evtrsScrollApp')
                 }
             })
             .state('base.home.services.items', {
-                url: "/items",
+                url: '/items',
                 views: {
                     'services-sub-view@base.home': { templateUrl: 'app/main/partials/services.items.html',
                         controller: function ($scope) {
-                            $scope.items = ["A", "List", "Of", "Items"];
+                            $scope.items = ['A', 'List', 'Of', 'Items'];
                             $scope.$on('$viewContentLoaded',
-                                function (event) {
+                                function ( ) {
                                     evtrs.scrollToAnchor('services');
 
                                 });
@@ -112,7 +112,7 @@ angular.module('evtrsScrollApp')
                         }
                     }
                 }
-            })
+            });
 
         });
 

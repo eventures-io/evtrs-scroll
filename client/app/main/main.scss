@@ -1,3 +1,7 @@
+body {
+  color: darkslategray;
+}
+
 div.padding-top {
   padding-top: 80px;
 }
@@ -6,6 +10,7 @@ section.intro-section {
   padding-top: 150px;
   height: 100vh;
   background: orange;
+  color: #FFFFEB;
 }
 
 div.intro-container {
@@ -14,11 +19,16 @@ div.intro-container {
 }
 
 div.intro-btn {
-  left: 0;
-  right: 0;
   position: absolute;
+  left:calc(50% - 50px);
   bottom: 50px;
+  background: url(../../assets/images/down-arrow.png) no-repeat;
+  height: 50px;
+  width: 200px;
+  opacity: 0.6;
+  cursor: pointer;
 }
+
 
 section.about-section {
   height: 100vh;
