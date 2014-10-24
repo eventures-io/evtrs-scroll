@@ -12,19 +12,33 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Article) {
 
-    $scope.articleHtml = '';
-    var newArticle =  new Article();
+    $scope.reset = function () {
+        $scope.article = new Article();
+        $scope.article.content = '';
+        $scope.saveAction = 'Save';
+    }
+
+    $scope.reset();
 
     $scope.save = function () {
-        console.log('saving : ' + $scope.articleHtml);
-        newArticle.content = $scope.articleHtml;
-        newArticle.publDate = new Date();
-        newArticle.type = 'blogpost';
-        newArticle.$save()
-        .then(function(data){
-            console.log('successfully saved post: ' + data);
-        });
+        if ($scope.saveAction === 'Save') {
+            console.log('saving : ' + $scope.article.content);
+            $scope.article.publDate = new Date();
+            $scope.article.type = 'blogpost';
+            $scope.article.$save()
+                .then(function (data) {
+                    console.log('successfully saved post: ' + data._id);
+                    $scope.saveAction = 'Update';
+                    $scope.article = angular.fromJson(data);
+                });
+        } else {
+            $scope.article.modDate = new Date();
+            $scope.article.$update()
+            .then(function (data) {
+                    console.log('successfully updated post: ' + data._id);
+                    $scope.article = angular.fromJson(data);
+            });
+        }
     };
-
 
 });

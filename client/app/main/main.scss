@@ -20,15 +20,15 @@ div.intro-container {
 
 div.intro-btn {
   position: absolute;
-  left:calc(50% - 50px);
+  left: calc(50% - 100px/2);
   bottom: 50px;
   background: url(../../assets/images/down-arrow.png) no-repeat;
+  background-size: 100px;
   height: 50px;
-  width: 200px;
+  width: 100px;
   opacity: 0.6;
   cursor: pointer;
 }
-
 
 section.about-section {
   height: 100vh;

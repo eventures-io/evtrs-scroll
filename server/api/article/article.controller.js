@@ -33,6 +33,7 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Article.create(req.body, function(err, article) {
     if(err) { return handleError(res, err); }
+      console.log("saving new article: " + Article.content);
     return res.json(201, article);
   });
 };

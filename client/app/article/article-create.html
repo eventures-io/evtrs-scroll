@@ -4,9 +4,11 @@
     <h2>Create new post</h2>
 
     <form novalidate="novalidate" >
-    <text-angular ng-model="articleHtml"></text-angular>
+    <text-angular ng-model="article.content"></text-angular>
 
-    <button class="btn btn-default btn-primary pull-right" ng-click="save()">Save</button>
+        <button class="btn btn-default btn-primary pull-right" ng-click="save()">{{saveAction}}</button>
+    <button class="btn btn-default btn-primary pull-right" ng-click="reset()">Reset</button>
+
 
     </form>
 </div>
