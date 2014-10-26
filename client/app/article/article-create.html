@@ -1,14 +1,24 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container padding-top">
-    <h2>Create new post</h2>
+    <h2>Create new article</h2>
 
-    <form novalidate="novalidate" >
-    <text-angular ng-model="article.content"></text-angular>
+    <form class="form" name="form" ng-submit="save(form)" novalidate>
+        <div class="form-group has-feedback" ng-class="{'has-error': form.title.$invalid && submitted }">
+            <label class="control-label" for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" ng-model="article.title" required />
+        </div>
 
-        <button class="btn btn-default btn-primary pull-right" ng-click="save()">{{saveAction}}</button>
-    <button class="btn btn-default btn-primary pull-right" ng-click="reset()">Reset</button>
-
-
+        <div class="form-group">
+            <text-angular ng-model="article.content"/>
+        </div>
+    <button class="btn btn-default btn-default pull-right" ng-disabled="disabled" type="submit">{{saveAction}}
+    </button>
+    <button class="btn btn-default btn-default pull-right" ng-click="reset()">Reset</button>
     </form>
+
+    <p>
+        <a ng-href="/article/{{article._id}}">View article</a>
+    </p>
+
 </div>

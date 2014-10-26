@@ -9,7 +9,13 @@ evtrs.scrollToAnchor = function (anchorName) {
 };
 
 angular.module('evtrsScrollApp')
-    .config(function ($locationProvider, $stateProvider) {
+    .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+
+        $urlRouterProvider
+            .otherwise('/');
+
+        $locationProvider.html5Mode(true);
+
 
         $stateProvider
             .state('base', {
@@ -48,7 +54,6 @@ angular.module('evtrsScrollApp')
                             $scope.$on('$viewContentLoaded',
                                 function ( ) {
                                     evtrs.scrollToAnchor('about');
-
                                 });
                         }
                     }

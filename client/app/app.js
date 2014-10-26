@@ -15,13 +15,17 @@ angular.module('evtrsScrollApp', [
         'ui.router',
         'textAngular'
     ])
-    .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-        $urlRouterProvider
-            .otherwise('/');
-
-        $locationProvider.html5Mode(true);
+    .config(function ($provide, $httpProvider) {
 
         $httpProvider.interceptors.push('authInterceptor');
+
+//        $provide.decorator("$exceptionHandler", function ($delegate, $injector) {
+//            return function (exception, cause) {
+//                var $rootScope = $injector.get("$rootScope");
+//                $rootScope.addError({message: "Exception", reason: exception});
+//                $delegate(exception, cause);
+//            };
+//        });
 
     })
 
@@ -49,9 +53,18 @@ angular.module('evtrsScrollApp', [
                 }
             }
         };
-
-
     })
+
+//    //generic exception handler
+//    .factory("errors", function ($rootScope) {
+//        return {
+//            catch: function (message) {
+//                return function (reason) {
+//                    $rootScope.addError({message: message, reason: reason})
+//                };
+//            }
+//        };
+//    })
 
     .run(function ($rootScope, $location, Auth) {
         // Redirect to login if route requires auth and you're not logged in
