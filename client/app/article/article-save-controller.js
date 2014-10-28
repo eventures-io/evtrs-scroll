@@ -12,6 +12,7 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope, Articles) {
 
+    $scope.saveAction = 'save';
     $scope.disabled = true;
     $scope.submitted = false;
 
@@ -25,7 +26,7 @@ angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope,
         $scope.article = {};
         $scope.article.content = '';
         $scope.saveAction = 'Save';
-    }
+    };
     $scope.reset();
 
     $scope.save = function (form) {
@@ -36,7 +37,6 @@ angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope,
                 Articles.save($scope.article)
                     .then(function (data) {
                         $scope.article = data;
-                        console.log('successfully saved post: ' + data._id);
                         $scope.saveAction = 'Update';
 
                     }
@@ -44,9 +44,8 @@ angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope,
             } else {
                 $scope.article.modDate = new Date();
                 $scope.article.put();
-                console.log('successfully updated post: ' + $scope.article._id);
             }
-        };
-    }
+        }
+    };
 
 });

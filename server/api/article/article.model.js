@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
-  content: String,
+  title: String,
+  content: String,  
   type: String,
   publDate: Date,
   modDate: Date

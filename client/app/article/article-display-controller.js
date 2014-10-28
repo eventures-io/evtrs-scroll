@@ -25,12 +25,12 @@ angular.module('evtrsScrollApp').controller('ArticleDisplayCtrl', function ($sco
              function(data){
              $scope.article = data;
          });
-     }
+     };
      loadArticle();
 
      $scope.renderContent = function() {
          return $sce.trustAsHtml($scope.article.content);
-    }
+    };
 
 });
 
