@@ -13,11 +13,15 @@ angular.module('evtrsScrollApp', [
         'ngResource',
         'ngSanitize',
         'ui.router',
-        'textAngular'
+        'textAngular',
+        'restangular'
     ])
-    .config(function ($provide, $httpProvider) {
+    .config(function ($httpProvider, RestangularProvider) {
 
         $httpProvider.interceptors.push('authInterceptor');
+
+        RestangularProvider.setBaseUrl('/api');
+        RestangularProvider.setRestangularFields({id: "_id"});
 
 //        $provide.decorator("$exceptionHandler", function ($delegate, $injector) {
 //            return function (exception, cause) {

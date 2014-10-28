@@ -18,11 +18,11 @@ angular.module('evtrsScrollApp')
             });
     });
 
-angular.module('evtrsScrollApp').controller('ArticleDisplayCtrl', function ($scope, $stateParams, Article, $sce) {
-
+angular.module('evtrsScrollApp').controller('ArticleDisplayCtrl', function ($scope, $stateParams, Articles, $sce) {
 
      var loadArticle = function(){
-         Article.get({ id: $stateParams.articleId }, function(data) {
+         Articles.getById($stateParams.articleId).then(
+             function(data){
              $scope.article = data;
          });
      }
@@ -33,3 +33,4 @@ angular.module('evtrsScrollApp').controller('ArticleDisplayCtrl', function ($sco
     }
 
 });
+

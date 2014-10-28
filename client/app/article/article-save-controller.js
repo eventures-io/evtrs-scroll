@@ -1,6 +1,5 @@
 'use strict';
 
-//TODO move to admin routes config
 angular.module('evtrsScrollApp')
     .config(function ($stateProvider) {
         $stateProvider
@@ -11,7 +10,10 @@ angular.module('evtrsScrollApp')
             });
     });
 
-angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope, Article) {
+angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope, Articles) {
+
+    $scope.disabled = true;
+    $scope.submitted = false;
 
     $scope.$watch('article.content', function (newVal) {
         if (newVal !== '') {
@@ -20,30 +22,31 @@ angular.module('evtrsScrollApp').controller('ArticleSaveCtrl', function ($scope,
     });
 
     $scope.reset = function () {
-        $scope.article = new Article();
+        $scope.article = {};
+        $scope.article.content = '';
         $scope.saveAction = 'Save';
     }
     $scope.reset();
 
-    $scope.save = function () {
-        if ($scope.saveAction === 'Save') {
-            $scope.article.publDate = new Date();
-            $scope.article.type = 'blogpost';
-            $scope.article.$save()
-                .then(function (data) {
-                    console.log('successfully saved post: ' + data._id);
-                    $scope.saveAction = 'Update';
-                    $scope.article = angular.fromJson(data);
-                }
-            );
-        } else {
-            $scope.article.modDate = new Date();
-            $scope.article.$update()
-            .then(function (data) {
-                    console.log('successfully updated post: ' + data._id);
-                    $scope.article = angular.fromJson(data);
-            });
-        }
-    };
+    $scope.save = function (form) {
+        $scope.submitted = true;
+        if (form.$valid) {
+            if ($scope.saveAction === 'Save') {
+                $scope.article.publDate = new Date();
+                Articles.save($scope.article)
+                    .then(function (data) {
+                        $scope.article = data;
+                        console.log('successfully saved post: ' + data._id);
+                        $scope.saveAction = 'Update';
+
+                    }
+                );
+            } else {
+                $scope.article.modDate = new Date();
+                $scope.article.put();
+                console.log('successfully updated post: ' + $scope.article._id);
+            }
+        };
+    }
 
 });
