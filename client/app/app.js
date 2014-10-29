@@ -23,13 +23,6 @@ angular.module('evtrsScrollApp', [
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
 
-//        $provide.decorator("$exceptionHandler", function ($delegate, $injector) {
-//            return function (exception, cause) {
-//                var $rootScope = $injector.get("$rootScope");
-//                $rootScope.addError({message: "Exception", reason: exception});
-//                $delegate(exception, cause);
-//            };
-//        });
 
     })
 
@@ -58,17 +51,6 @@ angular.module('evtrsScrollApp', [
             }
         };
     })
-
-//    //generic exception handler
-//    .factory("errors", function ($rootScope) {
-//        return {
-//            catch: function (message) {
-//                return function (reason) {
-//                    $rootScope.addError({message: message, reason: reason})
-//                };
-//            }
-//        };
-//    })
 
     .run(function ($rootScope, $location, Auth) {
         // Redirect to login if route requires auth and you're not logged in
