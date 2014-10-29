@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var ArticleSchema = new Schema({
   title: String,
-  content: String,  
+  content: String,
   type: String,
   publDate: Date,
   modDate: Date

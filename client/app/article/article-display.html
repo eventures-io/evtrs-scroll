@@ -1,5 +1,9 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container padding-top">
     <h2>{{article.title}}</h2>
-    <div ng-bind-html="renderContent()"></div>
+    <hr/>
+
+    <div class="border-1px-solid">
+        <div ng-bind-html="renderContent()"></div>
+    </div>
 </div>

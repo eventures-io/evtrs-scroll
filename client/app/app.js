@@ -21,7 +21,7 @@ angular.module('evtrsScrollApp', [
         $httpProvider.interceptors.push('authInterceptor');
 
         RestangularProvider.setBaseUrl('/api');
-        RestangularProvider.setRestangularFields({id: "_id"});
+        RestangularProvider.setRestangularFields({id: '_id'});
 
 //        $provide.decorator("$exceptionHandler", function ($delegate, $injector) {
 //            return function (exception, cause) {

@@ -7,7 +7,6 @@
 //        };
 //    }]);
 
-//TODO move to admin routes config
 angular.module('evtrsScrollApp')
     .config(function ($stateProvider) {
         $stateProvider

@@ -19,4 +19,5 @@ angular.module('evtrsScrollApp')
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
+
   });

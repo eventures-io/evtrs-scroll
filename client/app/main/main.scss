@@ -1,5 +1,17 @@
+$primary-color: darkslategray;
+
+$secondary-color : orange;
+
+
 body {
   color: darkslategray;
+}
+
+hr {
+  border: 0;
+  border-bottom: 2px dashed $primary-color;
+  background: $secondary-color;
+
 }
 
 div.padding-top {
@@ -45,3 +57,8 @@ section.services-section {
   background: #333329;
 }
 
+div.border-1px-solid {
+  padding: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
