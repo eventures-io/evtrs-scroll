@@ -20,7 +20,7 @@ angular.module('evtrsScrollApp')
             });
     });
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Articles, $stateParams, $sce) {
+angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $stateParams, $sce) {
 
     $scope.saveAction = 'save';
     $scope.disabled = true;
@@ -29,7 +29,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 
 
     var loadArticle = function(){
-        Articles.getById($stateParams.articleId).then(
+        ArticleResource.getById($stateParams.articleId).then(
             function(data){
                 $scope.article = data;
             });
@@ -43,11 +43,10 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         if (form.$valid) {
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
-                Articles.save($scope.article)
+                ArticleResource.save($scope.article)
                     .then(function (data) {
                         $scope.article = data;
                         $scope.saveAction = 'Update';
-
                     }
                 );
             } else {

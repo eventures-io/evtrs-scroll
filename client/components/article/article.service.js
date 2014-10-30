@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').service('Articles', function (Restangular) {
+angular.module('evtrsScrollApp').service('ArticleResource', function (Restangular) {
 
     var articles = Restangular.all('articles');
 
