@@ -1,35 +1,45 @@
 'use strict'
-describe('ArticleCtrl : save', function () {
+describe('Controller : ArticleCtrl', function () {
+
+    var articleResourceStub, scope;
 
     beforeEach(module('evtrsScrollApp'));
 
-    var articleResource, articleController, scope, $rootScope;
 
-    beforeEach(inject(function ($controller, _$rootScope_, _ArticleResource_, $q) {
-        $rootScope =_$rootScope_;
-        articleResource = _ArticleResource_;
-        scope = $rootScope.$new();
-        articleController = $controller('ArticleCtrl', {$scope: scope, ArticleResource : articleResource});
-        spyOn(articleResource, "save").andCallFake(function() {
-            var deferred = $q.defer();
-            deferred.resolve({_id: 2});
-            return deferred.promise;
+    beforeEach(function () {
+
+        articleResourceStub = sinon.stub({'getById': function () {
+        }, 'save': function () {
+        }});
+        articleResourceStub.getById.returns({then: function () {
+        }});
+
+        module(function ($provide) {
+            $provide.value('ArticleResource', articleResourceStub);
         });
+    });
 
+    beforeEach(inject(function ($controller, $rootScope, $q) {
+        scope = $rootScope.$new();
+        $controller('ArticleCtrl', {$scope: scope, $stateParams: {articleId: '1'}});
     }));
 
-    it('should be defined', function () {
-        expect(articleController).toBeDefined();
+
+    describe("load article", function () {
+        it('should call getById on ArticleResource', function () {
+            expect(articleResourceStub.getById.calledWith('1')).toBe(true);
+        })
     });
 
-    it('should call the save method on articleResource', function () {
-        scope.article = {};
-        scope.save({$valid: true});
-        $rootScope.$apply();
-        expect(articleResource.save).toHaveBeenCalled();
-        expect(scope.article._id).toBe(2);
-
+    describe("save article", function () {
+        it('should call save on ArticleResource', function () {
+            articleResourceStub.save.returns({then: function () {
+            }});
+            scope.article = {};
+            scope.save({$valid: true});
+            expect(articleResourceStub.save.calledWith(scope.article)).toBe(true);
+        })
     });
+
 
 });
-
