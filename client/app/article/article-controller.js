@@ -25,8 +25,6 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     $scope.saveAction = 'save';
     $scope.disabled = true;
     $scope.submitted = false;
-    $scope.saveAction = 'Save';
-
 
     var loadArticle = function(){
         ArticleResource.getById($stateParams.articleId).then(

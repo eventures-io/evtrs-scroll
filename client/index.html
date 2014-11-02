@@ -1,9 +1,13 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
@@ -12,77 +16,142 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
-      <!-- bower:css -->
-      <!-- endbower -->
+    <!-- bower:css -->
+    <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
-      <!-- injector:css -->
-      <!-- endinjector -->
+    <!-- injector:css -->
+    <!-- endinjector -->
 
     <!-- endbuild -->
-  </head>
-  <body id="page-top" ng-app="evtrsScrollApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+</head>
+<body id="page-top" ng-app="evtrsScrollApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <div ui-view=""></div>
+<div ui-view=""></div>
 
-    <!-- INCLUDE ONLY IN DIST -->
-    <!--&lt;!&ndash; Google Analytics: change UA-XXXXX-X to be your site's ID &ndash;&gt;-->
-    <!--<script>-->
-      <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
-      <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
-      <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
-      <!--})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+<script type="text/ng-template" id="main.html">
+    <div ng-include="'components/navbar/navbar.html'"></div>
 
-      <!--ga('create', 'UA-XXXXX-X');-->
-      <!--ga('send', 'pageview');-->
-    <!--</script>-->
+    <section ui-view="intro-view" id="intro" class="intro-section">
 
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-    <!-- build:js({client,node_modules}) app/vendor.js -->
-    <!--<script src="bower_components/tinymce/tinymce.min.js"></script>-->
-      <!-- bower:js -->
-      <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-      <script src="bower_components/jquery-easing/jquery.easing.js"></script>
-      <script src="bower_components/jquery-easing/jquery.easing.min.js"></script>
-      <script src="bower_components/textAngular/dist/textAngular.min.js"></script>
-      <script src="bower_components/restangular/dist/restangular.js"></script>
-      <script src="bower_components/jquery-scrollspy/jquery-scrollspy.js"></script>
-      <!-- endbower -->
-      <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    </section>
 
-    <!-- endbuild -->
+    <section ui-view="about-view" id="about" class="about-section">
 
-        <!-- build:js({.tmp,client}) app/app.js -->
-        <script src="app/app.js"></script>
-          <!-- injector:js -->
-          <script src="app/account/account.js"></script>
-          <script src="app/account/login/login.controller.js"></script>
-          <script src="app/account/register/register.controller.js"></script>
-          <script src="app/account/settings/settings.controller.js"></script>
-          <script src="app/admin/admin.controller.js"></script>
-          <script src="app/admin/admin.js"></script>
-          <script src="app/article/article-controller.js"></script>
-          <script src="app/main/main.js"></script>
-          <script src="components/article/article.service.js"></script>
-          <script src="components/auth/auth.service.js"></script>
-          <script src="components/auth/user.service.js"></script>
-          <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-          <script src="components/navbar/navbar.controller.js"></script>
-          <!-- endinjector -->
-        <!-- endbuild -->
+    </section>
+
+    <section ui-view="services-view" id="services" class="services-section">
+
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            FOOTER
+        </div>
+    </footer>
+</script>
+
+<script type="text/ng-template" id="intro.part.html">
+    <div class="container intro-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Intro Section</h1>
+            </div>
+            <div ui-view="intro-sub-view"></div>
+        </div>
+
+        <div class="intro-btn" ui-sref="base.home.about">
+
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="about.part.html">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>About Section</h1>
+            </div>
+
+            <div ui-view="about-sub-view"></div>
+
+            <a class="btn btn-default btn-lg" ui-sref="base.home.services.things">View things</a>
+
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="services.part.html">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Services Section</h1>
+                <div ui-view="services-sub-view">SERVICES_SUB</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- INCLUDE ONLY IN DIST -->
+<!--&lt;!&ndash; Google Analytics: change UA-XXXXX-X to be your site's ID &ndash;&gt;-->
+<!--<script>-->
+<!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+<!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+<!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+<!--})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+
+<!--ga('create', 'UA-XXXXX-X');-->
+<!--ga('send', 'pageview');-->
+<!--</script>-->
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js({client,node_modules}) app/vendor.js -->
+<!--<script src="bower_components/tinymce/tinymce.min.js"></script>-->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/jquery-easing/jquery.easing.js"></script>
+<script src="bower_components/jquery-easing/jquery.easing.min.js"></script>
+<script src="bower_components/textAngular/dist/textAngular.min.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<!-- endbower -->
+<script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+
+<!-- endbuild -->
+
+<!-- build:js({.tmp,client}) app/app.js -->
+<script src="app/app.js"></script>
+<!-- injector:js -->
+<script src="app/account/account.js"></script>
+<script src="app/account/login/login.controller.js"></script>
+<script src="app/account/register/register.controller.js"></script>
+<script src="app/account/settings/settings.controller.js"></script>
+<script src="app/admin/admin.controller.js"></script>
+<script src="app/admin/admin.js"></script>
+<script src="app/article/article-controller.js"></script>
+<script src="app/main/main.controller.js"></script>
+<script src="app/main/main.js"></script>
+<script src="app/main/scroll.service.js"></script>
+<script src="components/article/article.service.js"></script>
+<script src="components/auth/auth.service.js"></script>
+<script src="components/auth/user.service.js"></script>
+<script src="components/mongoose-error/mongoose-error.directive.js"></script>
+<script src="components/navbar/navbar.controller.js"></script>
+<!-- endinjector -->
+<!-- endbuild -->
 
 </body>
 </html>
