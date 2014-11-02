@@ -14,7 +14,6 @@
     "angular-ui-router": "~0.2.10",
     "font-awesome": "~4.1.0",
     "lodash": "~2.4.1",
-    "jquery-easing": "*",
     "textAngular": "~1.2.2",
     "restangular": "~1.4.0",
     "angular-scroll": "~0.6.2"

@@ -1,24 +1,14 @@
 'use strict';
 
-angular.module('evtrsScrollApp').service('ScrollService', ['$window', function () {
+angular.module('evtrsScrollApp').factory('ScrollService',function ($document) {
 
-    var duration = 1200;
-    var easing = 'easeInOutExpo';
-
-    this.scrollToAnchor = function (elId) {
-        $('html, body').animate({
-            scrollTop: $('#'.concat(elId)).offset().top
-        }, duration, easing );
+    var scrollToAnchor = function (id) {
+        var el = angular.element(document.getElementById(id));
+        $document.scrollToElementAnimated(el);
     };
 
-    this.setDuration = function(duration) {
-        if(_.isNumber(duration)){
-            this.duration = duration;
-        }
+    return {
+        scrollToAnchor : scrollToAnchor
     };
 
-    this.setEasing = function(easing) {
-        this.easing = easing;
-    };
-
-}]);
+});

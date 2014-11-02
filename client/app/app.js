@@ -9,13 +9,13 @@ angular.module('evtrsScrollApp', [
         'restangular',
         'duScroll'
     ])
+    .value('duScrollDuration', 1200)
     .config(function ($httpProvider, RestangularProvider) {
 
         $httpProvider.interceptors.push('authInterceptor');
 
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
-
 
     })
 
