@@ -59,7 +59,7 @@ angular.module('evtrsScrollApp')
                 data: {
                     elementId: 'services'
                 }
-            })
+            });
 //            .state('base.home.services.things', {
 //                url: 'things',
 //                views: {

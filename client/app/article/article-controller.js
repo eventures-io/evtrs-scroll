@@ -22,7 +22,7 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $stateParams, $sce) {
 
-    $scope.saveAction = 'save';
+    $scope.saveAction = 'Save';
     $scope.disabled = true;
     $scope.submitted = false;
 

@@ -6,7 +6,8 @@ angular.module('evtrsScrollApp', [
         'ngSanitize',
         'ui.router',
         'textAngular',
-        'restangular'
+        'restangular',
+        'duScroll'
     ])
     .config(function ($httpProvider, RestangularProvider) {
 
