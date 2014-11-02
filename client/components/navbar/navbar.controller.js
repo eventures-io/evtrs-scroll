@@ -8,14 +8,14 @@ angular.module('evtrsScrollApp')
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function (event, toState, toParams, fromState, fromParams) {
+            function (event, toState) {
                 if (toState.name === 'base.home.intro') {
                     $scope.navbarHidden = 'navbar-hidden';
                 }
                 else {
                     $scope.navbarHidden = '';
                 }
-            })
+            });
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
@@ -29,6 +29,5 @@ angular.module('evtrsScrollApp')
         $scope.isActive = function (route) {
             return route === $location.path();
         };
-
 
     });

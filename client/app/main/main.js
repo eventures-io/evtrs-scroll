@@ -2,11 +2,13 @@
 
 var evtrs = evtrs || {};
 
+
 evtrs.scrollToAnchor = function (anchorName) {
     $('html, body').animate({
         scrollTop: $('#'.concat(anchorName)).offset().top
     }, 1200, 'easeInOutExpo');
 };
+
 
 angular.module('evtrsScrollApp')
     .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
@@ -42,6 +44,7 @@ angular.module('evtrsScrollApp')
                                 function () {
                                     evtrs.scrollToAnchor('page-top');
                                 });
+
                         }
                     }
                 }
@@ -55,6 +58,7 @@ angular.module('evtrsScrollApp')
                                 function ( ) {
                                     evtrs.scrollToAnchor('about');
                                 });
+
                         }
                     }
                 }
@@ -67,20 +71,6 @@ angular.module('evtrsScrollApp')
                             $scope.$on('$viewContentLoaded',
                                 function ( ) {
                                     evtrs.scrollToAnchor('services');
-
-                                });
-                        }
-                    }
-                }
-            })
-            .state('base.home.contact', {
-                url: 'contact',
-                views: {
-                    'contact-sub-view@base.home': { template: '',
-                        controller: function ($scope) {
-                            $scope.$on('$viewContentLoaded',
-                                function ( ) {
-                                    evtrs.scrollToAnchor('contact');
 
                                 });
                         }
