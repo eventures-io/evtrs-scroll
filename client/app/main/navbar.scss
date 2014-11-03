@@ -15,8 +15,8 @@
     opacity:0;
   }
 
-  .navbar.a:hover {
-     color: black;
+  a.active {
+    background: orange;
   }
 
 }
