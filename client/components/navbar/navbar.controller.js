@@ -2,7 +2,7 @@
 
 angular.module('evtrsScrollApp')
     .controller('NavbarCtrl', function ($scope, $location, Auth, $rootScope) {
-        //--- show/hide navbar  ---
+        /*--- show/hide navbar  ---*/
         //direct url access
         if ($location.path() === '/') {
             $scope.navbarHidden = 'navbar-hidden';
@@ -16,9 +16,8 @@ angular.module('evtrsScrollApp')
                 else {
                     $scope.navbarHidden = '';
                 }
-            });
-
-        //--- end show/hide navbar ---
+        });
+        /*--- end show/hide navbar ---*/
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;

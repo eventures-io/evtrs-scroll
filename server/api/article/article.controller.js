@@ -20,6 +20,15 @@ exports.index = function(req, res) {
   });
 };
 
+//Get 5 most recent posts
+exports.recent = function(req, res){
+    var query = Article.find().sort({publDate:-1}).limit(5);
+    query.exec(function(err, articles){
+        if(err) { return handleError(res, err); }
+        return res.json(200, articles);
+    });
+}
+
 // Get a single article
 exports.show = function(req, res) {
   Article.findById(req.params.id, function (err, article) {

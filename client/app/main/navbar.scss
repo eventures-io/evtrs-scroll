@@ -4,11 +4,12 @@
     transition: opacity 0.1s 0.5s;
     border: none;
     font-size: large;
-    opacity: 1;
+    border-bottom: 1px solid gray;
   }
 
   .top-nav-collapse {
     opacity: 0.9;
+
   }
 
   .navbar-hidden {
@@ -16,7 +17,7 @@
   }
 
   a.active {
-    background: orange;
+    color: orange !important;
   }
 
 }

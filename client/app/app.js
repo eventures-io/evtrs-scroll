@@ -56,10 +56,10 @@ angular.module('evtrsScrollApp', [
         });
 
         $rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
-            //Automaticly update location
-                $location.path($element.prop('pathname'));
-                $rootScope.$apply();
+            //Automaticly update location on scroll
+            $location.path($element.prop('pathname'));
+            $rootScope.$apply();
 
-        })
+        });
 
     });

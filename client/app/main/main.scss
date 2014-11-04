@@ -7,13 +7,6 @@ body {
   color: darkslategray;
 }
 
-hr {
-  border: 0;
-  border-bottom: 2px dashed $primary-color;
-  background: $secondary-color;
-
-}
-
 div.padding-top {
   padding-top: 80px;
 }
@@ -57,8 +50,21 @@ section.services-section {
   background: #333329;
 }
 
-div.border-1px-solid {
-  padding: 20px;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
+@media (min-width: $screen-sm-min) {
+
+
+div.border-r {
+  border-right: 1px solid darkgray;
+}
+
+div.border-l {
+  border-left: 1px solid darkgray;
+}
+
+div.border-rl {
+  border-style: solid;
+  border-width: 0px 1px 0px 1px;
+  border-color: gray;
+}
+
 }

@@ -12,6 +12,7 @@ angular.module('evtrsScrollApp')
             .state('base', {
                 abstract: true,
                 url: '/',
+                controller: 'MainCtrl',
                 templateUrl: 'main.html',
 
             })
@@ -28,8 +29,8 @@ angular.module('evtrsScrollApp')
                 url: '',
                 views: {
                     'intro-sub-view@base.home': {
-                        template: '',
-                        controller: 'MainController'
+                        template: ''//,
+                       // controller: 'MainCtrl'
                     }
                 },
                 data: {
@@ -40,8 +41,9 @@ angular.module('evtrsScrollApp')
                 url: 'about',
                 views: {
                     'about-sub-view@base.home': {
-                        template: '',
-                        controller: 'MainController'
+                        template: ''
+                        //,
+                        //controller: 'MainCtrl'
                     }
                 },
                 data: {
@@ -52,8 +54,8 @@ angular.module('evtrsScrollApp')
                 url: 'services',
                 views: {
                     'services-sub-view@base.home': {
-                        template: '',
-                        controller: 'MainController'
+                        template: ''//,
+                        //controller: 'ServicesCtrl'
                         }
                 },
                 data: {
