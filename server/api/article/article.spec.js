@@ -29,6 +29,8 @@ describe('GET /api/articles/recent', function () {
             .end(function (err, res) {
                 if (err) return done(err);
                 res.body.should.be.instanceof(Array);
+              //  _size(res.body).should.equal(5);
+
                 done();
             });
     });

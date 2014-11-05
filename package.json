@@ -1,5 +1,5 @@
 {
-  "name": "eventures-scroll2",
+  "name": "eventures-scroll",
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {

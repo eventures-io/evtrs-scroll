@@ -17,7 +17,7 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
     };
 
     var getRecent = function (){
-         return articles.customGETLIST('/query/recent');
+         return articles.customGETLIST('query/recent');
     };
 
     return {

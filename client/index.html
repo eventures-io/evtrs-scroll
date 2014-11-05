@@ -131,16 +131,16 @@
 <script type="text/ng-template" id="services.part.html">
     <div ui-view="services-sub-view">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-4 border-r">left col</div>
-                <div class="col-sm-4 border-rl">center col</div>
-                <div class="col-sm-4 border-l">
+            <div class="row contact-wrapper">
+                <div class="col-sm-4 footer-col-l">left col</div>
+                <div class="col-sm-4 footer-col-c">center col</div>
+                <div class="col-sm-4 footer-col-r">
                     <div>
-                        <span><h3>Latest posts<h3></span>
+                        <span><h5>Latest posts<h5></span>
 
                         <div>
-                            <ul ng-repeat="article in recentPosts">
-                                <li><a ng-href="/article/{{article._id}}">{{article.title}}</a></li>
+                            <ul class="list-unstyled" ng-repeat="article in recentPosts">
+                                <li><a class="post-link" ng-href="/article/{{article._id}}">{{article.title}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -180,7 +180,8 @@
 <script src="bower_components/restangular/dist/restangular.js"></script>
 <!-- endbower -->
 <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-<script src="bower_components/angular-scroll/angular-scroll.js"></script>
+<!-- waiting for pull request acceptation-->
+<script src="app/angular-scroll-mod.js"></script>
 
 <!-- endbuild -->
 
@@ -193,6 +194,7 @@
 <script src="app/account/settings/settings.controller.js"></script>
 <script src="app/admin/admin.controller.js"></script>
 <script src="app/admin/admin.js"></script>
+<script src="app/angular-scroll-mod.js"></script>
 <script src="app/article/article-controller.js"></script>
 <script src="app/main/main.controller.js"></script>
 <script src="app/main/main.js"></script>

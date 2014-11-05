@@ -4,6 +4,18 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
 
+@mixin breakpoint($point) {
+  @if $point == lg {
+    @media (min-width: $screen-lg-min) { @content; }
+  }
+  @else if $point == md {
+    @media (min-width: $screen-md-min) { @content; }
+  }
+  @else if $point == sm {
+    @media (min-width: $screen-sm-min)  { @content; }
+  }
+}
+
 /**
  * App-wide Styles
  */

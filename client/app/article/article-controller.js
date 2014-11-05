@@ -1,24 +1,17 @@
 'use strict';
 
-angular.module('evtrsScrollApp')
-    .config(function ($stateProvider) {
-        $stateProvider
-            .state('article-display', {
-                url: '/article/:articleId',
-                templateUrl: 'app/article/article-display.html',
-                controller: 'ArticleCtrl'
-            });
-    });
-
-angular.module('evtrsScrollApp')
-    .config(function ($stateProvider) {
-        $stateProvider
-            .state('article-create', {
-                url: '/article-create',
-                templateUrl: 'app/article/article-create.html',
-                controller: 'ArticleCtrl'
-            });
-    });
+angular.module('evtrsScrollApp').config(function ($stateProvider) {
+    $stateProvider
+        .state('article-display', {
+            url: '/article/:articleId',
+            templateUrl: 'app/article/article-display.html',
+            controller: 'ArticleCtrl'
+        }).state('article-create', {
+            url: '/article-create',
+            templateUrl: 'app/article/article-create.html',
+            controller: 'ArticleCtrl'
+        });
+});
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $stateParams, $sce) {
 
@@ -26,13 +19,13 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     $scope.disabled = true;
     $scope.submitted = false;
 
-    var loadArticle = function(){
+    var loadArticle = function () {
         ArticleResource.getById($stateParams.articleId).then(
-            function(data){
+            function (data) {
                 $scope.article = data;
             });
     };
-    if($stateParams.articleId) {
+    if ($stateParams.articleId) {
         loadArticle();
     }
 
@@ -54,7 +47,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         }
     };
 
-    $scope.renderContent = function() {
+    $scope.renderContent = function () {
         return $sce.trustAsHtml($scope.article.content);
     };
 

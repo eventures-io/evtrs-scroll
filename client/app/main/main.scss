@@ -1,10 +1,9 @@
 $primary-color: darkslategray;
 
-$secondary-color : orange;
-
+$secondary-color: orange;
 
 body {
-  color: darkslategray;
+  color: $primary-color;
 }
 
 div.padding-top {
@@ -37,34 +36,53 @@ div.intro-btn {
 
 section.about-section {
   height: 100vh;
-  background:  #FFFFEB url(../../assets/images/about-bg.png);
+  background: #FFFFEB url(../../assets/images/about-bg.png);
   padding-top: 150px;
   text-align: center;
 }
+
+$footer-txt-color: #5C5C54;
+$footer-bg-color: #333329;
 
 section.services-section {
   height: 100vh;
-  color: #FFFFEB;
+  color: $footer-txt-color;
   padding-top: 150px;
   text-align: center;
-  background: #333329;
+  background: $footer-bg-color;
 }
 
-@media (min-width: $screen-sm-min) {
-
-
-div.border-r {
-  border-right: 1px solid darkgray;
+a.post-link {
+  color: $footer-txt-color;
+  font-size: 70%;
 }
 
-div.border-l {
-  border-left: 1px solid darkgray;
+.footer-height {
+  height: 200px;
 }
 
-div.border-rl {
+div.footer-col-r {
+  @extend .footer-height;
+  @include breakpoint(sm){
+    border-left: 1px solid #5C5C54;
+  }
+}
+
+div.footer-col-l {
+  @extend .footer-height;
+  @include breakpoint(sm){
+  border-right: 1px solid #5C5C54;
+  }
+}
+
+div.footer-col-c {
+  @extend .footer-height;
+  @include breakpoint(sm){
   border-style: solid;
+  border-color: #47473E;
   border-width: 0px 1px 0px 1px;
-  border-color: gray;
+  }
 }
 
-}
+
+
