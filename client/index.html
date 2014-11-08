@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="app/app.css">
     <!-- injector:css -->
     <!-- endinjector -->
-
+    <link href='http://fonts.googleapis.com/css?family=Eagle+Lake&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
     <!-- endbuild -->
 </head>
 <body id="page-top" ng-app="evtrsScrollApp">
@@ -36,7 +37,7 @@
 
 
 <script type="text/ng-template" id="navbar.html">
-    <nav class="navbar navbar-default navbar-fixed-top" ng-class="navbarHidden" role="navigation"
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation"
          ng-controller="NavbarCtrl">
         <div class="container">
             <div class="navbar-header">
@@ -79,21 +80,44 @@
 <script type="text/ng-template" id="main.html">
     <div ng-include="'navbar.html'"></div>
 
-    <section ui-view="intro-view" id="intro" class="intro-section">
+    <div class="scroll-container">
+        <section ui-view="intro-view" id="intro" class="intro-section">
 
-    </section>
+        </section>
 
-    <section ui-view="about-view" id="about" class="about-section">
+        <section ui-view="about-view" id="about" class="about-section">
 
-    </section>
+        </section>
 
-    <section ui-view="services-view" id="services" class="services-section">
+        <section ui-view="services-view" id="services" class="services-section">
 
-    </section>
+        </section>
+    </div>
 
     <footer class="footer">
         <div class="container">
-            FOOTER
+            <div class="col-sm-4 col-l">
+                <h5>Offices</h5>
+                <ul class="list-unstyled">
+                    <li>Eventures Ltd.</li>
+                    <li>86-90 Paul Street</li>
+                    <li>London</li>
+                    <li>EC2A 4NE</li>
+                </ul>
+            </div>
+            <div class="col-sm-4 col-c">
+                <h5>center col</h5></div>
+            <div class="col-sm-4 col-r">
+                <div>
+                    <h5>Latest posts</h5>
+
+                    <div>
+                        <ul class="list-unstyled" ng-repeat="article in recentPosts">
+                            <li><a class="post-link" ng-href="/article/{{article._id}}">{{article.title}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </script>
@@ -102,9 +126,15 @@
     <div class="container intro-container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Intro Section</h1>
+            <div ui-view="intro-sub-view">
+                <div class="diamond">
+                    <div class="intro-text">
+                        <span>This is</span>
+                        <span>-------</span>
+                        <span>Eventures</span>
+                    </div>
+                </div>
             </div>
-            <div ui-view="intro-sub-view"></div>
         </div>
 
         <div class="intro-btn" ui-sref="base.home.about">
@@ -114,34 +144,46 @@
 </script>
 
 <script type="text/ng-template" id="about.part.html">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <h1>About Section</h1>
+            <div class="col-md-6 about-content">
+                <div ui-view="about-sub-view">
+                    <article>
+                        <p>We are a digital product design and development company<p>
+
+                        <p>We create web applications with great attention to UX design</p>
+
+                        <p>Our products are fully responsive HTML5 applications designed from the ground up to be
+                            viewed on both mobile and desktop</p>
+                    </article>
+                    <span class="about-icon"/>
+                </div>
             </div>
-
-            <div ui-view="about-sub-view"></div>
-
-            <a class="btn btn-default btn-lg" ui-sref="base.home.services.things">View things</a>
-
+            <div class="col-md-6 about-spacer">
+            </div>
         </div>
     </div>
 </script>
 
 <script type="text/ng-template" id="services.part.html">
+    <div class="services-top-spacer">
+    </div>
     <div ui-view="services-sub-view">
-        <div class="container">
-            <div class="row contact-wrapper">
-                <div class="col-sm-4 footer-col-l">left col</div>
-                <div class="col-sm-4 footer-col-c">center col</div>
-                <div class="col-sm-4 footer-col-r">
-                    <div>
-                        <span><h5>Latest posts<h5></span>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5 col-serv-l">
 
-                        <div>
-                            <ul class="list-unstyled" ng-repeat="article in recentPosts">
-                                <li><a class="post-link" ng-href="/article/{{article._id}}">{{article.title}}</a></li>
-                            </ul>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-6 col-serv-ul">
+
+                        </div>
+                        <div class="col-md-6 col-serv-ur">
+
+                        </div>
+                        <div class="col-md-12 col-serv-d">
+
                         </div>
                     </div>
                 </div>

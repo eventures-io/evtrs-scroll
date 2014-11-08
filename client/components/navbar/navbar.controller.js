@@ -2,6 +2,8 @@
 
 angular.module('evtrsScrollApp')
     .controller('NavbarCtrl', function ($scope, $location, Auth, $rootScope) {
+
+
         /*--- show/hide navbar  ---*/
         //direct url access
         if ($location.path() === '/') {

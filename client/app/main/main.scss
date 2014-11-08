@@ -1,28 +1,48 @@
+/*VARIABLES-----*/
 $primary-color: darkslategray;
+$footer-txt-color: #5C5C54;
+$footer-bg-color: #333329;
+$secondary-color: #8AE6B8;
 
-$secondary-color: orange;
-
+/*COMPONENTS-----*/
 body {
   color: $primary-color;
 }
 
-div.padding-top {
+// padding for menu bar
+.padding-top {
   padding-top: 80px;
 }
 
-section.intro-section {
-  padding-top: 150px;
-  height: 100vh;
-  background: orange;
-  color: #FFFFEB;
+.scroll-container {
+  position: relative;
+  //  opacity: 0.1;
+  z-index: 2;
 }
 
-div.intro-container {
+/*INTRO SECTION------*/
+.intro-section {
+  position: relative;
+  padding-top: 100px;
+  height: 600px;
+  background: url(../../assets/images/splash.jpg) no-repeat;
+  background-size: cover;
+  color: honeydew;
+}
+
+.intro-container {
   text-align: center;
   height: 100%;
+  font-family: 'Eagle Lake', cursive;
+  font-size: xx-large;
 }
 
-div.intro-btn {
+.intro-container h1 {
+  font-family: 'Eagle Lake', cursive;
+  font-size: 300%;
+}
+
+.intro-btn {
   position: absolute;
   left: calc(50% - 100px/2);
   bottom: 50px;
@@ -34,55 +54,103 @@ div.intro-btn {
   cursor: pointer;
 }
 
-section.about-section {
+/*ABOUT SECTION------*/
+.about-container p {
+  text-align: left;
+  font-size: x-large;
+}
+
+.about-content {
+  padding: 150px;
+  height: 100vh;
+  background: cornsilk;
+  font-size: larger;
+}
+
+.about-spacer {
   height: 100vh;
   background: #FFFFEB url(../../assets/images/about-bg.png);
-  padding-top: 150px;
-  text-align: center;
 }
 
-$footer-txt-color: #5C5C54;
-$footer-bg-color: #333329;
-
-section.services-section {
-  height: 100vh;
-  color: $footer-txt-color;
-  padding-top: 150px;
-  text-align: center;
-  background: $footer-bg-color;
-}
-
-a.post-link {
-  color: $footer-txt-color;
-  font-size: 70%;
-}
-
-.footer-height {
+span.about-icon {
+  display: block;
   height: 200px;
+  width: 200px;
+  background: url(../../assets/images/box-icon.png) no-repeat;
 }
 
-div.footer-col-r {
-  @extend .footer-height;
-  @include breakpoint(sm){
+/*SERVICES SECTION------*/
+.services-section {
+  background: darkgray;
+  margin-bottom: 200px;
+}
+
+.services-top-spacer {
+  height: 30vh;
+  background: beige;
+}
+.col-serv-l {
+  height: 70vh;
+  background: #7ACCA3;
+}
+
+.col-serv-ul, .col-serv-ur, .col-serv-d {
+  height: 35vh;
+}
+
+.col-serv-ul {
+  background: #4C8066;
+}
+
+.col-serv-ur {
+  background: #3D6652;
+}
+
+.col-serv-d {
+  background: #8AE6B8;
+}
+
+/*FOOTER--------------*/
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 250px;
+  background: $footer-bg-color;
+  padding-top: 50px;
+  z-index: 1;
+  color: $footer-txt-color;
+}
+
+footer .col {
+  height: 200px;
+  padding: 20px;
+}
+
+footer .col-r {
+  @extend .col;
+  @include breakpoint(sm) {
     border-left: 1px solid #5C5C54;
   }
 }
 
-div.footer-col-l {
-  @extend .footer-height;
-  @include breakpoint(sm){
-  border-right: 1px solid #5C5C54;
+footer .col-l {
+  @extend .col;
+  @include breakpoint(sm) {
+    border-right: 1px solid #5C5C54;
   }
 }
 
-div.footer-col-c {
-  @extend .footer-height;
-  @include breakpoint(sm){
-  border-style: solid;
-  border-color: #47473E;
-  border-width: 0px 1px 0px 1px;
+footer .col-c {
+  @extend .col;
+  @include breakpoint(sm) {
+    border-style: solid;
+    border-color: #47473E;
+    border-width: 0px 1px 0px 1px;
   }
 }
 
-
-
+footer a.post-link {
+  color: $footer-txt-color;
+}
