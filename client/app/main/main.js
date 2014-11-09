@@ -61,22 +61,18 @@ angular.module('evtrsScrollApp')
                 data: {
                     elementId: 'services'
                 }
-            });
-//            .state('base.home.services.things', {
-//                url: 'things',
-//                views: {
-//                    'services-sub-view@base.home': { templateUrl: 'app/main/partials/services.things.html',
-//                        controller: function ($scope) {
-//                            $scope.things = ['A', 'Set', 'Of', 'Things'];
-//                            $scope.$on('$viewContentLoaded',
-//                                function () {
-//                                    //evtrs.scrollToAnchor('services');
-//
-//                                });
-//                        }
-//                    }
-//                }
-//            })
+            })
+            .state('base.home.services.article', {
+                url: '/article/:articleId',
+                views: {
+                    'services-sub-view@base.home': { templateUrl: 'app/article/article-display.html',
+                       controller: 'ArticleCtrl'
+                    }
+                },data: {
+                    elementId: 'footer'
+                }
+            })
+
 //            .state('base.home.services.items', {
 //                url: 'items',
 //                views: {

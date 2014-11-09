@@ -26,4 +26,5 @@ angular.module('evtrsScrollApp')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
+
   });

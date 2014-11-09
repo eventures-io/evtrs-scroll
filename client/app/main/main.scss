@@ -57,6 +57,7 @@ body {
 }
 
 /*ABOUT SECTION------*/
+
 .about-container p {
   text-align: left;
   font-size: x-large;
@@ -80,14 +81,18 @@ body {
   background: #545454 url(../../assets/images/about-bg.png);
 }
 
-span.about-icon {
+.about-icon {
+  padding-left: 25%;
+  padding-top: 25px;
   display: block;
   height: 200px;
-  width: 200px;
+  width: 300px;
   background: url(../../assets/images/box-icon.png) no-repeat;
+  background-origin: content-box;
 }
 
 /*SERVICES SECTION------*/
+
 .services-section {
   background: #A9A9A9;
   margin-bottom: 200px;
@@ -119,6 +124,7 @@ span.about-icon {
   background: #8AE6B8;
 }
 
+
 /*FOOTER--------------*/
 .footer {
   position: fixed;
@@ -127,9 +133,10 @@ span.about-icon {
   width: 100%;
   min-height: 250px;
   background: $footer-bg-color;
-  padding-top: 50px;
-  z-index: 1;
   color: $footer-txt-color;
+  padding-top: 40px;
+  z-index: 1;
+
 }
 
 footer .col {
@@ -162,4 +169,8 @@ footer .col-c {
 
 footer a {
   color: $footer-txt-color;
+}
+
+footer a:hover {
+  color: $secondary-color;
 }

@@ -6,3 +6,8 @@
   font-size: 100%;
   margin:20px 0;
 }
+
+.article-container {
+  @extend .container;
+  height: 70vh;
+}

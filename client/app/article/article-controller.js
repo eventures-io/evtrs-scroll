@@ -7,7 +7,7 @@ angular.module('evtrsScrollApp').config(function ($stateProvider) {
             templateUrl: 'app/article/article-display.html',
             controller: 'ArticleCtrl'
         }).state('article-create', {
-            url: '/article-create',
+            url: '/admin/article-create',
             templateUrl: 'app/article/article-create.html',
             controller: 'ArticleCtrl'
         });
@@ -15,6 +15,7 @@ angular.module('evtrsScrollApp').config(function ($stateProvider) {
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $stateParams, $sce) {
 
+    $scope.menuStyle ='{visiblity: visible}';
     $scope.saveAction = 'Save';
     $scope.disabled = true;
     $scope.submitted = false;
