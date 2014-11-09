@@ -1,5 +1,5 @@
 /*VARIABLES-----*/
-$primary-color: darkslategray;
+$primary-color: #2F4F4F;
 $footer-txt-color: #5C5C54;
 $footer-bg-color: #333329;
 $secondary-color: #8AE6B8;
@@ -7,6 +7,7 @@ $secondary-color: #8AE6B8;
 /*COMPONENTS-----*/
 body {
   color: $primary-color;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 // padding for menu bar
@@ -16,7 +17,6 @@ body {
 
 .scroll-container {
   position: relative;
-  //  opacity: 0.1;
   z-index: 2;
 }
 
@@ -27,19 +27,22 @@ body {
   height: 600px;
   background: url(../../assets/images/splash.jpg) no-repeat;
   background-size: cover;
-  color: honeydew;
+  color: #f5f5f5;
 }
 
 .intro-container {
   text-align: center;
   height: 100%;
-  font-family: 'Eagle Lake', cursive;
   font-size: xx-large;
 }
 
 .intro-container h1 {
-  font-family: 'Eagle Lake', cursive;
   font-size: 300%;
+}
+
+.intro-text {
+  color: $secondary-color;
+  text-align: center;
 }
 
 .intro-btn {
@@ -50,7 +53,6 @@ body {
   background-size: 100px;
   height: 50px;
   width: 100px;
-  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -60,16 +62,22 @@ body {
   font-size: x-large;
 }
 
+.about-spacer-top {
+  background: url(../../assets/images/bg-dotted.png);
+  height: 20vh;
+  width: 100%;
+}
+
 .about-content {
-  padding: 150px;
-  height: 100vh;
-  background: cornsilk;
+  padding: 10%;
+  height: 80vh;
+  background: #808080;
   font-size: larger;
 }
 
-.about-spacer {
-  height: 100vh;
-  background: #FFFFEB url(../../assets/images/about-bg.png);
+.about-spacer-right {
+  height: 80vh;
+  background: #545454 url(../../assets/images/about-bg.png);
 }
 
 span.about-icon {
@@ -81,14 +89,15 @@ span.about-icon {
 
 /*SERVICES SECTION------*/
 .services-section {
-  background: darkgray;
+  background: #A9A9A9;
   margin-bottom: 200px;
 }
 
 .services-top-spacer {
   height: 30vh;
-  background: beige;
+  background: $footer-bg-color;
 }
+
 .col-serv-l {
   height: 70vh;
   background: #7ACCA3;
@@ -131,14 +140,14 @@ footer .col {
 footer .col-r {
   @extend .col;
   @include breakpoint(sm) {
-    border-left: 1px solid #5C5C54;
+    border-left: 1px solid $footer-txt-color;
   }
 }
 
 footer .col-l {
   @extend .col;
   @include breakpoint(sm) {
-    border-right: 1px solid #5C5C54;
+    border-right: 1px solid $footer-txt-color;
   }
 }
 
@@ -151,6 +160,6 @@ footer .col-c {
   }
 }
 
-footer a.post-link {
+footer a {
   color: $footer-txt-color;
 }

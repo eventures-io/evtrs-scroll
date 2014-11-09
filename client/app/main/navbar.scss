@@ -1,22 +1,24 @@
 @media (min-width: 767px) {
   .navbar {
-    background: transparent;
-    border: none;
-    font-size: large;
-    padding: 25px;
-    font-weight: bold;
+    -webkit-transition: background .5s ease-in-out, visiblity .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, visiblity .5s ease-in-out;
+    transition: background .5s ease-in-out, visiblity .5s ease-in-out;
+    visibility: hidden;
   }
 
   .top-nav-collapse {
-    opacity: 0.9;
+    visibility: visible;
     padding: 0;
-    font-weight: normal;
-
+    background: #808080;
+    border-bottom: 1px dashed #A9A9A9;
   }
 
+  //TODO fix: overrriden
+  .navbar-nav > li > a , .navbar-brand {
+    color: #222222;
+  }
 
   a.active {
     color: $secondary-color !important;
   }
-
 }
