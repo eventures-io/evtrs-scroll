@@ -49,81 +49,79 @@ body {
   position: absolute;
   left: calc(50% - 100px/2);
   bottom: 50px;
-  background: url(../../assets/images/down-arrow.png) no-repeat;
-  background-size: 100px;
   height: 50px;
   width: 100px;
+  background: url(../../assets/images/down-arrow.png) no-repeat;
+  background-size: 100px;
   cursor: pointer;
 }
 
 /*ABOUT SECTION------*/
 
-.about-container p {
+.about-section p {
   text-align: left;
   font-size: x-large;
 }
 
-.about-spacer-top {
-  background: url(../../assets/images/bg-dotted.png);
+.about-section .spacer-top {
   height: 20vh;
   width: 100%;
+  background: url(../../assets/images/bg-dotted.png);
 }
 
-.about-content {
+.about-section .content {
   padding: 10%;
   height: 80vh;
   background: #808080;
   font-size: larger;
 }
 
-.about-spacer-right {
+.about-section .spacer-right {
   height: 80vh;
   background: #545454 url(../../assets/images/about-bg.png);
 }
 
-.about-icon {
-  padding-left: 25%;
-  padding-top: 25px;
+.about-section .about-icon {
   display: block;
   height: 200px;
   width: 300px;
+  padding-left: 25%;
+  padding-top: 25px;
   background: url(../../assets/images/box-icon.png) no-repeat;
   background-origin: content-box;
 }
 
 /*SERVICES SECTION------*/
-
 .services-section {
-  background: #A9A9A9;
   margin-bottom: 200px;
+  background: #A9A9A9;
 }
 
-.services-top-spacer {
+.services-section .top-spacer {
   height: 30vh;
   background: $footer-bg-color;
 }
 
-.col-serv-l {
+.services-section .col-l {
   height: 70vh;
   background: #7ACCA3;
 }
 
-.col-serv-ul, .col-serv-ur, .col-serv-d {
+.services-section .col-ul, .col-ur, .col-d {
   height: 35vh;
 }
 
-.col-serv-ul {
+.services-section .col-ul {
   background: #4C8066;
 }
 
-.col-serv-ur {
+.services-section .col-ur {
   background: #3D6652;
 }
 
-.col-serv-d {
+.services-section .col-d {
   background: #8AE6B8;
 }
-
 
 /*FOOTER--------------*/
 .footer {
@@ -132,33 +130,32 @@ body {
   left: 0;
   width: 100%;
   min-height: 250px;
+  padding-top: 40px;
   background: $footer-bg-color;
   color: $footer-txt-color;
-  padding-top: 40px;
   z-index: 1;
-
 }
 
-footer .col {
+.footer .col {
   height: 200px;
   padding: 20px;
 }
 
-footer .col-r {
+.footer .col-r {
   @extend .col;
   @include breakpoint(sm) {
     border-left: 1px solid $footer-txt-color;
   }
 }
 
-footer .col-l {
+.footer .col-l {
   @extend .col;
   @include breakpoint(sm) {
     border-right: 1px solid $footer-txt-color;
   }
 }
 
-footer .col-c {
+.footer .col-c {
   @extend .col;
   @include breakpoint(sm) {
     border-style: solid;
@@ -167,10 +164,10 @@ footer .col-c {
   }
 }
 
-footer a {
+.footer a {
   color: $footer-txt-color;
 }
 
-footer a:hover {
+.footer a:hover {
   color: $secondary-color;
 }

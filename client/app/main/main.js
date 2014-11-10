@@ -52,7 +52,7 @@ angular.module('evtrsScrollApp')
                 views: {
                     'services-sub-view@base.home': {
                         template: ''
-                        }
+                    }
                 },
                 data: {
                     elementId: 'services'
@@ -62,13 +62,23 @@ angular.module('evtrsScrollApp')
                 url: '/article/:articleId',
                 views: {
                     'services-sub-view@base.home': { templateUrl: 'app/article/article-display.html',
-                       controller: 'ArticleDisplayCtrl'
+                        controller: 'ArticleDisplayCtrl'
                     }
-                },data: {
+                }, data: {
                     elementId: 'footer'
                 }
             })
-
+            .state('base.home.contact', {
+                url: 'contact',
+                views: {
+                    'services-sub-view@base.home': {
+                        template: ''
+                    }
+                },
+                data: {
+                    elementId: 'contact'
+                }
+            });
 
     });
 

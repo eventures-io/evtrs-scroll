@@ -58,6 +58,10 @@
                     <li class="page-scroll">
                         <a href="/services" du-scrollspy offset="0">SERVICES</a>
                     </li>
+                    <li class="page-scroll">
+                        <!-- angular-scroll [Feature Req.] Activate last element when bottom reached #87 -->
+                        <a href="/contact" du-scrollspy offset="0">CONTACT</a>
+                    </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -135,12 +139,12 @@
 </script>
 
 <script type="text/ng-template" id="about.part.html">
-    <div class="about-spacer-top">
+    <div class="spacer-top">
 
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 about-content">
+            <div class="col-md-6 content">
                 <div ui-view="about-sub-view">
                     <article>
                         <p>We are a digital product design and development company
@@ -155,30 +159,31 @@
                     <span class="about-icon"/>
                 </div>
             </div>
-            <div class="col-md-6 about-spacer-right">
+            <div class="col-md-6 spacer-right">
             </div>
         </div>
     </div>
 </script>
 
 <script type="text/ng-template" id="services.part.html">
-    <div class="services-top-spacer">
+    <div class="top-spacer">
     </div>
     <div ui-view="services-sub-view" class="sub-view">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-5 col-serv-l">
+            <!--  anchor for contact scroll -->
+            <div class="row" id="contact">
+                <div class="col-md-5 col-l">
 
                 </div>
                 <div class="col-md-7">
                     <div class="row">
-                        <div class="col-md-6 col-serv-ul">
+                        <div class="col-md-6 col-ul">
 
                         </div>
-                        <div class="col-md-6 col-serv-ur">
+                        <div class="col-md-6 col-ur">
 
                         </div>
-                        <div class="col-md-12 col-serv-d">
+                        <div class="col-md-12 col-d">
 
                         </div>
                     </div>
@@ -232,6 +237,7 @@
 <script src="app/admin/admin.config.js"></script>
 <script src="app/admin/admin.controller.js"></script>
 <script src="app/article/article-controller.js"></script>
+<script src="app/article/article.filter.js"></script>
 <script src="app/main/main.controller.js"></script>
 <script src="app/main/main.js"></script>
 <script src="components/article/article.filter.js"></script>
