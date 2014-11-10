@@ -8,13 +8,12 @@ angular.module('evtrsScrollApp')
             });
         $scope.recentPosts = [];
 
-        var getRecentPosts = function(){
-            ArticleResource.getRecent().then(function(data){
-                $scope.recentPosts=data;
+        var getRecentPosts = function () {
+            ArticleResource.getRecent().then(function (data) {
+                $scope.recentPosts = data;
             });
         };
-
         getRecentPosts();
-
     });
+
 

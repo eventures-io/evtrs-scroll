@@ -29,8 +29,7 @@ angular.module('evtrsScrollApp')
                 url: '',
                 views: {
                     'intro-sub-view@base.home': {
-                        template: ''//,
-                       // controller: 'MainCtrl'
+                        template: ''
                     }
                 },
                 data: {
@@ -42,8 +41,6 @@ angular.module('evtrsScrollApp')
                 views: {
                     'about-sub-view@base.home': {
                         template: ''
-                        //,
-                        //controller: 'MainCtrl'
                     }
                 },
                 data: {
@@ -54,8 +51,7 @@ angular.module('evtrsScrollApp')
                 url: 'services',
                 views: {
                     'services-sub-view@base.home': {
-                        template: ''//,
-                        //controller: 'ServicesCtrl'
+                        template: ''
                         }
                 },
                 data: {
@@ -66,29 +62,13 @@ angular.module('evtrsScrollApp')
                 url: '/article/:articleId',
                 views: {
                     'services-sub-view@base.home': { templateUrl: 'app/article/article-display.html',
-                       controller: 'ArticleCtrl'
+                       controller: 'ArticleDisplayCtrl'
                     }
                 },data: {
                     elementId: 'footer'
                 }
             })
 
-//            .state('base.home.services.items', {
-//                url: 'items',
-//                views: {
-//                    'services-sub-view@base.home': { templateUrl: 'app/main/partials/services.items.html',
-//                        controller: function ($scope) {
-//                            $scope.items = ['A', 'List', 'Of', 'Items'];
-//                            $scope.$on('$viewContentLoaded',
-//                                function () {
-//                                    //  evtrs.scrollToAnchor('services');
-//
-//                                });
-//
-//                        }
-//                    }
-//                }
- //          });
 
     });
 

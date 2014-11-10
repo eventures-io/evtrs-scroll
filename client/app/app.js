@@ -63,13 +63,19 @@ angular.module('evtrsScrollApp', [
         });
 
         //TODO move navbar to directive to avoid global dom queries
-        $document.on('scroll', function() {
+        $document.on('scroll', function () {
             var navbar = angular.element($document[0].querySelector('.navbar'));
             var navbarFixed = angular.element($document[0].querySelector('.navbar-fixed-top'));
+            var path = $location.path();
 
-            if (navbar.offset().top > 599) {
-                  navbarFixed.addClass('top-nav-collapse');
+            if (path.indexOf('/admin') > -1) {
+                navbarFixed.addClass('top-nav-collapse');
             } else {
-                navbarFixed.removeClass('top-nav-collapse');  }
-            });
+                if (navbar.offset().top > 599) {
+                    navbarFixed.addClass('top-nav-collapse');
+                } else {
+                    navbarFixed.removeClass('top-nav-collapse');
+                }
+            }
+        });
     });
