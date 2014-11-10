@@ -123,6 +123,18 @@ body {
   background: #8AE6B8;
 }
 
+.services-view {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-view.ng-enter {
+ bottom: 600px;
+ animation: slideDown 0.5s both ease-in;
+}
+
+
+
 /*FOOTER--------------*/
 .footer {
   position: fixed;
@@ -171,3 +183,13 @@ body {
 .footer a:hover {
   color: $secondary-color;
 }
+
+
+/*ANIMATIONS-----------*/
+@keyframes slideDown {
+  to {
+    transform: translateY(70vh);
+  }
+}
+
+

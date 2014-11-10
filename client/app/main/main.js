@@ -65,7 +65,7 @@ angular.module('evtrsScrollApp')
                         controller: 'ArticleDisplayCtrl'
                     }
                 }, data: {
-                    elementId: 'footer'
+                    elementId: 'contact'
                 }
             })
             .state('base.home.contact', {

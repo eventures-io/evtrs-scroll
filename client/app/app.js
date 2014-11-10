@@ -4,6 +4,7 @@ angular.module('evtrsScrollApp', [
         'ngCookies',
         'ngResource',
         'ngSanitize',
+        'ngAnimate',
         'ui.router',
         'textAngular',
         'restangular',
