@@ -2,6 +2,6 @@
     <h2>{{article.title}}</h2>
     <hr/>
     <div class="border-1px-solid">
-        <div ng-bind-html="renderContent()"></div>
+        <div ng-bind-html="article.content | HtmlFilter"></div>
     </div>
 </div>

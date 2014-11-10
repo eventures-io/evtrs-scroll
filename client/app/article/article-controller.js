@@ -47,8 +47,4 @@ angular.module('evtrsScrollApp')
             loadArticle();
         }
 
-    $scope.renderContent = function () {
-        return $sce.trustAsHtml($scope.article.content);
-    };
-
 });

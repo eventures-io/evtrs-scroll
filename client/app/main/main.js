@@ -70,11 +70,6 @@ angular.module('evtrsScrollApp')
             })
             .state('base.home.contact', {
                 url: 'contact',
-                views: {
-                    'services-sub-view@base.home': {
-                        template: ''
-                    }
-                },
                 data: {
                     elementId: 'contact'
                 }
