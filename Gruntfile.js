@@ -39,13 +39,13 @@ module.exports = function (grunt) {
       },
       dev: {
         options: {
-          script: 'server/server.js',
+          script: 'server/app.js',
           debug: true
         }
       },
       prod: {
         options: {
-          script: 'dist/server/server.js'
+          script: 'dist/server/app.js'
         }
       }
     },
@@ -201,7 +201,7 @@ module.exports = function (grunt) {
     // Use nodemon to run server in debug mode with an initial breakpoint
     nodemon: {
       debug: {
-        script: 'server/server.js',
+        script: 'server/app.js',
         options: {
           nodeArgs: ['--debug-brk'],
           env: {
@@ -325,7 +325,7 @@ module.exports = function (grunt) {
           removeScriptTypeAttributes: true,
           removeStyleLinkTypeAttributes: true
         },
-        usemin: 'app/server.js'
+        usemin: 'app/app.js'
       },
       main: {
         cwd: '<%= yeoman.client %>',
@@ -402,7 +402,7 @@ module.exports = function (grunt) {
       },
       openshift: {
         options: {
-          remote: 'openshift',
+          remote: 'ssh://546252e9e0b8cd54eb0000c7@scroll-eventures.rhcloud.com/~/git/scroll.git/',
           branch: 'master'
         }
       }

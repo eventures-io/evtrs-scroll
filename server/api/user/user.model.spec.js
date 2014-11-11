@@ -1,7 +1,7 @@
 'use strict';
 
 var should = require('should');
-var app = require('../../server');
+var app = require('../../app');
 var User = require('./user.model');
 
 var user = new User({

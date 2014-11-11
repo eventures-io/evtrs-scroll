@@ -1,7 +1,7 @@
 'use strict';
 
 var should = require('should');
-var app = require('../../server');
+var app = require('../../app');
 var request = require('supertest');
 
 describe('GET /api/articles', function () {
@@ -29,8 +29,8 @@ describe('GET /api/articles/recent', function () {
             .end(function (err, res) {
                 if (err) return done(err);
                 res.body.should.be.instanceof(Array);
-              //  _size(res.body).should.equal(5);
-
+                //TODO load lodash
+               // _size(res.body).should.equal(5);
                 done();
             });
     });
