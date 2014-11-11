@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evtrsScrollApp')
-    .controller('NavbarCtrl', function ($scope, $location, Auth, $rootScope) {
+    .controller('NavbarCtrl', function ($scope, $location, Auth) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;

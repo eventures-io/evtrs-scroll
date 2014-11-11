@@ -39,13 +39,13 @@ module.exports = function (grunt) {
       },
       dev: {
         options: {
-          script: 'server/app.js',
+          script: 'server/server.js',
           debug: true
         }
       },
       prod: {
         options: {
-          script: 'dist/server/app.js'
+          script: 'dist/server/server.js'
         }
       }
     },
@@ -135,12 +135,16 @@ module.exports = function (grunt) {
       },
       serverTest: {
         options: {
-          jshintrc: 'server/.jshintrc-spec'
+          jshintrc: 'server/.jshintrc-spec',
+            ignores: [
+
+            ]
         },
         src: ['server/**/*.spec.js']
       },
       all: [
         '<%= yeoman.client %>/{app,components}/**/*.js',
+        '!<%= yeoman.client %>/components/scroll/angular-scroll-mod.js',
         '!<%= yeoman.client %>/{app,components}/**/*.spec.js',
         '!<%= yeoman.client %>/{app,components}/**/*.mock.js'
       ],
@@ -162,8 +166,9 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/*',
             '!<%= yeoman.dist %>/.git*',
             '!<%= yeoman.dist %>/.openshift',
-            '!<%= yeoman.dist %>/Procfile'
-          ]
+            '!<%= yeoman.dist %>/Procfile',
+            '!<%= yeoman.dist %>/.env'
+        ]
         }]
       },
       server: '.tmp'
@@ -196,7 +201,7 @@ module.exports = function (grunt) {
     // Use nodemon to run server in debug mode with an initial breakpoint
     nodemon: {
       debug: {
-        script: 'server/app.js',
+        script: 'server/server.js',
         options: {
           nodeArgs: ['--debug-brk'],
           env: {
@@ -320,7 +325,7 @@ module.exports = function (grunt) {
           removeScriptTypeAttributes: true,
           removeStyleLinkTypeAttributes: true
         },
-        usemin: 'app/app.js'
+        usemin: 'app/server.js'
       },
       main: {
         cwd: '<%= yeoman.client %>',
@@ -367,7 +372,9 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             'package.json',
-            'server/**/*'
+            'server/**/*',
+            'Procfile',
+            '.env'
           ]
         }]
       },

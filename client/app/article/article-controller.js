@@ -9,7 +9,7 @@ angular.module('evtrsScrollApp').config(function ($stateProvider) {
         });
 });
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $stateParams, $sce) {
+angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource) {
 
     $scope.saveAction = 'Save';
     $scope.disabled = true;
@@ -35,7 +35,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 });
 
 angular.module('evtrsScrollApp')
-    .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource, $sce) {
+    .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource) {
 
         var loadArticle = function () {
             ArticleResource.getById($stateParams.articleId).then(

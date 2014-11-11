@@ -56,12 +56,11 @@ angular.module('evtrsScrollApp', [
             });
         });
 
-        $rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
-            //Automaticly update location on scroll
+//$rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
+//             //Automaticly update location on scroll
 //            $location.path($element.prop('pathname'));
 //            $rootScope.$apply();
-
-        });
+//      });
 
         //TODO move navbar to directive to avoid global dom queries
         $document.on('scroll', function () {
