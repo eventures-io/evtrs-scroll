@@ -18,6 +18,7 @@ module.exports = {
     uri:    process.env.MONGOLAB_URI ||
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
+            process.env.OPENSHIFT_MONGOLAB_URI ||
             'mongodb://localhost/evtrs-scroll'
   },
     seedDB: true
