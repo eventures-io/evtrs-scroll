@@ -9,18 +9,18 @@ angular.module('evtrsScrollApp')
                 controller: 'LoginCtrl'
             })
             .state('register', {
-                url: 'admin/register',
+                url: '/admin/register',
                 templateUrl: 'app/account/signup/register.html',
                 controller: 'RegistrationCtrl',
                 authenticate: true
             })
             .state('settings', {
-                url: 'admin/settings',
+                url: '/admin/settings',
                 templateUrl: 'app/account/settings/settings.html',
                 controller: 'SettingsCtrl',
                 authenticate: true
             }).state('admin', {
-                url: 'admin/admin',
+                url: '/admin/admin',
                 templateUrl: 'app/admin/admin.html',
                 controller: 'AdminCtrl'
             });

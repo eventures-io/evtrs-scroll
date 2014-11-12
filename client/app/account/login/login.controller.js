@@ -14,7 +14,7 @@ angular.module('evtrsScrollApp')
           password: $scope.user.password
         })
         .then( function() {
-          // Logged in, redirect to home
+          // Logged in, redirect to article create
           $location.path('/admin/article-create');
         })
         .catch( function(err) {
