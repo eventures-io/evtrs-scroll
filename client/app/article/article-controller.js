@@ -11,9 +11,13 @@ angular.module('evtrsScrollApp').config(function ($stateProvider) {
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource) {
 
-    $scope.saveAction = 'Save';
-    $scope.disabled = true;
-    $scope.submitted = false;
+    $scope.initialize = function () {
+        $scope.article = {};
+        $scope.saveAction = 'Save';
+        $scope.submitted = false;
+    };
+
+    $scope.initialize();
 
     $scope.save = function (form) {
         $scope.submitted = true;
@@ -32,6 +36,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
             }
         }
     };
+
 });
 
 angular.module('evtrsScrollApp')

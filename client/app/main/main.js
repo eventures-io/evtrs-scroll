@@ -13,16 +13,16 @@ angular.module('evtrsScrollApp')
                 abstract: true,
                 url: '/',
                 controller: 'MainCtrl',
-                templateUrl: 'main.html',
+                templateUrl: 'app/main/main.html',
 
             })
             .state('base.home', {
                 abstract: true,
                 url: '',
                 views: {
-                    'intro-view@base': { templateUrl: 'intro.part.html' },
-                    'about-view@base': { templateUrl: 'about.part.html' },
-                    'services-view@base': { templateUrl: 'services.part.html'}
+                    'intro-view@base': { templateUrl: 'app/main/intro.html' },
+                    'about-view@base': { templateUrl: 'app/about/about.html' },
+                    'services-view@base': { templateUrl: 'app/services/services.html'}
                 }
             })
             .state('base.home.intro', {

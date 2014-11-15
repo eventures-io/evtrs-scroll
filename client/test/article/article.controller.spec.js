@@ -20,7 +20,7 @@ describe('Controller : ArticleCtrl', function () {
         $controller('ArticleCtrl', {$scope: scope});
     }));
 
-    describe("save article", function () {
+    describe('save article', function () {
         it('should call save on ArticleResource', function () {
             articleResourceStub.save.returns({then: function () {
                 //TODO use sinon-as-promised to return a promise
@@ -31,6 +31,15 @@ describe('Controller : ArticleCtrl', function () {
         })
     });
 
+    describe('new article', function () {
+        it('should initialize a new article nad reset saveAction, submitted on the scope', function () {
+            scope.article = {title: 'testTitle'};
+            scope.initialize();
+            expect(scope.saveAction).toEqual('Save');
+            expect(scope.submitted).toBe(false);
+
+        })
+    });
 
 });
 
@@ -65,7 +74,7 @@ describe('Controller : ArticleDisplayCtrl', function () {
         $controller('ArticleDisplayCtrl', {$scope: scope, $stateParams: {articleId: '1'}});
     }));
 
-    describe("load article", function () {
+    describe('load article', function () {
         it('should call getById on ArticleResource', function () {
             expect(articleResourceStub.getById.calledWith('1')).toBe(true);
         })

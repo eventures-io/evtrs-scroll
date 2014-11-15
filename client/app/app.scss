@@ -27,11 +27,21 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+/*VARIABLES-----*/
+$primary-color: #2F4F4F;
+$secondary-color: #8AE6B8;
+$footer-txt-color: #5C5C54;
+$footer-bg-color: #333329;
+
 // Component styles are injected through grunt
 // injector
+@import 'about/about.scss';
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'article/article.scss';
+@import 'main/footer.scss';
+@import 'main/intro.scss';
 @import 'main/main.scss';
 @import 'main/navbar.scss';
+@import 'services/services.scss';
 // endinjector

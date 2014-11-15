@@ -1,0 +1,43 @@
+/*SERVICES SECTION------*/
+.services-section {
+  margin-bottom: 30vh;
+  background: #A9A9A9;
+}
+
+.services-section .top-spacer {
+  height: 30vh;
+  background: $footer-bg-color;
+}
+
+.services-section .col-l {
+  height: 70vh;
+  background: #7ACCA3;
+}
+
+.services-section .col-ul, .col-ur, .col-d {
+  height: 35vh;
+}
+
+.services-section .col-ul {
+  background: #4C8066;
+}
+
+.services-section .col-ur {
+  background: #3D6652;
+}
+
+.services-section .col-d {
+  background: #8AE6B8;
+}
+
+.services-view {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-view.ng-enter {
+  bottom: 600px;
+  animation: slideDown 0.5s both ease-in;
+}
+
+

@@ -1,19 +1,18 @@
-<div ng-include="navbar.html"></div>
+<div ng-include="'components/navbar/navbar.html'"></div>
 
-<section ui-view="intro-view"  id="intro" class="intro-section">
+<div class="scroll-container">
+    <section ui-view="intro-view" id="intro" class="intro-section">
 
-</section>
+    </section>
 
-<section ui-view="about-view"  id="about" class="about-section">
+    <section ui-view="about-view" id="about" class="about-section">
 
-</section>
+    </section>
 
-<section ui-view="services-view"  id="services" class="services-section">
+    <section ui-view="services-view" id="services" class="services-section">
 
-</section>
+    </section>
 
-<footer class="footer">
-  <div class="container">
-     FOOTER
-  </div>
-</footer>
+    <div ng-include="'components/footer/footer.html'"></div>
+</div>
+
