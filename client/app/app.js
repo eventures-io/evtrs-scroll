@@ -46,7 +46,7 @@ angular.module('evtrsScrollApp', [
         };
     })
 
-    .run(function ($rootScope, $location, Auth, $document) {
+    .run(function ($rootScope, $location, Auth, $document, $window) {
         // Redirect to login if route requires auth and you're not logged in
         $rootScope.$on('$stateChangeStart', function (event, next) {
             Auth.isLoggedInAsync(function (loggedIn) {
@@ -68,10 +68,12 @@ angular.module('evtrsScrollApp', [
             var navbarFixed = angular.element($document[0].querySelector('.navbar-fixed-top'));
             var path = $location.path();
 
+            var vh = Math.max($document[0].documentElement.clientHeight, $window.innerHeight || 0)
+
             if (path.indexOf('/admin') > -1) {
                 navbarFixed.addClass('top-nav-collapse');
             } else {
-                if (navbar.offset().top > 599) {
+                if (navbar.offset().top > (vh * 80 /100)) {
                     navbarFixed.addClass('top-nav-collapse');
                 } else {
                     navbarFixed.removeClass('top-nav-collapse');
