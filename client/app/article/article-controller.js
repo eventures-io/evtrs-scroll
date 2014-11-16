@@ -42,6 +42,8 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 angular.module('evtrsScrollApp')
     .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource) {
 
+        $scope.animate = 'services-view';
+
         var loadArticle = function () {
             ArticleResource.getById($stateParams.articleId).then(
                 function (data) {

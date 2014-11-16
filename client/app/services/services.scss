@@ -1,11 +1,14 @@
 /*SERVICES SECTION------*/
 .services-section {
+  position: relative;
+  overflow: hidden;
   background: #A9A9A9;
 }
 
 .services-section .top-spacer {
   height: 30vh;
   background: $footer-bg-color;
+  z-index: 1000;
 }
 
 .services-section .col-l {
@@ -32,11 +35,14 @@
 .services-view {
   position: relative;
   overflow: hidden;
+  z-index: 0;
 }
 
 .services-view.ng-enter {
-  bottom: 600px;
-  animation: slideDown 0.5s both ease-in;
+  bottom: 70vh;
+  animation: slideDown 0.7s both ease-in-out;
 }
+
+
 
 
