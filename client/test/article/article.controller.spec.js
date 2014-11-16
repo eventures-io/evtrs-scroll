@@ -88,6 +88,4 @@ describe('Controller : ArticleDisplayCtrl', function () {
             expect($scope.article.content).toEqual('test 2 content');
         })
     });
-
-
 });

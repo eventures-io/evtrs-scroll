@@ -5,7 +5,10 @@ var LoginPage = function() {
     this.email = this.form.element(by.name('email'));
     this.password = this.form.element(by.name('password'));
     this.loginButton = this.form.element(by.css('.btn-login'));
- //   this.loginButton = element(by.xpath('//form[1]/input[@type="submit"]'))
+    this.helpBlock1 = element.all(by.css('.help-block')).get(0);
+    this.helpBlock2 = element.all(by.css('.help-block')).get(1);
+    this.helpBlock3 = element.all(by.css('.help-block')).get(2);
+
 };
 
 module.exports = new LoginPage();
