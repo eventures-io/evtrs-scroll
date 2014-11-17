@@ -15,8 +15,16 @@
 }
 
 .intro-container h1 {
-  font-size: 300%;
+  font-size: 200%;
+  font-weight: bold;
 }
+
+@media (min-width:500px) {
+  .intro-container h1 {
+    font-size: 300%;
+  }
+}
+
 
 .intro-text {
   color: $secondary-color;

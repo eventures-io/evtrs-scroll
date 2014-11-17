@@ -39,6 +39,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 
 });
 
+
 angular.module('evtrsScrollApp')
     .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource) {
 
@@ -54,4 +55,4 @@ angular.module('evtrsScrollApp')
             loadArticle();
         }
 
-});
+    });

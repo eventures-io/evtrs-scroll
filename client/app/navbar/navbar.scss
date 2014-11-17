@@ -1,9 +1,7 @@
 @media (min-width: 767px) {
   .navbar {
-    -webkit-transition: background .5s ease-in-out, visiblity .5s ease-in-out;
-    -moz-transition: background .5s ease-in-out, visiblity .5s ease-in-out;
-    transition: background .5s ease-in-out, visiblity .5s ease-in-out;
     visibility: hidden;
+    transition: background .5s ease-in-out, visiblity .5s ease-in-out;
   }
 
   .top-nav-collapse {
@@ -11,11 +9,6 @@
     padding: 0;
     background: #DEDEDE;
     border-bottom: 1px dashed #A9A9A9;
-  }
-
-  //TODO fix: overrriden
-  .navbar-nav > li > a , .navbar-brand {
-    color: #222222;
   }
 
   a.active {

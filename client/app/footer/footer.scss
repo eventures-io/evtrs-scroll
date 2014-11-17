@@ -1,18 +1,22 @@
 /*FOOTER--------------*/
 .footer {
+  min-height: 30vh;
   background: $footer-bg-color;
   color: $footer-txt-color;
-  z-index: 1;
 }
 
 .footer-container {
   @extend .container;
+  position: relative;
+  bottom: 0px;
 }
 
 .footer .col {
   height: 170px;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-left: 10%;
+
 }
 
 .footer .col-r {
@@ -37,6 +41,8 @@
     border-width: 0px 1px 0px 1px;
   }
 }
+
+
 
 .footer a {
   color: $footer-txt-color;

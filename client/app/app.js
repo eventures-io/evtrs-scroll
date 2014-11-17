@@ -14,7 +14,6 @@ angular.module('evtrsScrollApp', [
     .config(function ($httpProvider, RestangularProvider) {
 
         $httpProvider.interceptors.push('authInterceptor');
-
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
 
@@ -68,7 +67,7 @@ angular.module('evtrsScrollApp', [
             var navbarFixed = angular.element($document[0].querySelector('.navbar-fixed-top'));
             var path = $location.path();
 
-            var vh = Math.max($document[0].documentElement.clientHeight, $window.innerHeight || 0)
+            var vh = Math.max($document[0].documentElement.clientHeight, $window.innerHeight || 0);
 
             if (path.indexOf('/admin') > -1) {
                 navbarFixed.addClass('top-nav-collapse');
