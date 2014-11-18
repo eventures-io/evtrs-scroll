@@ -402,7 +402,7 @@ module.exports = function (grunt) {
       },
       openshift: {
         options: {
-          remote: 'ssh://546374e3ecb8d4f3b90000bf@scroll-eventures.rhcloud.com/~/git/scroll.git/',
+          remote: 'ssh://546a2b744382ecc08b00001d@scroll-eventures.rhcloud.com/~/git/scroll.git/',
           branch: 'master'
         }
       }

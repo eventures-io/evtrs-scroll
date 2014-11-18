@@ -58,6 +58,12 @@ angular.module('evtrsScrollApp')
                     elementId: 'services'
                 }
             })
+            .state('base.home.contact', {
+                url: 'contact',
+                data: {
+                    elementId: 'contact'
+                }
+            })
             .state('base.home.services.article', {
                 url: '/article/:articleId',
                 views: {
@@ -65,15 +71,10 @@ angular.module('evtrsScrollApp')
                         controller: 'ArticleDisplayCtrl'
                     }
                 }, data: {
-                    elementId: 'contact'
-                }
-            })
-            .state('base.home.contact', {
-                url: 'contact',
-                data: {
-                    elementId: 'contact'
+                    elementId: 'services'
                 }
             });
+
 
     });
 

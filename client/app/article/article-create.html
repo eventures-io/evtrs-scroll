@@ -14,7 +14,9 @@
                     <div class="form-group">
                         <text-angular ng-model="article.content" required/>
                     </div>
-                    <button class="btn btn-default btn-default pull-right" type="submit">{{saveAction}}
+                    <button class="form-btn pull-right" type="submit">{{saveAction}}
+                    </button>
+                    <button class="form-btn pull-right" ng-click="initialize()" type="button">Reset
                     </button>
                 </div>
             </form>

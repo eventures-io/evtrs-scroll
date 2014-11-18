@@ -15,11 +15,43 @@ body {
   z-index: 2;
 }
 
+.transition-in.ng-enter {
+  animation: fadeIn 0.4s both ease-in;
+}
+
+.transition-out.ng-leave {
+  animation: fadeOut 0.5s both ease-in;
+}
+
 /*ANIMATIONS-----------*/
 @keyframes slideDown {
   to {
     transform: translateY(70vh);
   }
 }
+
+/* fade in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* fade out */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
 
 

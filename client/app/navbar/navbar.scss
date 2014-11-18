@@ -11,7 +11,9 @@
     border-bottom: 1px dashed #A9A9A9;
   }
 
-  a.active {
+  .navbar a.active {
     color: $secondary-color !important;
+    background: #9f9f9f;;
   }
+
 }

@@ -36,14 +36,13 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
             }
         }
     };
-
 });
 
 
 angular.module('evtrsScrollApp')
-    .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource) {
+    .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource, $state) {
 
-        $scope.animate = 'services-view';
+        $scope.animate = 'transition-in transition-out';
 
         var loadArticle = function () {
             ArticleResource.getById($stateParams.articleId).then(
@@ -54,5 +53,9 @@ angular.module('evtrsScrollApp')
         if ($stateParams.articleId) {
             loadArticle();
         }
+
+        $scope.close = function() {
+            $state.go('base.home.contact');
+        };
 
     });
