@@ -396,7 +396,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'heroku',
+          remote: 'git@heroku.com:eventures-scroll.git',
           branch: 'master'
         }
       },

@@ -5,5 +5,5 @@
 module.exports = {
     mongo: {
         uri: 'mongodb://localhost/evtrs-scroll-test'
-    }, seedDB: true
+    }//, seedDB: true
 };

@@ -6,7 +6,7 @@ module.exports = {
   // MongoDB connection options
   mongo: {
     uri: 'mongodb://localhost/evtrs-scroll-dev'
-  },
+  }//,
 
-  seedDB: true
+  //seedDB: true
 };
