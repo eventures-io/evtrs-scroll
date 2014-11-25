@@ -49,8 +49,9 @@ describe('GET /api/articles', function () {
 
     before('insert test articles', function (done) {
         Article.find({}).remove(function () {
-            var date = new Date();
+
             for (var i = 0; i < 10; i++) {
+                var date = new Date();
                 date.setDate(date.getDate() + i);
                 var article = new Article({
                     title: 'title_' + i,
@@ -97,7 +98,7 @@ describe('GET /api/articles/recent', function () {
                     _article = article
                     }
                     else {
-                    //   (article.publDate < _article.publDate).should.be.ok;;
+                       (article.publDate < _article.publDate).should.be.ok;
                         _article = article;
                     }
                 });
