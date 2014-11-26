@@ -11,36 +11,36 @@ var agent = request.agent(app);
 
 describe('POST /api/articles', function () {
 
-    before(function (done) {
-        var user = new User({
-            provider: 'local',
-            name: 'Admin Test User',
-            email: 'admin@test.com',
-            password: 'pswd',
-            role: 'admin'
-        });
-        user.save(function (err, user) {
-            if (err) return done(err);
-            done();
-        });
-    });
-
-    it('login first', loginAdmin());
-
-    it('should return an article with populated id', function (done) {
-        agent
-            .post('/api/articles')
-            .send({title: "Test Title", content: 'test content', publDate: new Date()})
-            // .expect(304)
-            //.expect('Content-Type', /json/)
-            .end(function (err, res) {
-                console.log('end post article');
-                if (err) return done(err);
-                //res.body.should.be.instanceof();
-                done();
-
-            });
-    });
+//    before(function (done) {
+//        var user = new User({
+//            provider: 'local',
+//            name: 'Admin Test User',
+//            email: 'admin@test.com',
+//            password: 'pswd',
+//            role: 'admin'
+//        });
+//        user.save(function (err, user) {
+//            if (err) return done(err);
+//            done();
+//        });
+//    });
+//
+//    it('login first', loginAdmin());
+//
+//    it('should return an article with populated id', function (done) {
+//        agent
+//            .post('/api/articles')
+//            .send({title: "Test Title", content: 'test content', publDate: new Date()})
+//            // .expect(304)
+//            //.expect('Content-Type', /json/)
+//            .end(function (err, res) {
+//                console.log('end post article');
+//                if (err) return done(err);
+//                //res.body.should.be.instanceof();
+//                done();
+//
+//            });
+//    });
 
 });
 
@@ -91,6 +91,7 @@ describe('GET /api/articles/recent', function () {
             .end(function (err, res) {
                 if (err) return done(err);
                 res.body.should.be.instanceof(Array);
+                //TODO use should
                 _.size(res.body).should.equal(5);
                 var _article;
               res.body.forEach(function(article) {
