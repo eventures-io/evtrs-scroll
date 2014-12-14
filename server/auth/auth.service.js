@@ -18,6 +18,7 @@ function isAuthenticated() {
     // Validate jwt
     .use(function(req, res, next) {
       // allow access_token to be passed through query parameter as well
+      // The hasOwnProperty check is to make sure that the property is not from the objects prototype.
       if(req.query && req.query.hasOwnProperty('access_token')) {
         req.headers.authorization = 'Bearer ' + req.query.access_token;
       }

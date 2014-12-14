@@ -16,7 +16,6 @@ angular.module('evtrsScrollApp', [
         $httpProvider.interceptors.push('authInterceptor');
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
-
     })
 
     .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
@@ -55,11 +54,11 @@ angular.module('evtrsScrollApp', [
             });
         });
 
-//$rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
-//             //Automaticly update location on scroll
-//            $location.path($element.prop('pathname'));
-//            $rootScope.$apply();
-//      });
+        //$rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
+        //             //Automaticly update location on scroll
+        //            $location.path($element.prop('pathname'));
+        //            $rootScope.$apply();
+        //      });
 
         //TODO move navbar to directive to avoid global dom queries
         $document.on('scroll', function () {
@@ -72,7 +71,7 @@ angular.module('evtrsScrollApp', [
             if (path.indexOf('/admin') > -1) {
                 navbarFixed.addClass('top-nav-collapse');
             } else {
-                if (navbar.offset().top > (vh * 80 /100)) {
+                if (navbar.offset().top > (vh * 80 / 100)) {
                     navbarFixed.addClass('top-nav-collapse');
                 } else {
                     navbarFixed.removeClass('top-nav-collapse');

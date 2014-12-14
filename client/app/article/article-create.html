@@ -4,7 +4,6 @@
     <div class="container padding-top">
         <h2>Create new article</h2>
         <hr/>
-
         <div class="border-1px-solid">
             <form class="form" name="form" ng-submit="save(form)" novalidate>
                 <div class="form-group has-feedback" ng-class="{'has-error': form.title.$invalid && submitted }">
@@ -14,8 +13,7 @@
                     <div class="form-group">
                         <text-angular ng-model="article.content" required/>
                     </div>
-                    <button class="form-btn pull-right" type="submit">{{saveAction}}
-                    </button>
+                    <button class="form-btn pull-right" type="submit">{{saveAction}}</button>
                     <button class="form-btn pull-right" ng-click="initialize()" type="button">Reset
                     </button>
                 </div>

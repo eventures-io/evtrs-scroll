@@ -27,26 +27,26 @@ describe('POST /api/articles', function () {
 //
 //    it('login first', loginAdmin());
 //
-//    it('should return an article with populated id', function (done) {
-//        agent
-//            .post('/api/articles')
-//            .send({title: "Test Title", content: 'test content', publDate: new Date()})
-//            // .expect(304)
-//            //.expect('Content-Type', /json/)
-//            .end(function (err, res) {
-//                console.log('end post article');
-//                if (err) return done(err);
-//                //res.body.should.be.instanceof();
-//                done();
-//
-//            });
-//    });
+    it('should return an article with populated id', function (done) {
+        agent
+            .post('/api/articles')
+            .send({title: "Test Title", content: 'test content', publDate: new Date()})
+            // .expect(304)
+            //.expect('Content-Type', /json/)
+            .end(function (err, res) {
+                console.log('end post article');
+                if (err) return done(err);
+                //res.body.should.be.instanceof();
+                done();
+
+            });
+    });
 
 });
 
 
 describe('GET /api/articles', function () {
-
+    /* jshint ignore:start */
     before('insert test articles', function (done) {
         Article.find({}).remove(function () {
 
@@ -61,7 +61,6 @@ describe('GET /api/articles', function () {
                 });
                 article.save(function (err, user) {
                     if (err) return done(err);
-
                 });
             }
             done();
@@ -106,11 +105,13 @@ describe('GET /api/articles/recent', function () {
                 done();
             });
     });
-
+    /* jshint ignore:end */
 });
 
 
 function loginAdmin() {
+
+    //
     return function (done) {
         agent
             .post('/auth/local')
@@ -119,7 +120,7 @@ function loginAdmin() {
             .end(function (err, res) {
                 console.log('end authenticate');
                 if (err) return done(err);
-//                 agent.saveCookies(res);
+                //       agent.saveCookies(res);
                 //       should.exist(res.headers['set-cookie']);
                 return done();
             });
