@@ -4,6 +4,7 @@
   height: 80vh;
   background-size: cover;
   color: #f5f5f5;
+  font-family: 'Oswald', sans-serif;
 }
 
 .intro-container {
@@ -24,13 +25,13 @@
 
 @media (min-width:500px) {
   .intro-container h1 {
-    font-size: 300%;
+    font-size: 400%;
   }
 }
 
 .intro-text {
   padding-top: 15%;
-  color: $secondary-color;
+  color: #f5f5f5;
   text-align: center;
 }
 

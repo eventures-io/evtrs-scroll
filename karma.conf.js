@@ -23,12 +23,13 @@ module.exports = function(config) {
       'client/bower_components/restangular/src/restangular.js',
       'client/bower_components/textangular/src/textAngularSetup.js',
       'client/bower_components/textangular/src/textAngular.js',
+      'client/bower_components/ng-parallax/angular-parallax.min.js',
       'client/app/app.js',
       'client/app/**/*.js',
       'client/components/**/*.js',
       'client/app/**/*.html',
       'client/components/**/*.html',
-      'client/test/**/*.js',
+      'client/test/**/*.js'
     ],
 
     preprocessors: {
