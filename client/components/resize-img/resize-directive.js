@@ -2,7 +2,7 @@
 angular.module('evtrsScrollApp')
 .directive('bg', function ($window) {
     // Adopted from simpulton/angularjs-greensock-site
-    var linker = function (scope, element, attrs) {
+    var linker = function (scope, element) {
         var resizeBG = function () {
             var bgwidth = element.width();
             var bgheight = element.height();
@@ -27,16 +27,16 @@ angular.module('evtrsScrollApp')
                     height: winheight + 'px'
                 });
             }
-        }
+        };
 
         resizeBG();
 
         var windowElement = angular.element($window);
         windowElement.resize(resizeBG);
-    }
+    };
 
     return {
         restrict: 'A',
         link: linker
     };
-})
+});
