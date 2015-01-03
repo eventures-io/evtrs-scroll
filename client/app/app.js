@@ -8,6 +8,7 @@ angular.module('evtrsScrollApp', [
         'ui.router',
         'textAngular',
         'restangular',
+        'duParallax',
         'duScroll'
     ])
     .value('duScrollDuration', 1200)

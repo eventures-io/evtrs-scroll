@@ -1,20 +1,23 @@
 /*INTRO SECTION------*/
 .intro-section {
   position: relative;
-  padding-top: 100px;
   height: 80vh;
-  background: url(../../assets/images/unsplash.jpeg) no-repeat;
   background-size: cover;
   color: #f5f5f5;
 }
 
 .intro-container {
+  position: absolute;
+  top:0;
+  left: 0;
   text-align: center;
   height: 100%;
+  width: 100%;
   font-size: xx-large;
 }
 
 .intro-container h1 {
+
   font-size: 200%;
   font-weight: bold;
 }
@@ -25,10 +28,15 @@
   }
 }
 
-
 .intro-text {
+  padding-top: 15%;
   color: $secondary-color;
   text-align: center;
+}
+
+.intro-bg-img {
+  width: 100vw;
+  height:100vh;
 }
 
 .intro-btn {
