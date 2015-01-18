@@ -64,6 +64,16 @@ angular.module('evtrsScrollApp')
                     elementId: 'contact'
                 }
             })
+            .state('article-create', {
+                url: '/admin/article-create',
+                templateUrl: 'app/article/article-create.html',
+                controller: 'ArticleCtrl'
+            })
+            .state('article-overview', {
+                url: '/articles/list',
+                templateUrl : 'app/article/article-overview.html'
+
+            })
             .state('base.home.services.article', {
                 url: '/article/:articleId',
                 views: {

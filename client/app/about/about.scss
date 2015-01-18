@@ -1,29 +1,33 @@
 /*ABOUT SECTION------*/
+.about-section {
+  //position: relative;
+  width: 100vw;
+}
 
 .about-section p {
   text-align: left;
   font-size: x-large;
 }
 
-.about-section .spacer-top {
+.spacer-top {
   height: 20vh;
   width: 100%;
   background: url(../../assets/images/bg-dotted.png);
 }
 
-.about-section .content {
+.content {
   padding: 10%;
   height: 80vh;
   background: #808080;
   font-size: larger;
 }
 
-.about-section .spacer-right {
+.spacer-right {
   height: 80vh;
   background: #545454 url(../../assets/images/about-bg.png);
 }
 
-.about-section .about-icon {
+.about-icon {
   display: block;
   height: 200px;
   width: 300px;

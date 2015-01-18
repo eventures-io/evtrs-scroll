@@ -5,22 +5,24 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
-// padding for menu bar
-.padding-top {
-  padding-top: 40px;
+.main-view {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-.scroll-container {
-  position: relative;
-  z-index: 2;
+.ng-enter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: enter 1s cubic-bezier(.17,.67,.83,.67);
 }
 
-.transition-in.ng-enter {
-  animation: fadeIn 0.4s both ease-in;
-}
-
-.transition-out.ng-leave {
-  animation: fadeOut 0.5s both ease-in;
+.ng-leave {
+  z-index: 999;
+  animation: fadeOut 0.5s 2s both ease-in;
 }
 
 /*ANIMATIONS-----------*/
@@ -50,8 +52,15 @@ body {
   }
 }
 
+@keyframes enter {
+  0% {
+    top: 100%;
+  }
 
-
+  100% {
+    top: 0;
+  }
+}
 
 
 

@@ -8,10 +8,7 @@ angular.module('evtrsScrollApp', [
         'ui.router',
         'textAngular',
         'restangular',
-        'duParallax',
-        'duScroll'
     ])
-    .value('duScrollDuration', 1200)
     .config(function ($httpProvider, RestangularProvider) {
 
         $httpProvider.interceptors.push('authInterceptor');
@@ -55,28 +52,27 @@ angular.module('evtrsScrollApp', [
             });
         });
 
-        //$rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
-        //             //Automaticly update location on scroll
-        //            $location.path($element.prop('pathname'));
-        //            $rootScope.$apply();
-        //      });
+//        $rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
+//                     //Automaticly update location on scroll
+//                    $location.path($element.prop('pathname'));
+//                    $rootScope.$apply();
+//              });
 
-        //TODO move navbar to directive to avoid global dom queries
-        $document.on('scroll', function () {
-            var navbar = angular.element($document[0].querySelector('.navbar'));
-            var navbarFixed = angular.element($document[0].querySelector('.navbar-fixed-top'));
-            var path = $location.path();
-
-            var vh = Math.max($document[0].documentElement.clientHeight, $window.innerHeight || 0);
-
-            if (path.indexOf('/admin') > -1) {
-                navbarFixed.addClass('top-nav-collapse');
-            } else {
-                if (navbar.offset().top > (vh * 80 / 100)) {
-                    navbarFixed.addClass('top-nav-collapse');
-                } else {
-                    navbarFixed.removeClass('top-nav-collapse');
-                }
-            }
-        });
+//        $document.on('scroll', function () {
+//            var navbar = angular.element($document[0].querySelector('.navbar'));
+//            var navbarFixed = angular.element($document[0].querySelector('.navbar-fixed-top'));
+//            var path = $location.path();
+//
+//            var vh = Math.max($document[0].documentElement.clientHeight, $window.innerHeight || 0);
+//
+//            if (path.indexOf('/admin') > -1) {
+//                navbarFixed.addClass('top-nav-collapse');
+//            } else {
+//                if (navbar.offset().top > (vh * 80 / 100)) {
+//                    navbarFixed.addClass('top-nav-collapse');
+//                } else {
+//                    navbarFixed.removeClass('top-nav-collapse');
+//                }
+//            }
+//        });
     });

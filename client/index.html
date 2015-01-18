@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
+    <title>eventures.io</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -31,8 +31,8 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<div ui-view="" class="transition-in"></div>
-
+<!--<ui-view></ui-view>-->
+<div ui-view class="main-view"></div>
 <!-- INCLUDE ONLY IN DIST -->
 <!--&lt;!&ndash; Google Analytics: change UA-XXXXX-X to be your site's ID &ndash;&gt;-->
 <!--<script>-->
@@ -63,12 +63,9 @@
 <script src="bower_components/lodash/dist/lodash.compat.js"></script>
 <script src="bower_components/textAngular/dist/textAngular.min.js"></script>
 <script src="bower_components/restangular/dist/restangular.js"></script>
-<script src="bower_components/angular-scroll/angular-scroll.js"></script>
-<script src="bower_components/ng-parallax/angular-parallax.min.js"></script>
 <!-- endbower -->
 <!--script src="bower_components/angular-hint/hint.js"></script-->
 <!-- waiting for pull request acceptation-->
-<script src="components/scroll/angular-scroll-mod.js"></script>
 <!-- endbuild -->
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -82,8 +79,8 @@
 <script src="app/admin/admin.config.js"></script>
 <script src="app/admin/admin.controller.js"></script>
 <script src="app/article/article-controller.js"></script>
+<script src="app/main/config.js"></script>
 <script src="app/main/main.controller.js"></script>
-<script src="app/main/main.js"></script>
 <script src="app/navbar/navbar.controller.js"></script>
 <script src="components/article/article.filter.js"></script>
 <script src="components/article/article.resource.js"></script>

@@ -1,23 +1,16 @@
 'use strict';
 
 angular.module('evtrsScrollApp')
-    .controller('MainCtrl', function ($scope, $state, ScrollService, ArticleResource, parallaxHelper) {
-        $scope.$on('$viewContentLoaded',
-            function () {
-                ScrollService.scrollToAnchor($state.current.data.elementId);
-            });
-
-
-        $scope.background = parallaxHelper.createAnimator(-0.3);
+    .controller('MainCtrl', function ($scope, $state, ArticleResource) {
 
         $scope.recentPosts = [];
 
-        var getRecentPosts = function () {
+        $scope.getRecentPosts = function () {
             ArticleResource.getRecent().then(function (data) {
                 $scope.recentPosts = data;
             });
         };
-        getRecentPosts();
+
     });
 
 

@@ -4,9 +4,34 @@
 
 <section ui-view="about-view" id="about" class="about-section"></section>
 
-<section ui-view="services-view" id="services" class="services-section"></section>
+<footer id="footer" class="footer" ng-init="getRecentPosts()">
+    <div class="footer-container">
+        <div class="row">
+            <div class="col-sm-4 col-l">
+                <h4>Offices</h4>
+                <ul class="list-unstyled">
+                    <li>Eventures Ltd.</li>
+                    <li>86-90 Paul Street</li>
+                    <li>London</li>
+                    <li>EC2A 4NE</li>
+                </ul>
+            </div>
+            <div class="col-sm-4 col-c">
+                <h4>Contact</h4>
+                <a href="mailto:contact@eventures.io">contact@eventures.io</a>
+                <h5>0044 0203 322 3042</h5>
+            </div>
+            <div class="col-sm-4 col-r">
+                <h4>Latest posts</h4>
+                <ul class="list-unstyled" ng-repeat="article in recentPosts">
+                    <!--<li><a ng-href="/services/article/{{article._id}}">{{article.title}}</a></li>-->
+                    <li><a ng-href="/articles/list">{{article.title}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 
-<div ng-include="'app/footer/footer.html'"></div>
 
 
 

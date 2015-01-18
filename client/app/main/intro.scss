@@ -1,15 +1,27 @@
 /*INTRO SECTION------*/
 .intro-section {
   position: relative;
-  height: 80vh;
-  background-size: cover;
-  color: #f5f5f5;
+  height: 100vh;
+  width: 100vw;
   font-family: 'Oswald', sans-serif;
+  background: blanchedalmond;
 }
 
+/*PARALLAX-------*/
+.intro-bg {
+  width: 100vw;
+  height: 100vh;
+}
+
+.intro-bg-img {
+  width: inherit;
+  height: inherit;
+}
+
+/*WELCOME TEXT ------*/
 .intro-container {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   text-align: center;
   height: 100%;
@@ -18,12 +30,11 @@
 }
 
 .intro-container h1 {
-
   font-size: 200%;
   font-weight: bold;
 }
 
-@media (min-width:500px) {
+@media (min-width: 500px) {
   .intro-container h1 {
     font-size: 400%;
   }
@@ -33,11 +44,6 @@
   padding-top: 15%;
   color: #f5f5f5;
   text-align: center;
-}
-
-.intro-bg-img {
-  width: 100vw;
-  height:100vh;
 }
 
 .intro-btn {
