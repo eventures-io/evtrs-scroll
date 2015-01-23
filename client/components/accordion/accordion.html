@@ -1,0 +1,13 @@
+<div class="panel-group" id="{{panelId}}">
+    <div class="panel panel-default" ng-repeat-start="item in ngModel">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a ng-click="toggleCollapsedStates($index)" href="#{{panelBaseId}}-{{$index}}">{{item.title}}</a>
+            </h4>
+        </div>
+        <div id="{{panelBaseId}}-{{$index}}" data-parent="#{{panelId}}" class="panel-collapse collapse">
+            <div class="panel-body">{{item.content}}</div>
+        </div>
+    </div>
+    <div ng-repeat-end></div>
+</div>
