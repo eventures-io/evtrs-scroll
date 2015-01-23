@@ -8,28 +8,32 @@ angular.module('evtrsScrollApp').directive('accordion', function () {
         scope: {
             ngModel: '='
         },
-        link: function (scope, el, attrs) {
+        link: function (scope, element, attrs) {
             scope.panelBaseId = attrs.collapsePanelBodyId;
             scope.panelId = attrs.collapsePanelId;
 
-            $(document).ready(function(){
-                angular.forEach(scope.ngModel, function(value, key){
-                    if (value.collapsed)
-                    {
-                        $("#" + scope.panelBaseId + "-" + key).collapse('show');
-                    }
-                });
-            });
 
             scope.toggleCollapsedStates = function(ind){
+
                 angular.forEach(scope.ngModel, function(value, key){
                     if (key == ind)
                     {
+                        var contentEl = element.find('#' + scope.panelBaseId + '-' + ind);
+                        var titleEl = element.find('#' + scope.panelBaseId + '-title' + ind);
+                        titleEl.toggleClass('accordionTitleActive');
+                        contentEl.toggleClass('accordionItemCollapsed');
+                        if(scope.ngModel[key].collapsed){
+                            contentEl.addClass('animateOut');
+                            contentEl.removeClass('animateIn');
+                        } else {
+                            contentEl.addClass('animateIn');
+                            contentEl.removeClass('animateOut');
+                        }
                         scope.ngModel[key].collapsed = !scope.ngModel[key].collapsed;
-                        $("#" + scope.panelBaseId + "-" + ind).collapse('toggle');
                     }
-                    else
-                        scope.ngModel[key].collapsed = false;
+                    else {
+                     //   scope.ngModel[key].collapsed = false;
+                    }
                 });
             }
         }

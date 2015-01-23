@@ -1,13 +1,12 @@
-<div class="panel-group" id="{{panelId}}">
-    <div class="panel panel-default" ng-repeat-start="item in ngModel">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a ng-click="toggleCollapsedStates($index)" href="#{{panelBaseId}}-{{$index}}">{{item.title}}</a>
-            </h4>
+<div class="accordion">
+    <div class="outer" id="{{panelId}}">
+        <div ng-repeat-start="item in ngModel">
+            <span><a class="accordionTitle" ng-click="toggleCollapsedStates($index)" id="{{panelBaseId}}-title{{$index}}">{{item.title}}</a></span>
+
+            <div id="{{panelBaseId}}-{{$index}}" data-parent="#{{panelId}}"  class="inner accordionItem animateOut accordionItemCollapsed">
+                {{item.content}}
+            </div>
         </div>
-        <div id="{{panelBaseId}}-{{$index}}" data-parent="#{{panelId}}" class="panel-collapse collapse">
-            <div class="panel-body">{{item.content}}</div>
-        </div>
+        <div ng-repeat-end></div>
     </div>
-    <div ng-repeat-end></div>
 </div>
