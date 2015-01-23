@@ -7,7 +7,7 @@ angular.module('evtrsScrollApp', [
         'ngAnimate',
         'ui.router',
         'textAngular',
-        'restangular',
+        'restangular'
     ])
     .config(function ($httpProvider, RestangularProvider) {
 
@@ -42,7 +42,7 @@ angular.module('evtrsScrollApp', [
         };
     })
 
-    .run(function ($rootScope, $location, Auth, $document, $window) {
+    .run(function ($rootScope, $location, Auth, $document, $window, $anchorScroll) {
         // Redirect to login if route requires auth and you're not logged in
         $rootScope.$on('$stateChangeStart', function (event, next) {
             Auth.isLoggedInAsync(function (loggedIn) {
@@ -50,7 +50,11 @@ angular.module('evtrsScrollApp', [
                     $location.path('/login');
                 }
             });
+
+           $window.scroll(0,0);
         });
+
+
 
 //        $rootScope.$on('duScrollspy:becameActive', function ($event, $element) {
 //                     //Automaticly update location on scroll

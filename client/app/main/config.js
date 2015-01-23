@@ -17,7 +17,6 @@ angular.module('evtrsScrollApp')
 
             })
             .state('base.home', {
-                abstract: true,
                 url: '',
                 views: {
                     'intro-view@base': { templateUrl: 'app/main/intro.html' },
