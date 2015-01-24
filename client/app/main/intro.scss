@@ -7,22 +7,16 @@
   background: blanchedalmond;
 }
 
-/*PARALLAX-------*/
-.intro-bg {
-  width: 100vw;
-  height: 100vh;
-}
-
-.intro-bg-img {
-  width: inherit;
-  height: inherit;
-}
 
 /*WELCOME TEXT ------*/
 .intro-container {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+  background: url(../../assets/images/roadwork.jpg) no-repeat;
+  background-size: 100% 100%;
+
+//  position: absolute;
+//  top: 0;
+//  left: 0;
   text-align: center;
   height: 100%;
   width: 100%;
