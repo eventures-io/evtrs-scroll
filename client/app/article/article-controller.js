@@ -56,7 +56,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
 
 
     $scope.addItem = function () {
-        $scope.collapseData.push({
+        $scope.articles.push({
             title: $scope.title,
             content: $scope.content,
             collapsed: false
@@ -78,7 +78,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
             collapsed: true
         },
         {
-            title: "Collapse Group Item Title 2",
+            title: "Collapse Group Item Title 3",
             content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
             collapsed: true
         }

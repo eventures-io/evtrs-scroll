@@ -115,12 +115,7 @@ $accordion-text: #fff;
   }
 }
 
-.container {
-  max-width:960px;
-  margin:0 auto;
-  padding:2em 0 2em 0;
-}
-.accordionTitle {
+.accordion-title {
   background-color:$accordion-color;
   border-bottom:1px solid darken($accordion-color, 5%);
   cursor: pointer;
@@ -136,7 +131,7 @@ $accordion-text: #fff;
     background-color:darken($accordion-color, 10%);
   }
 }
-.accordionTitleActive {
+.accordion-title-active {
   background-color:darken($accordion-color, 10%);
   &:before {
     -webkit-transform:rotate(-225deg);
@@ -144,7 +139,7 @@ $accordion-text: #fff;
     transform:rotate(-225deg);
   }
 }
-.accordionItem {
+.accordion-item {
   height:auto;
   overflow:hidden;
   //SHAME: magic number to allow the accordion to animate
@@ -159,11 +154,11 @@ $accordion-text: #fff;
 
 
 }
-.accordionItemCollapsed {
+.accordion-item-collapsed {
   max-height:0;
 }
-.animateIn {
-  -webkit-animation-name: accordionIn;
+.animate-in {
+  -webkit-animation-name: accordion-in;
   -webkit-animation-duration: 0.65s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
@@ -177,7 +172,7 @@ $accordion-text: #fff;
   -moz-animation-timing-function: ease-in-out;
   -moz-animation-fill-mode: both;
   -moz-animation-delay: 0s;
-  animation-name: accordionIn;
+  animation-name: accordion-in;
   animation-duration: 0.65s;
   animation-iteration-count: 1;
   animation-direction: normal;
@@ -186,22 +181,22 @@ $accordion-text: #fff;
   animation-delay: 0s;
 
 }
-.animateOut {
-  -webkit-animation-name: accordionOut;
+.animate-out {
+  -webkit-animation-name: accordion-out;
   -webkit-animation-duration: 0.75s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: alternate;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode:  both;
   -webkit-animation-delay: 0s;
-  -moz-animation-name: accordionOut;
+  -moz-animation-name: accordion-out;
   -moz-animation-duration: 0.75s;
   -moz-animation-iteration-count: 1;
   -moz-animation-direction: alternate;
   -moz-animation-timing-function: ease-in-out;
   -moz-animation-fill-mode:  both;
   -moz-animation-delay: 0s;
-  animation-name: accordionOut;
+  animation-name: accordion-out;
   animation-duration: 0.75s;
   animation-iteration-count: 1;
   animation-direction: alternate;
@@ -210,7 +205,7 @@ $accordion-text: #fff;
   animation-delay: 0s;
 }
 
-@-webkit-keyframes accordionIn {
+@-webkit-keyframes accordion-in {
   0% {
     opacity: 0;
     -webkit-transform:scale(0.8);
@@ -223,7 +218,7 @@ $accordion-text: #fff;
   }
 }
 
-@-moz-keyframes accordionIn {
+@-moz-keyframes accordion-in {
   0% {
     opacity: 0;
     -moz-transform:scale(0.8);
@@ -236,7 +231,7 @@ $accordion-text: #fff;
   }
 }
 
-@keyframes accordionIn {
+@keyframes accordion-in {
   0% {
     opacity: 0;
     transform:scale(0.8);
@@ -247,7 +242,7 @@ $accordion-text: #fff;
     transform:scale(1);
   }
 }
-@-webkit-keyframes accordionOut {
+@-webkit-keyframes accordion-out {
   0% {
     opacity: 1;
     -webkit-transform:scale(1);
@@ -260,7 +255,7 @@ $accordion-text: #fff;
   }
 }
 
-@-moz-keyframes accordionOut {
+@-moz-keyframes accordion-out {
   0% {
     opacity: 1;
     -moz-transform:scale(1);
@@ -273,7 +268,7 @@ $accordion-text: #fff;
   }
 }
 
-@keyframes accordionOut {
+@keyframes accordion-out {
   0% {
     opacity: 1;
     transform:scale(1);

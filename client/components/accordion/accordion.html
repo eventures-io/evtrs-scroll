@@ -1,14 +1,14 @@
 <div class="accordion">
     <div class="outer">
-        <div ng-repeat-start="item in model">
+        <div ng-repeat-start="item in viewModel">
             <span>
-                <a class="accordionTitle" ng-click="toggleCollapse($index)"
-                   ng-class="{'accordionTitleActive' : !item.collapsed}">
+                <a class="accordion-title" ng-click="toggleCollapse($index)"
+                   ng-class="{'accordion-title-active' : !item.collapsed}">
                     {{item.title}}
                 </a>
             </span>
-            <div class="inner accordionItem"
-                 ng-class="{'animateOut accordionItemCollapsed' : item.collapsed, 'animateIn' : !item.collapsed}">
+            <div class="inner accordion-item"
+                 ng-class="{'animate-out accordion-item-collapsed' : item.collapsed, 'animate-in' : !item.collapsed}">
                 {{item.content}}
             </div>
         </div>
