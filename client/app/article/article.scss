@@ -72,6 +72,18 @@
 
 }
 
+.article-list {
+  //http://css-tricks.com/video-screencasts/132-quick-useful-case-sass-math-mixins/
+}
+
+.article {
+  height: 250px;
+  width: 170px;
+  border-radius: 9px;
+  background-color: darkgreen;
+  float:left;
+}
+
 
 /* ACCORDION --------------*/
 $accordion-color: #38cc70;
@@ -120,11 +132,14 @@ $accordion-text: #fff;
   border-bottom:1px solid darken($accordion-color, 5%);
   cursor: pointer;
   &:before {
-    content: "+";
-
+    font-family: 'FontAwesome';
+    content: "\f00d";
     font-size:1.5em;
     line-height:0.5em;
-    float:left;
+    float:right;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    transform:rotate(45deg);
     @include transition(transform 0.3s ease-in-out);
   }
   &:hover {
@@ -134,9 +149,9 @@ $accordion-text: #fff;
 .accordion-title-active {
   background-color:darken($accordion-color, 10%);
   &:before {
-    -webkit-transform:rotate(-225deg);
-    -moz-transform:rotate(-225deg);
-    transform:rotate(-225deg);
+    -webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    transform:rotate(0deg);
   }
 }
 .accordion-item {

@@ -9,7 +9,7 @@
             </span>
             <div class="inner accordion-item"
                  ng-class="{'animate-out accordion-item-collapsed' : item.collapsed, 'animate-in' : !item.collapsed}">
-                {{item.content}}
+                  <ng-include src="'app/article/article-list.html'"></ng-include>
             </div>
         </div>
         <div ng-repeat-end></div>

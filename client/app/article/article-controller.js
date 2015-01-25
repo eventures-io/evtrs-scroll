@@ -54,6 +54,8 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope) {
 
+    //TODO move to provider
+    $scope.contentTemplateUrl = "'app/article/article-list.html'";
 
     $scope.addItem = function () {
         $scope.articles.push({
@@ -69,17 +71,17 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
     $scope.articles = [
         {
             title: "Collapse Group Item Title 1",
-            content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+            content: [{title: 'Article 1', type: 'blog'},{title: 'Article 2', type: 'picture'},{title: 'Article 3', type: 'prose' },{title: 'Article 4', type: 'rant'}],
             collapsed: false
         },
         {
             title: "Collapse Group Item Title 2",
-            content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+            content: [{title: 'Article 1'}],
             collapsed: true
         },
         {
             title: "Collapse Group Item Title 3",
-            content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+            content: [{title: 'Article 3'}],
             collapsed: true
         }
     ];
