@@ -1,3 +1,4 @@
+
 .ta-editor {
   min-height: 300px;
   height: auto;
@@ -36,9 +37,49 @@
   background: #ffffff;
   height: 100vh;
   width: 100vw;
+}
+
+.articles-header {
+  h3 {
+    //allow vertical align, remove margin
+    display: inline-block;
+  }
+  background-color: lightgrey;
+  text-align: center;
+  font-weight: bold;
+  height: 60px;
+  vertical-align: middle;
+}
+
+.article-search-bar {
+  .search-box {
+    input {
+      //search icon
+      font-family: 'FontAwesome';
+      font-size: medium;
+      height: calc(50px - 14px);
+    }
+   height: calc(50px - 14px);
+   position: absolute;
+    right: 20px;
+    top: 7px;
+  }
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #808080;
+  vertical-align: middle;
 
 }
 
+
+/* ACCORDION --------------*/
+$accordion-color: #38cc70;
+$accordion-text: #fff;
+
+.accordion-wrapper {
+  width: 100vw;
+}
 
 .accordion {
   .outer {
@@ -48,7 +89,7 @@
       display:block;
       height:1em;
       width:100%;
-      background-color:darken(#38cc70, 10%);
+      background-color:darken($accordion-color, 10%);
     }
   }
   span {
@@ -59,7 +100,7 @@
       padding:2em;
       display:block;
       text-decoration:none;
-      color:#fff;
+      color:$accordion-text;
       -webkit-transition:background-color 0.5s ease-in-out;
 
     }
@@ -73,19 +114,15 @@
     }
   }
 }
-.accordion {
-  position:relative;
-  background-color:#eee;
-  font-size: larger;
-}
+
 .container {
   max-width:960px;
   margin:0 auto;
   padding:2em 0 2em 0;
 }
 .accordionTitle {
-  background-color:#38cc70;
-  border-bottom:1px solid darken(#38cc70, 5%);
+  background-color:$accordion-color;
+  border-bottom:1px solid darken($accordion-color, 5%);
   cursor: pointer;
   &:before {
     content: "+";
@@ -96,11 +133,11 @@
     @include transition(transform 0.3s ease-in-out);
   }
   &:hover {
-    background-color:darken(#38cc70, 10%);
+    background-color:darken($accordion-color, 10%);
   }
 }
 .accordionTitleActive {
-  background-color:darken(#38cc70, 10%);
+  background-color:darken($accordion-color, 10%);
   &:before {
     -webkit-transform:rotate(-225deg);
     -moz-transform:rotate(-225deg);

@@ -1,14 +1,20 @@
 <section class="article-overview">
-    <header class="articles-header"><h1>Article list view</h1></header>
-    <nav class="article-search-bar"></nav>
-    <div class="container-fluid">
+    <header class="articles-header"><h3>Articles</h3></header>
+    <nav class="article-search-bar">
+        <div class="search-box">
+            <input type="text" size="40" class="form-control" placeholder="&#xf002;">
+        </div>
+    </nav>
 
-       <div ng-controller="AccordionController">
-
-        <accordion ng-model="collapseData" collapse-panel-id="collapse-panel" collapse-panel-body-id="collapse-panel-body"></accordion>
+    <div ng-controller="AccordionController" class="accordion-wrapper">
+        <accordion model="articles"  multiple-open="false"></accordion>
     </div>
 
+    <br/>
 
 
-   </div>
+    <div ng-controller="AccordionController" class="accordion-wrapper">
+        <accordion model="articles2" multiple-open="true"></accordion>
+    </div>
+
 </section>

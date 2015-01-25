@@ -4,6 +4,7 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
+
 .main-view {
   position: absolute;
   top: 0;
@@ -12,6 +13,7 @@ body {
   margin: 0;
   z-index: 1000;
 }
+
 
 .ng-enter {
   animation: enter 1s cubic-bezier(.17,.67,.83,.67);

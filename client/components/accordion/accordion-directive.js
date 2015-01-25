@@ -7,39 +7,21 @@ angular.module('evtrsScrollApp').directive('accordion', function () {
         templateUrl: 'components/accordion/accordion.html',
         allowMultipleOpen: '@',
         scope: {
-            ngModel: '='
+            model: '='
         },
         link: function (scope, element, attrs) {
-            var toggleCollapse = attrs.allowMultipleOpen;
-            scope.panelBaseId = attrs.collapsePanelBodyId;
-            scope.panelId = attrs.collapsePanelId;
-            //TODO rename
-            scope.toggleCollapsedStates = function (index) {
+            //if false, collapse all other panels on toggleCollapse
+            var multipleOpen = attrs.multipleOpen;
 
-                var contentEl = element.find('#' + scope.panelBaseId + '-' + index);
-                var titleEl = element.find('#' + scope.panelBaseId + '-title' + index);
-
-                //TODO rework. iterate over view elements, and remove collapsed property from model
-                //rename ngModel , panelBase
-                angular.forEach(scope.ngModel, function (value, key) {
+            scope.toggleCollapse = function (index) {
+                angular.forEach(scope.model, function (value, key) {
                     if (key == index) {
-                        var contentEl = element.find('#' + scope.panelBaseId + '-' + index);
-                        var titleEl = element.find('#' + scope.panelBaseId + '-title' + index);
-                        titleEl.toggleClass('accordionTitleActive');
-                        contentEl.toggleClass('accordionItemCollapsed');
-                        if (scope.ngModel[key].collapsed) {
-                            contentEl.addClass('animateOut');
-                            contentEl.removeClass('animateIn');
-                        } else {
-                            contentEl.addClass('animateIn');
-                            contentEl.removeClass('animateOut');
-                        }
-                        scope.ngModel[key].collapsed = !scope.ngModel[key].collapsed;
+                        scope.model[key].collapsed = !scope.model[key].collapsed;
                     }
                     else {
-//                        if (toggleCollapse !== true) {
-//                            scope.ngModel[key].collapsed = true;
-//                        }
+                        if (multipleOpen !== 'true') {
+                            scope.model[key].collapsed = true;
+                        }
                     }
                 });
             }

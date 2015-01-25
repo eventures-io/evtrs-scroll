@@ -2,9 +2,9 @@
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource) {
 
-        $scope.article = {};
-        $scope.saveAction = 'Save';
-        $scope.submitted = false;
+    $scope.article = {};
+    $scope.saveAction = 'Save';
+    $scope.submitted = false;
 
 
     $scope.save = function (form) {
@@ -42,19 +42,20 @@ angular.module('evtrsScrollApp')
 
         if ($stateParams.articleId) {
             loadArticle();
-        };
+        }
+        ;
 
-        $scope.close = function() {
+        $scope.close = function () {
             $state.go('base.home.contact');
         };
 
     });
 
 
-angular.module('evtrsScrollApp').controller('AccordionController', function($scope) {
+angular.module('evtrsScrollApp').controller('AccordionController', function ($scope) {
 
 
-    $scope.addItem = function() {
+    $scope.addItem = function () {
         $scope.collapseData.push({
             title: $scope.title,
             content: $scope.content,
@@ -65,7 +66,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function($sco
         $scope.content = '';
     };
 
-    $scope.collapseData = [
+    $scope.articles = [
         {
             title: "Collapse Group Item Title 1",
             content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
@@ -74,12 +75,14 @@ angular.module('evtrsScrollApp').controller('AccordionController', function($sco
         {
             title: "Collapse Group Item Title 2",
             content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-            collapsed: false
+            collapsed: true
         },
         {
             title: "Collapse Group Item Title 2",
             content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-            collapsed: false
+            collapsed: true
         }
     ];
+
+
 });
