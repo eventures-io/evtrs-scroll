@@ -72,28 +72,24 @@
 
 }
 
-.articles-table {
-  display: table;
-  border-spacing:1em;
-}
-
 .article-list {
-  display: table-row;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 100px);
+  padding: 5px;
 }
 
-.article-list :first-child {
-    margin: 1em 0 1em 1em;
+
+.article-cell{
+  height: 25em;
+  min-width: 20em;
+  display: table-cell;
+  padding: 0 5px 0 0;
 }
 
 .article {
-  padding: 6px;
-  height: 30em;
-  min-width: 20em;
-  border-radius: 9px;
   background: lightgray;
-  display: table-cell;
+  border-radius: 9px;
+  height: 100%;
 }
 
 
