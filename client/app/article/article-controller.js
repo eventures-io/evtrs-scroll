@@ -42,8 +42,7 @@ angular.module('evtrsScrollApp')
 
         if ($stateParams.articleId) {
             loadArticle();
-        }
-        ;
+        };
 
         $scope.close = function () {
             $state.go('base.home.contact');
@@ -53,9 +52,6 @@ angular.module('evtrsScrollApp')
 
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope) {
-
-    //TODO move to provider
-    $scope.contentTemplateUrl = "'app/article/article-list.html'";
 
     $scope.addItem = function () {
         $scope.articles.push({
@@ -71,7 +67,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
     $scope.articles = [
         {
             title: "Collapse Group Item Title 1",
-            content: [{title: 'Article 1', type: 'blog'},{title: 'Article 2', type: 'picture'},{title: 'Article 3', type: 'prose' },{title: 'Article 4', type: 'rant'}],
+            content: [{title: 'Article 1', type: 'blog'},{title: 'Article 2', type: 'picture'},{title: 'Article 3', type: 'prose' },{title: 'Article 4', type: 'rant'},{title: 'Article 5', type: 'rant'}],
             collapsed: false
         },
         {

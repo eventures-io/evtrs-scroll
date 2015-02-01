@@ -6,12 +6,15 @@ angular.module('evtrsScrollApp').directive('accordion', function () {
         restrict: 'E',
         templateUrl: 'components/accordion/accordion.html',
         allowMultipleOpen: '@',
+        contentTemplate: '@',
         scope: {
             viewModel: '='
         },
         link: function (scope, element, attrs) {
             //if false, collapse all other panels on toggleCollapse
             var multipleOpen = attrs.multipleOpen;
+
+            scope.contentTemplateUrl = attrs.contentTemplate;
 
             scope.toggleCollapse = function (index) {
                 angular.forEach(scope.viewModel, function (value, key) {
