@@ -78,21 +78,47 @@
   padding: 5px;
 }
 
-
-.article-cell{
+.article-cell {
   height: 25em;
-  min-width: 20em;
+  min-width: 22em;
   display: table-cell;
-  padding: 0 5px 0 0;
+  padding-right: 5px;
 }
 
 .article {
+  h3 {
+    display: inline;
+  }
   background: lightgray;
-  border-radius: 9px;
+  border-radius: 15px;
   height: 100%;
+  .wrapper {
+    height:100%;
+  }
+  .article-title {
+    padding: 1em;
+    text-align: center;
+  }
+  .article-img {
+    height: 60%;
+    width: 100%;
+    background-color: brown;
+    padding-left: calc(50% - 4em);
+  }
+  .article-icon {
+    display: block;
+    width: 2em;
+    height: 2em;
+    position: relative;
+    text-align: center;
+    line-height: 2em;
+    border-radius: 50%;
+    border: 1px solid;
+    font-size: 4em;
+    background-color: darkorange;
+  }
+
 }
-
-
 
 /* ACCORDION --------------*/
 /* Setting the max-height @media screen and (min-width:48em)

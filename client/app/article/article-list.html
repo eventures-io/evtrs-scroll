@@ -1,7 +1,16 @@
 <div class='article-list'>
     <div class='article-cell' ng-repeat="article in item.content">
         <div class="article">
-            <b>{{article.title}}</b>
+            <div class="wrapper">
+                <div class="article-title">
+                    <h3>{{article.title}}</h3>
+                </div>
+                <div class="article-img">
+                    <div class="article-icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

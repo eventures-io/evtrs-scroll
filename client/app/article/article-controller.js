@@ -51,7 +51,7 @@ angular.module('evtrsScrollApp')
     });
 
 
-angular.module('evtrsScrollApp').controller('AccordionController', function ($scope) {
+angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource) {
 
     $scope.addItem = function () {
         $scope.articles.push({
@@ -64,23 +64,31 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
         $scope.content = '';
     };
 
-    $scope.articles = [
-        {
-            title: "Collapse Group Item Title 1",
-            content: [{title: 'Article 1', type: 'blog'},{title: 'Article 2', type: 'picture'},{title: 'Article 3', type: 'prose' },{title: 'Article 4', type: 'rant'},{title: 'Article 5', type: 'rant'}],
-            collapsed: false
-        },
-        {
-            title: "Collapse Group Item Title 2",
-            content: [{title: 'Article 1'}],
-            collapsed: true
-        },
-        {
-            title: "Collapse Group Item Title 3",
-            content: [{title: 'Article 3'}],
-            collapsed: true
-        }
-    ];
+
+    ArticleResource.getRecent().then(function(response){
+        var recent =  response.plain();
+        $scope.articles = [
+            {
+                title: "Collapse Group Item Title 1",
+                content: recent,
+//            content: [{title: 'Article 1', type: 'blog'},{title: 'Article 2', type: 'picture'},{title: 'Article 3', type: 'prose' },{title: 'Article 4', type: 'rant'},{title: 'Article 5', type: 'rant'}],
+                collapsed: false
+            },
+            {
+                title: "Collapse Group Item Title 2",
+                content: [{title: 'Article 1'}],
+                collapsed: true
+            },
+            {
+                title: "Collapse Group Item Title 3",
+                content: [{title: 'Article 3'}],
+                collapsed: true
+            }
+        ];
+    })
+
+
+
 
 
 });
