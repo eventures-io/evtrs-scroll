@@ -6,8 +6,10 @@ var mongoose = require('mongoose'),
 var ArticleSchema = new Schema({
   title:{type: String, required: true, index: { unique: true, sparse: true }},
   content: {type: String,required: true},
+  image: {type: String},
   publDate: Date,
-  modDate: Date
+  modDate: Date,
+
 });
 
 module.exports = mongoose.model('Article', ArticleSchema);

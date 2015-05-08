@@ -5,17 +5,23 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     $scope.article = {};
     $scope.saveAction = 'Save';
     $scope.submitted = false;
+    $scope.includeImg = false;
 
+    $scope.$on('INSERT_IMAGE', function () {
+        $scope.includeImg = true;
+    });
 
     $scope.save = function (form) {
-        $scope.submitted = true;
+
         if (form.$valid) {
+
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
                 ArticleResource.save($scope.article)
                     .then(function (data) {
                         $scope.article = data;
                         $scope.saveAction = 'Update';
+                        $scope.submitted = true;
                     }
                 );
             } else {
@@ -42,7 +48,8 @@ angular.module('evtrsScrollApp')
 
         if ($stateParams.articleId) {
             loadArticle();
-        };
+        }
+        ;
 
         $scope.close = function () {
             $state.go('base.home.contact');
@@ -65,8 +72,8 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
     };
 
 
-    ArticleResource.getRecent().then(function(response){
-        var recent =  response.plain();
+    ArticleResource.getRecent().then(function (response) {
+        var recent = response.plain();
         $scope.articles = [
             {
                 title: "Collapse Group Item Title 1",
@@ -76,19 +83,20 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
             },
             {
                 title: "Collapse Group Item Title 2",
-                content: [{title: 'Article 1'}],
+                content: [
+                    {title: 'Article 1'}
+                ],
                 collapsed: true
             },
             {
                 title: "Collapse Group Item Title 3",
-                content: [{title: 'Article 3'}],
+                content: [
+                    {title: 'Article 3'}
+                ],
                 collapsed: true
             }
         ];
     })
-
-
-
 
 
 });

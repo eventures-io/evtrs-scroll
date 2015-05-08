@@ -7,7 +7,8 @@ angular.module('evtrsScrollApp', [
         'ngAnimate',
         'ui.router',
         'textAngular',
-        'restangular'
+        'restangular',
+        'ngFileUpload'
     ])
     .config(function ($httpProvider, RestangularProvider) {
 

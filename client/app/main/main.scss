@@ -4,24 +4,13 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
-
-.main-view {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
-  z-index: 1000;
-}
-
-
 .ng-enter {
-  animation: enter 1s cubic-bezier(.17,.67,.83,.67);
+  animation: fadeIn 0.7s 0.3 both ease-in;
 }
 
 .ng-leave {
   z-index: 999;
-  animation: fadeOut 0.5s 2s both ease-in;
+  animation: fadeOut 0.5s both ease-out;
 }
 
 /*ANIMATIONS-----------*/

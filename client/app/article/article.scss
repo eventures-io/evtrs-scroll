@@ -31,14 +31,6 @@
   margin-left: 5px;
 }
 
-.article-overview {
-  position: absolute;
-  top: 0;
-  background: #ffffff;
-  height: 100vh;
-  width: 100vw;
-}
-
 .articles-header {
   h3 {
     //allow vertical align, remove margin
@@ -67,9 +59,13 @@
   position: relative;
   width: 100%;
   height: 50px;
-  background-color: #808080;
+  background-color: #e4e4e4;
   vertical-align: middle;
 
+}
+
+.article-overview {
+ // @extend .container;
 }
 
 .article-list {
@@ -102,20 +98,8 @@
   .article-img {
     height: 60%;
     width: 100%;
-    background-color: brown;
+ //   background-color: brown;
     padding-left: calc(50% - 4em);
-  }
-  .article-icon {
-    display: block;
-    width: 2em;
-    height: 2em;
-    position: relative;
-    text-align: center;
-    line-height: 2em;
-    border-radius: 50%;
-    border: 1px solid;
-    font-size: 4em;
-    background-color: darkorange;
   }
 
 }
@@ -343,6 +327,27 @@ $accordion-text: #fff;
     opacity: 0;
     transform: scale(0.8);
   }
+}
+
+
+.drop-box {
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
+  border-radius: 8px;
+  width: 300px;
+  height: 150px;
+  cursor: pointer;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+
+.drop-box.dragover {
+  border: 5px dashed blue;
+}
+
+.drop-box.dragover-err {
+  border: 5px dashed red;
 }
 
 

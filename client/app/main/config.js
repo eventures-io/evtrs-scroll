@@ -1,89 +1,42 @@
 'use strict';
 angular.module('evtrsScrollApp')
-    .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+    .config(function ($locationProvider, $stateProvider, $urlRouterProvider, $provide) {
 
         $urlRouterProvider
             .otherwise('/');
 
         $locationProvider.html5Mode(true);
 
-
         $stateProvider
-            .state('base', {
-                abstract: true,
+            .state('home', {
                 url: '/',
-                controller: 'MainCtrl',
-                templateUrl: 'app/main/main.html',
-
+                templateUrl : 'app/article/article-overview.html'
             })
-            .state('base.home', {
-                url: '',
-                views: {
-                    'intro-view@base': { templateUrl: 'app/main/intro.html' },
-                    'about-view@base': { templateUrl: 'app/about/about.html' },
-                    'services-view@base': { templateUrl: 'app/services/services.html'}
-                }
-            })
-            .state('base.home.intro', {
-                url: '',
-                views: {
-                    'intro-sub-view@base.home': {
-                        template: ''
-                    }
-                },
-                data: {
-                    elementId: 'page-top'
-                }
-            })
-            .state('base.home.about', {
-                url: 'about',
-                views: {
-                    'about-sub-view@base.home': {
-                        template: ''
-                    }
-                },
-                data: {
-                    elementId: 'about'
-                }
-            })
-            .state('base.home.services', {
-                url: 'services',
-                views: {
-                    'services-sub-view@base.home': {
-                        template: ''
-                    }
-                },
-                data: {
-                    elementId: 'services'
-                }
-            })
-            .state('base.home.contact', {
-                url: 'contact',
-                data: {
-                    elementId: 'contact'
-                }
-            })
-            .state('article-create', {
-                url: '/admin/article-create',
+            .state('create', {
+                url: '/admin/create',
                 templateUrl: 'app/article/article-create.html',
                 controller: 'ArticleCtrl'
             })
-            .state('article-overview', {
-                url: '/articles/list',
-                templateUrl : 'app/article/article-overview.html'
-
-            })
-            .state('base.home.services.article', {
+            .state('home.article', {
                 url: '/article/:articleId',
-                views: {
-                    'services-sub-view@base.home': { templateUrl: 'app/article/article-display.html',
-                        controller: 'ArticleDisplayCtrl'
-                    }
-                }, data: {
-                    elementId: 'services'
+                templateUrl: 'app/article/article-display.html',
+                 controller: 'ArticleDisplayCtrl'
+
+            });
+
+
+        $provide.decorator('taOptions', ['taRegisterTool', '$delegate', '$injector', function(taRegisterTool, taOptions, $injector){
+
+            taRegisterTool('insertImg', {
+                iconclass: "fa fa-picture-o",
+                action: function(){
+                   var rootScope= $injector.get('$rootScope');
+                   rootScope.$broadcast('INSERT_IMAGE');
                 }
             });
 
+            return taOptions;
+        }]);
 
     });
 
