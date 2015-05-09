@@ -6,15 +6,35 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     $scope.saveAction = 'Save';
     $scope.submitted = false;
     $scope.includeImg = false;
+    $scope.image = {};
 
     $scope.$on('INSERT_IMAGE', function () {
         $scope.includeImg = true;
     });
 
+    $scope.$watch('imageFile', function () {
+       if ($scope.imageFile && $scope.imageFile.length) {
+            var preview = angular.element(document.querySelector('.img-preview'));
+            var file = $scope.imageFile[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                $scope.article.image = reader.result;
+                preview[0].src = reader.result;
+                $scope.includeImg = false;
+                $scope.$apply();
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                $scope.article.image =  undefined;
+            }
+        }
+    });
+
     $scope.save = function (form) {
 
         if (form.$valid) {
-
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
                 ArticleResource.save($scope.article)

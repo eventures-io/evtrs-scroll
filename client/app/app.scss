@@ -3,6 +3,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
+@import url(http://fonts.googleapis.com/css?family=Marck+Script);
 
 /**
  * App-wide Styles
@@ -35,6 +36,7 @@ $footer-bg-color: #333329;
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
+@import 'article/accordion.scss';
 @import 'article/article.scss';
 @import 'main/main.scss';
 @import 'navbar/navbar.scss';
