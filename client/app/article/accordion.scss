@@ -1,12 +1,13 @@
 
 /* ACCORDION --------------*/
-/* Setting the max-height @media screen and (min-width:48em)
- * determines the height of a accordion container. (transition duration should be proportional to the height)
- * Allows to use a collapsable grid system.
- * Alternative is one row display, with horizontal scrolling enabled.
- * Sizing of the columns could be done with em's.
- * Needs overflow-x visible (overflow-y: hidden);
- * Third option: overflow-x: hidden. scroll vertically in container (container-fluid).
+/*
+ * Setting the max-height (at @media screen and (min-width:48em))
+ * determines the height of an accordion container. (transition duration should be proportional to the height)
+ *
+ * Three container layout options:
+ * 1) A collapsable grid system.
+ * 2) One row display, with horizontal scrolling enabled. (container-fluid, overflow-x visible);
+ * 3) Scroll vertically (overflow-y: visible)
  *
  */
 
@@ -59,7 +60,7 @@ $accordion-text: #fff;
     font-family: 'FontAwesome';
     content: "\f00d";
     font-size: 1.5em;
-    line-height: 0.5em;
+    line-height: 1em;
     float: right;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);

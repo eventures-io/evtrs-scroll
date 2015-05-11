@@ -91,9 +91,6 @@
   height: 100%;
   width: 100%;
 
-  //   background-color: brown;
-  //padding-left: calc(50% - 4em);
-
   .article-title {
     height: 40%;
     width: 100%;
@@ -125,12 +122,11 @@
 }
 
 //file upload
-
 .drop-box {
   background: #F8F8F8;
   border: 5px dashed #DDD;
   border-radius: 8px;
-  width: 300px;
+  width: 250px;
   height: 150px;
   cursor: pointer;
   padding: 25px;
@@ -145,12 +141,19 @@
   border: 5px dashed red;
 }
 
-.img-preview {
-  width: 300px;
-  height: 150px;
-  border-radius: 8px;
-  border: none;
+
+.image-include {
+  display:flex;
+  .image-preview {
+    width: 250px;
+    height: 150px;
+    border-radius: 8px;
+    border: none;
+    margin: 0 15px 15px 0;
+  }
 }
+
+
 
 
 

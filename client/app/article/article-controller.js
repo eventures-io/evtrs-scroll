@@ -13,8 +13,8 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     });
 
     $scope.$watch('imageFile', function () {
-       if ($scope.imageFile && $scope.imageFile.length) {
-            var preview = angular.element(document.querySelector('.img-preview'));
+        if ($scope.imageFile && $scope.imageFile.length) {
+            var preview = angular.element(document.querySelector('.image-preview'));
             var file = $scope.imageFile[0];
             var reader = new FileReader();
 
@@ -27,7 +27,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
             if (file) {
                 reader.readAsDataURL(file);
             } else {
-                $scope.article.image =  undefined;
+                $scope.article.image = undefined;
             }
         }
     });
@@ -72,7 +72,7 @@ angular.module('evtrsScrollApp')
         ;
 
         $scope.close = function () {
-            $state.go('base.home.contact');
+            $state.go('home');
         };
 
     });
@@ -80,43 +80,34 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource) {
 
-    $scope.addItem = function () {
-        $scope.articles.push({
-            title: $scope.title,
-            content: $scope.content,
-            collapsed: false
-        });
-
-        $scope.title = '';
-        $scope.content = '';
-    };
-
-
     ArticleResource.getRecent().then(function (response) {
         var recent = response.plain();
-        $scope.articles = [
-            {
-                title: "Collapse Group Item Title 1",
-                content: recent,
-//            content: [{title: 'Article 1', type: 'blog'},{title: 'Article 2', type: 'picture'},{title: 'Article 3', type: 'prose' },{title: 'Article 4', type: 'rant'},{title: 'Article 5', type: 'rant'}],
-                collapsed: false
-            },
-            {
-                title: "Collapse Group Item Title 2",
-                content: [
-                    {title: 'Article 1'}
-                ],
-                collapsed: true
-            },
-            {
-                title: "Collapse Group Item Title 3",
-                content: [
-                    {title: 'Article 3'}
-                ],
-                collapsed: true
+        $scope.articles = [];
+        _.forEach(recent, function (value, key) {
+            var group = _.find($scope.articles, {group: value.type});
+            if (group) {
+                group.content.push(
+                    {
+                        title: value.title,
+                        image: value.image
+                    }
+                )
             }
-        ];
-    })
+            else {
+                $scope.articles.push({
+                        group: value.type,
+                        content: [
+                            {
+                                title: value.title,
+                                image: value.image
+                            }
+                        ],
+                        collapsed: true
+                    }
+                );
+            }
 
+        });
+    });
 
 });

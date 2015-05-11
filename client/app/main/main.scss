@@ -5,12 +5,12 @@ body {
 }
 
 .ng-enter {
-  animation: fadeIn 0.7s 0.3 both ease-in;
+  animation: fadeIn 0.2s 0.1 both ease-in;
 }
 
 .ng-leave {
   z-index: 999;
-  animation: fadeOut 0.5s both ease-out;
+  animation: fadeOut 0.1s;
 }
 
 /*ANIMATIONS-----------*/

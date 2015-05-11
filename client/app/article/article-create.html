@@ -2,25 +2,33 @@
     <h2>Create new article</h2>
     <hr/>
 
-    <div show="includeImg">
-        <div ngf-drop ngf-select ng-model="imageFile" class="drop-box"
-             ngf-drag-over-class="dragover" ngf-multiple="false" ngf-allow-dir="false"
-             accept="image/*">Drop pdfs or images here or click to upload
+    <div class="image-include">
+        <div ng-show='article.image'>
+            <img src='' class="image-preview">
         </div>
-    </div>
-    <div ng-show='imageFile'>
-        <img src='' class="img-preview">
+        <div ng-show="includeImg">
+            <div ngf-drop ngf-select ng-model="imageFile" class="drop-box"
+                 ngf-drag-over-class="dragover" ngf-multiple="false" ngf-allow-dir="false"
+                 accept="image/*">Drop image here or click to upload
+            </div>
+        </div>
     </div>
 
     <div class="border-1px-solid">
         <form class="form" name="form" ng-submit="save(form)" novalidate>
-
             <div class="form-group has-feedback" ng-class="{'has-error': form.title.$invalid && submitted }">
                 <label class="control-label" for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" ng-model="article.title" required/>
             </div>
+            <div class="form-group has-feedback" ng-class="{'has-error': form.type.$invalid && submitted }">
+                <label class="control-label" for="type">Type</label>
+                <input type="text" class="form-control" id="type" name="type" ng-model="article.type"
+                       required/>
+            </div>
             <div class="form-group">
-                <text-angular ng-model="article.content" ta-toolbar="[['insertImg','h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight']]" required/>
+                <text-angular ng-model="article.content"
+                              ta-toolbar="[['insertImg','h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight']]"
+                              required/>
             </div>
             <button class="form-btn pull-right" type="submit">{{saveAction}}</button>
             <button class="form-btn pull-right" ng-click="initialize()" type="button">Reset
