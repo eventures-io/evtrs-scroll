@@ -35,6 +35,7 @@ exports.recent = function (req, res) {
 
 //Filter on types
 exports.types = function (req, res) {
+    //Use starts with to improve performance /^
     var query = Article.find({type:{$regex: req.params.type ,$options:"$i"}})
     query.exec(function (err, articles) {
         if (err) {
@@ -42,7 +43,6 @@ exports.types = function (req, res) {
         }
         var result = [];
         _.forEach(articles, function (value, key) {
-            console.log(_.indexOf(result, value._doc.type));
            if(_.indexOf(result, value._doc.type) === -1){
                result.push(value.type);
            }

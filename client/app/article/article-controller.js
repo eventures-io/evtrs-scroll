@@ -33,16 +33,19 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         }
     });
 
-    $scope.findMatchingTypes = function(type) {
+    $scope.findMatchingTypes = function (type) {
         return ArticleResource.findMatchingTypes(type).then(function (response) {
             return response;
-        } )
+        })
     }
 
     $scope.save = function (form) {
         if (form.$valid) {
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
+                var type = $scope.article.type;
+                $scope.article.type = type.charAt(0).toUpperCase().concat(type.slice(1).toLowerCase());
+
                 ArticleResource.save($scope.article)
                     .then(function (data) {
                         $scope.article = data;
@@ -74,7 +77,8 @@ angular.module('evtrsScrollApp')
 
         if ($stateParams.articleId) {
             loadArticle();
-        };
+        }
+        ;
 
         $scope.close = function () {
             $state.go('home');
