@@ -6,9 +6,11 @@ angular.module('evtrsScrollApp', [
         'ngSanitize',
         'ngAnimate',
         'ui.router',
+        'ui.bootstrap',
         'textAngular',
         'restangular',
-        'ngFileUpload'
+        'ngFileUpload',
+
     ])
     .config(function ($httpProvider, RestangularProvider) {
 

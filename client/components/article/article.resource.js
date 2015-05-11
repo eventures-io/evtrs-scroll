@@ -20,10 +20,16 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
          return articles.customGETLIST('query/recent');
     };
 
+    var findMatchingTypes = function(type) {
+        var typeQuery = articles.all('types').all(type);
+        return  typeQuery.getList();
+    }
+
     return {
         getById : getById,
         save : save,
         update : update,
-        getRecent : getRecent
+        getRecent : getRecent,
+        findMatchingTypes : findMatchingTypes
     };
 });

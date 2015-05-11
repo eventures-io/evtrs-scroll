@@ -12,6 +12,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         $scope.includeImg = true;
     });
 
+
     $scope.$watch('imageFile', function () {
         if ($scope.imageFile && $scope.imageFile.length) {
             var preview = angular.element(document.querySelector('.image-preview'));
@@ -32,8 +33,13 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         }
     });
 
-    $scope.save = function (form) {
+    $scope.findMatchingTypes = function(type) {
+        return ArticleResource.findMatchingTypes(type).then(function (response) {
+            return response;
+        } )
+    }
 
+    $scope.save = function (form) {
         if (form.$valid) {
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
@@ -68,8 +74,7 @@ angular.module('evtrsScrollApp')
 
         if ($stateParams.articleId) {
             loadArticle();
-        }
-        ;
+        };
 
         $scope.close = function () {
             $state.go('home');
@@ -106,7 +111,6 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                     }
                 );
             }
-
         });
     });
 

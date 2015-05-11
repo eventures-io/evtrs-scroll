@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').directive('accordion', function () {
+angular.module('evtrsScrollApp').directive('cdwsAccordion', function () {
 
     return {
         restrict: 'E',
