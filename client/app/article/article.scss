@@ -76,7 +76,7 @@
 
 .article-cell {
   height: 25em;
-  min-width: 22em;
+  width: 22em;
   display: table-cell;
   padding-right: 5px;
 }
@@ -97,22 +97,16 @@
     padding: 1em;
     text-align: center;
   }
-  .article-img-cell {
-    height:60%;
-    width:100%;
-    overflow: hidden;
 
-  }
-  .article-img {
+  .article-image {
     height: 17em;
-    width: 100%;
-    border-radius: 15px;
-    //display: block;
+    width: 22em;
+    border-radius: 15px 15px 0 0 ;
     -webkit-filter: grayscale(0.6);
     filter: grayscale(0.6);
   }
 
-  .article-img:hover {
+  .article-image:hover {
     -webkit-filter: grayscale(0.2);
     filter: grayscale(0.2);
     cursor: pointer;

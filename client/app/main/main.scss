@@ -1,9 +1,38 @@
-/*COMPONENTS-----*/
+/* App-wide Styles----*/
+
 body {
   color: $primary-color;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/*COMPONENTS-----*/
+
+.padding-top {
+  padding-top: 50px;
+}
+
+.container-view {
+  @extend .container;
+  padding: 50px 15% 0 15%;
+
+}
+
+
+/*ANIMATIONS-----------*/
 .ng-enter {
   animation: fadeIn 0.2s 0.1 both ease-in;
 }
@@ -13,7 +42,6 @@ body {
   animation: fadeOut 0.1s;
 }
 
-/*ANIMATIONS-----------*/
 @keyframes slideDown {
   to {
     transform: translateY(70vh);
