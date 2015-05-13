@@ -14,8 +14,7 @@
         </div>
     </div>
 
-    <div class="border-1px-solid">
-        <form class="form" name="form" ng-submit="save(form)" novalidate>
+        <form class="article-form" name="form" ng-submit="save(form)" novalidate>
             <div class="form-group has-feedback" ng-class="{'has-error': form.title.$invalid && submitted }">
                 <label class="control-label" for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" ng-model="article.title" required/>
@@ -34,10 +33,10 @@
                               ta-toolbar="[['h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertImg']]"
                               required/>
             </div>
-            <button class="form-btn pull-right" type="submit">{{saveAction}}</button>
-            <button class="form-btn pull-right" ng-click="initialize()" type="button">Reset
+            <button class="form-btn btn-success" type="submit">{{saveAction}}</button>
+            <button class="form-btn btn-default" ng-click="initialize()" type="button">Reset
             </button>
 
         </form>
-    </div>
+
 </div>

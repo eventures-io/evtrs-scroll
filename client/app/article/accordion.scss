@@ -34,12 +34,11 @@ $accordion-text: #fff;
       text-align: center;
       font-family: 'Raleway', sans-serif;
       font-size: larger;
-      padding: 2em;
+      padding: 1em;
       display: block;
       text-decoration: none;
       color: $accordion-text;
       -webkit-transition: background-color 0.5s ease-in-out;
-
     }
   }
   .inner {
@@ -56,12 +55,15 @@ $accordion-text: #fff;
   background-color: $accordion-color;
   border-bottom: 1px solid darken($accordion-color, 5%);
   cursor: pointer;
+  > h3 {
+    display: inline-block;
+  }
   &:before {
     //open/close icon
     font-family: 'FontAwesome';
     content: "\f00d";
     font-size: 1.5em;
-    line-height: 1em;
+    line-height: 2em;
     float: right;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);

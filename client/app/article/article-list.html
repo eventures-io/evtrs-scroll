@@ -1,9 +1,11 @@
 <div class='article-list'>
     <div class='article-cell' ng-repeat="article in item.content">
         <div class="article-thumbnail">
-            <img src="{{article.image}}" class="article-image">
+            <a ng-href="/article/{{article.id}}">
+                <img src="{{article.image}}" class="article-image">
+            </a>
             <div class="article-title">
-                <h2>{{article.title}}</h2>
+                <h4>{{article.title}}</h4>
             </div>
 
         </div>

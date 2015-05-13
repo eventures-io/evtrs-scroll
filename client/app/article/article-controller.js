@@ -97,6 +97,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
             if (group) {
                 group.content.push(
                     {
+                        id: value._id,
                         title: value.title,
                         image: value.image
                     }
@@ -107,6 +108,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                         group: value.type,
                         content: [
                             {
+                                id: value._id,
                                 title: value.title,
                                 image: value.image
                             }

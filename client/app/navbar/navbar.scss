@@ -5,13 +5,13 @@
 
   .top-nav-collapse {
     padding: 0;
-    background: #DEDEDE;
+    background: $header-color;
     border-bottom: 1px dashed #A9A9A9;
   }
 
-  .navbar a.active {
-    color: $secondary-color !important;
-    background: #9f9f9f;
-  }
+//  .navbar a.active {
+//    color: $secondary-color !important;
+//    background: #9f9f9f;
+//  }
 
 }

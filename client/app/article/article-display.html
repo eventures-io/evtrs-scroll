@@ -1,8 +1,27 @@
 <div class="article-container">
-    <span class="close-icon" ng-click="close()"></span>
-    <h2>{{article.title}}</h2>
+    <div class="row">
+        <div class="col-sm-11">
+            <h2>{{article.title}}</h2>
+        </div>
+        <div class="col-sm-1">
+            <div class="close-icon" ng-click="close()"></div>
+        </div>
+    </div>
+    <div class="row>">
+        <!--<TODO set bottom border instead of the hr>-->
     <hr/>
-    <div class="border-1px-solid">
-        <div ng-bind-html="article.content | HtmlFilter"></div>
+    </div>
+    <div class="row">
+        <div class="article-image-view">
+            <img src="{{article.image}}" class="article-image">
+        </div>
+        <div class="col-sm-6">
+            <div class="article-content">
+                <div ng-bind-html="article.content | HtmlFilter"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row>">
+        <hr/>
     </div>
 </div>
