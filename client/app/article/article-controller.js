@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource) {
+angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log) {
 
     $scope.article = {};
     $scope.saveAction = 'Save';
     $scope.submitted = false;
     $scope.includeImg = false;
     $scope.image = {};
+    $scope.spinner= {};
 
     $scope.$on('INSERT_IMAGE', function () {
         $scope.includeImg = true;
@@ -34,10 +35,15 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     });
 
     $scope.findMatchingTypes = function (type) {
+        $scope.spinner.show = true;
         return ArticleResource.findMatchingTypes(type).then(function (response) {
+            $scope.spinner.show = false;
             return response;
-        })
-    }
+        }, function(error) {
+            $scope.spinner.show = false;
+            $log.error('Error loading types for ' + type + ': ' + JSON.stringify(error));
+        });
+    };
 
     $scope.save = function (form) {
         if (form.$valid) {
@@ -66,19 +72,12 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 angular.module('evtrsScrollApp')
     .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource, $state) {
 
-        $scope.animate = 'transition-in transition-out';
-
-        var loadArticle = function () {
-            ArticleResource.getById($stateParams.articleId).then(
+        if ($stateParams.articleId) {
+            lArticleResource.getById($stateParams.articleId).then(
                 function (data) {
                     $scope.article = data;
                 });
-        };
-
-        if ($stateParams.articleId) {
-            loadArticle();
         }
-        ;
 
         $scope.close = function () {
             $state.go('home');

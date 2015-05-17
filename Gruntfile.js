@@ -410,7 +410,7 @@ module.exports = function (grunt) {
             },
             heroku: {
                 options: {
-                    remote: 'git@heroku.com:eventures-scroll.git',
+                    remote: 'git@heroku.com:mean-post.git',
                     branch: 'master'
                 }
             },
