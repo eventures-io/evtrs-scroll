@@ -120,6 +120,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
         });
 
         $scope.articles = articles;
+
     });
 
 });

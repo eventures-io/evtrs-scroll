@@ -19,6 +19,7 @@ $accordion-text: #fff;
 }
 
 .accordion {
+  visibility: hidden;
   .outer {
     border: 1px solid #ddd;
     &:after {
@@ -49,6 +50,11 @@ $accordion-text: #fff;
       padding: 1em 2em 1em 2em;
     }
   }
+}
+
+.accordion-visible {
+    visibility: visible;
+
 }
 
 .accordion-title {
