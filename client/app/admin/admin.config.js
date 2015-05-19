@@ -9,7 +9,7 @@ angular.module('evtrsScrollApp')
                 controller: 'LoginCtrl'
             })
             .state('register', {
-                url: '/admin/register',
+                url: '/register',
                 templateUrl: 'app/account/register/register.html',
                 controller: 'RegistrationCtrl'
             })
