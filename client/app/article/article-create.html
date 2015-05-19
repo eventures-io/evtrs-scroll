@@ -14,29 +14,28 @@
         </div>
     </div>
 
-        <form class="article-form" name="form" ng-submit="save(form)" novalidate>
-            <div class="form-group has-feedback" ng-class="{'has-error': form.title.$invalid && submitted }">
-                <label class="control-label" for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" ng-model="article.title" required/>
-            </div>
-            <div class="form-group has-feedback" ng-class="{'has-error': form.type.$invalid && submitted }">
-                <label class="control-label" for="type">Type</label>
+    <form class="article-form" name="form" ng-submit="save(form)" novalidate>
+        <div class="form-group has-feedback" ng-class="{'has-error': form.title.$invalid && submitted }">
+            <label class="control-label" for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" ng-model="article.title" required/>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-error': form.type.$invalid && submitted }">
+            <label class="control-label" for="type">Type</label>
+            <input type="text" id="type" name="type" ng-model="article.type"
+                   typeahead="type for type in findMatchingTypes($viewValue)"
+                   class="form-control" required>
+            <i ng-show="spinner.show" class="glyphicon glyphicon-refresh"></i>
 
-                <input type="text" id="type" name="type" ng-model="article.type"
-                       typeahead="type for type in findMatchingTypes($viewValue)"
-                       class="form-control" required>
-                <i ng-show="spinner.show" class="glyphicon glyphicon-refresh"></i>
+        </div>
+        <div class="form-group">
+            <text-angular ng-model="article.content"
+                          ta-toolbar="[['h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertImg']]"
+                          required/>
+        </div>
+        <button class="form-btn btn-success" type="submit">{{saveAction}}</button>
+        <button class="form-btn btn-default" ng-click="initialize()" type="button">Reset
+        </button>
 
-            </div>
-            <div class="form-group">
-                <text-angular ng-model="article.content"
-                              ta-toolbar="[['h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertImg']]"
-                              required/>
-            </div>
-            <button class="form-btn btn-success" type="submit">{{saveAction}}</button>
-            <button class="form-btn btn-default" ng-click="initialize()" type="button">Reset
-            </button>
-
-        </form>
+    </form>
 
 </div>

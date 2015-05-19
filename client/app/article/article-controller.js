@@ -73,7 +73,7 @@ angular.module('evtrsScrollApp')
     .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource, $state) {
 
         if ($stateParams.articleId) {
-            lArticleResource.getById($stateParams.articleId).then(
+            ArticleResource.getById($stateParams.articleId).then(
                 function (data) {
                     $scope.article = data;
                 });
@@ -90,9 +90,10 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
 
     ArticleResource.getRecent().then(function (response) {
         var recent = response.plain();
-        $scope.articles = [];
+        var articles = [];
+
         _.forEach(recent, function (value, key) {
-            var group = _.find($scope.articles, {group: value.type});
+            var group = _.find(articles, {group: value.type});
             if (group) {
                 group.content.push(
                     {
@@ -103,7 +104,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                 )
             }
             else {
-                $scope.articles.push({
+                articles.push({
                         group: value.type,
                         content: [
                             {
@@ -117,6 +118,8 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                 );
             }
         });
+
+        $scope.articles = articles;
     });
 
 });
