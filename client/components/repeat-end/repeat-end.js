@@ -6,7 +6,7 @@ angular.module('evtrsScrollApp').directive("repeatEnd", function($timeout){
             if (scope.$last) {
                 $timeout(function () {
                     scope.$emit('ACCORDION_LOADED');
-                }, 500);
+                });
             }
         }
     };

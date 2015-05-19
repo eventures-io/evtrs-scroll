@@ -118,6 +118,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                 );
             }
         });
+        articles[0].collapsed=false;
 
         $scope.articles = articles;
 
