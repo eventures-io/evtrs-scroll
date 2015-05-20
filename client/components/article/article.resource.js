@@ -5,15 +5,11 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
     var articles = Restangular.all('articles');
 
     var getById = function (articleId) {
-        return articles.one(articleId).get();
+        return Restangular.one('articles', articleId).get();
     };
 
     var save = function (article) {
         return articles.post(article);
-    };
-
-    var update = function (article) {
-        return articles.put(article);
     };
 
     var getRecent = function (){
@@ -33,7 +29,6 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
         getById : getById,
         getAll: getAll,
         save : save,
-        update : update,
         getRecent : getRecent,
         findMatchingTypes : findMatchingTypes
     };

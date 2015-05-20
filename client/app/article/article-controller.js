@@ -1,22 +1,35 @@
 'use strict';
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log) {
+angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
 
     $scope.article = {};
-    $scope.saveAction = 'Save';
-    $scope.submitted = false;
     $scope.includeImg = false;
-    $scope.image = {};
     $scope.spinner= {};
+
+    var preview = angular.element(document.querySelector('.image-preview'));
+
+    if ($stateParams.articleId) {
+        $scope.title = 'Edit article';
+        ArticleResource.getById($stateParams.articleId).then(
+            function (data) {
+                $scope.article = data;
+                $scope.saveAction = 'Update';
+                preview[0].src = $scope.article.image;
+            }).catch(function(error){
+                $log.error('Could not load article: ' + $stateParams.articleId +  ' : '  +  error.statusText);
+                $state.go('home');
+            });
+    } else {
+        $scope.saveAction = 'Save';
+        $scope.submitted = false;
+    }
 
     $scope.$on('INSERT_IMAGE', function () {
         $scope.includeImg = true;
     });
 
-
     $scope.$watch('imageFile', function () {
         if ($scope.imageFile && $scope.imageFile.length) {
-            var preview = angular.element(document.querySelector('.image-preview'));
             var file = $scope.imageFile[0];
             var reader = new FileReader();
 
@@ -66,6 +79,14 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         }
     };
 
+    $scope.delete =  function() {
+        $scope.article.remove().then(function(){
+            $state.go('home');
+        });
+
+
+    }
+
 });
 
 
@@ -87,6 +108,7 @@ angular.module('evtrsScrollApp')
 
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource) {
+
 
     ArticleResource.getAll().then(function (response) {
         var recent = response.plain();

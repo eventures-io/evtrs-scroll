@@ -1,15 +1,9 @@
 'use strict';
 
 angular.module('evtrsScrollApp')
-    .controller('MainCtrl', function ($scope, $state, ArticleResource) {
+    .controller('MainCtrl', function ($scope, $state, Auth, $log) {
 
-        $scope.recentPosts = [];
 
-        $scope.getRecentPosts = function () {
-            ArticleResource.getRecent().then(function (data) {
-                $scope.recentPosts = data;
-            });
-        };
 
     });
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evtrsScrollApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log) {
     var currentUser = {};
     if($cookieStore.get('token')) {
       currentUser = User.get();
@@ -107,6 +107,7 @@ angular.module('evtrsScrollApp')
        * @return {Boolean}
        */
       isLoggedIn: function() {
+          $log.debug('isLoggedIn called');
         return currentUser.hasOwnProperty('role');
       },
 

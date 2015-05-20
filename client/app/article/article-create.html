@@ -1,5 +1,5 @@
 <div class="container padding-top">
-    <h2>Create new article</h2>
+    <h2>{{title}}</h2>
     <hr/>
 
     <div class="image-include">
@@ -9,7 +9,7 @@
         <div ng-show="includeImg">
             <div ngf-drop ngf-select ng-model="imageFile" class="drop-box"
                  ngf-drag-over-class="dragover" ngf-multiple="false" ngf-allow-dir="false"
-                 accept="image/*">Drop image here or click to upload
+                 accept="image/*"><i>Drop image here or click to upload</i>
             </div>
         </div>
     </div>
@@ -33,7 +33,8 @@
                           required/>
         </div>
         <button class="form-btn btn-success" type="submit">{{saveAction}}</button>
-        <button class="form-btn btn-default" ng-click="initialize()" type="button">Reset
+
+        <button ng-if="saveAction === 'Update'" class="form-btn btn-danger" ng-click="delete()" type="button">Delete
         </button>
 
     </form>

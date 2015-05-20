@@ -15,7 +15,7 @@ angular.module('evtrsScrollApp')
         })
         .then( function() {
           // Logged in, redirect to article create
-          $location.path('/admin/create');
+          $location.path('/article/create');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

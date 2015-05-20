@@ -5,7 +5,14 @@
                 <img src="{{article.image}}" class="article-image">
             </a>
             <div class="article-title">
-                <h4>{{article.title}}</h4>
+                <span ng-if="isLoggedIn">
+                    <a ng-href="/article/edit/{{article.id}}">
+                        <h4>{{article.title}}</h4>
+                    </a>
+                </span>
+                <span ng-if="!isLoggedIn">
+                    <h4>{{article.title}}</h4>
+                </span>
             </div>
         </div>
     </div>

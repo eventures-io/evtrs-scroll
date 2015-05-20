@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').directive('cdwsAccordion', function () {
+angular.module('evtrsScrollApp').directive('cdwsAccordion', function (Auth) {
 
     return {
         restrict: 'E',
@@ -13,6 +13,8 @@ angular.module('evtrsScrollApp').directive('cdwsAccordion', function () {
         link: function (scope, element, attrs) {
             //if false, collapse all other panels on toggleCollapse
             var multipleOpen = attrs.multipleOpen;
+
+            scope.isLoggedIn = Auth.isLoggedIn();
 
             scope.modelLoaded = false;
 
