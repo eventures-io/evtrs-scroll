@@ -9,6 +9,8 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 /*VARIABLES-----*/
 $primary-color: #2F4F4F;
 $header-color: #DEDEDE;
+$accordion-color: #38cc70;
+$accordion-text: #fff;
 
 
 // Component styles are injected through grunt
@@ -17,6 +19,7 @@ $header-color: #DEDEDE;
 @import 'admin/admin.scss';
 @import 'article/article.scss';
 @import 'main/main.scss';
+@import 'main/spinner.scss';
 @import 'navbar/navbar.scss';
 @import 'accordion/accordion.scss';
 // endinjector

@@ -11,11 +11,21 @@
  *
  */
 
-$accordion-color: #38cc70;
-$accordion-text: #fff;
+
 
 .accordion-wrapper {
   width: 100vw;
+}
+
+.accordion-loader {
+  width: 100vw;
+  height: 200px;
+  display: none;
+}
+
+
+.loader-visible {
+        display: block;
 }
 
 .accordion {
