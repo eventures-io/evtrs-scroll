@@ -88,7 +88,7 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource) {
 
-    ArticleResource.getRecent().then(function (response) {
+    ArticleResource.getAll().then(function (response) {
         var recent = response.plain();
         var articles = [];
 

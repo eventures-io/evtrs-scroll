@@ -9,7 +9,7 @@ Deployed on Heroku (be patient on first load)
 
 ###TODOS###
 
-* Add loading spinner
+* Add caching
 * Improve transition animations
 * Fix Form validation
 * Control image file upload size

@@ -20,6 +20,10 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
          return articles.customGETLIST('query/recent');
     };
 
+    var getAll = function() {
+        return articles.getList();
+    }
+
     var findMatchingTypes = function(type) {
         var typeQuery = articles.all('types').all(type);
         return  typeQuery.getList();
@@ -27,6 +31,7 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
 
     return {
         getById : getById,
+        getAll: getAll,
         save : save,
         update : update,
         getRecent : getRecent,
