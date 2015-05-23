@@ -26,7 +26,7 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
     }
 
     var invalidateCache = function() {
-        $cacheFactory.removeAll()
+        $cacheFactory.get('$http').removeAll();
     }
 
     return {
