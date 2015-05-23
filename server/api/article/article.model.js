@@ -7,7 +7,8 @@ var ArticleSchema = new Schema({
   title:{type: String, required: true, index: { unique: true, sparse: true }},
   type: {type: String, required: true},
   content: {type: String},
-  image: {type: String},
+  images: {type: Array},
+  thumbnails: {type: Array},
   publDate: Date,
   modDate: Date
 });

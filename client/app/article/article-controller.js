@@ -2,10 +2,13 @@
 
 angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
 
-    $scope.article = {};
-    $scope.includeImg = false;
-    $scope.spinner= {};
+    $scope.article = {
+        images : []
+    };
 
+    $scope.includeImg = false;
+    $scope.spinner = {};
+    $scope.submitted = false;
     var preview = angular.element(document.querySelector('.image-preview'));
 
     if ($stateParams.articleId) {
@@ -14,35 +17,36 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
             function (data) {
                 $scope.article = data;
                 $scope.saveAction = 'Update';
-                preview[0].src = $scope.article.image;
-            }).catch(function(error){
-                $log.error('Could not load article: ' + $stateParams.articleId +  ' : '  +  error.statusText);
+            }).catch(function (error) {
+                $log.error('Could not load article: ' + $stateParams.articleId + ' : ' + error.statusText);
                 $state.go('home');
             });
     } else {
+        $scope.title = 'Create article';
         $scope.saveAction = 'Save';
-        $scope.submitted = false;
     }
 
     $scope.$on('INSERT_IMAGE', function () {
-        $scope.includeImg = true;
+        if($scope.article.images.length < 3) {
+            $scope.includeImg = true;
+        }
     });
 
     $scope.$watch('imageFile', function () {
         if ($scope.imageFile && $scope.imageFile.length) {
             var file = $scope.imageFile[0];
             var reader = new FileReader();
+            var imageCount = $scope.article.images.length;
 
             reader.onloadend = function () {
-                $scope.article.image = reader.result;
-                preview[0].src = reader.result;
+                $scope.article.images[imageCount] = reader.result;
                 $scope.includeImg = false;
                 $scope.$apply();
             }
             if (file) {
                 reader.readAsDataURL(file);
             } else {
-                $scope.article.image = undefined;
+                $log.error('Could not read image file ');
             }
         }
     });
@@ -52,13 +56,14 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
         return ArticleResource.findMatchingTypes(type).then(function (response) {
             $scope.spinner.show = false;
             return response;
-        }, function(error) {
+        }, function (error) {
             $scope.spinner.show = false;
             $log.error('Error loading types for ' + type + ': ' + JSON.stringify(error));
         });
     };
 
     $scope.save = function (form) {
+        $scope.submitted = true;
         if (form.$valid) {
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
@@ -69,18 +74,19 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
                     .then(function (data) {
                         $scope.article = data;
                         $scope.saveAction = 'Update';
-                        $scope.submitted = true;
+                        $scope.submitted = false;
                     }
                 );
             } else {
                 $scope.article.modDate = new Date();
                 $scope.article.put();
+                $scope.submitted = false;
             }
         }
     };
 
-    $scope.delete =  function() {
-        $scope.article.remove().then(function(){
+    $scope.delete = function () {
+        $scope.article.remove().then(function () {
             $state.go('home');
         });
 
@@ -109,7 +115,6 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource) {
 
-
     ArticleResource.getAll().then(function (response) {
         var recent = response.plain();
         var articles = [];
@@ -121,7 +126,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                     {
                         id: value._id,
                         title: value.title,
-                        image: value.image
+                        image: value.images[0]
                     }
                 )
             }
@@ -132,7 +137,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                             {
                                 id: value._id,
                                 title: value.title,
-                                image: value.image
+                                image: value.images[0]
                             }
                         ],
                         collapsed: true
@@ -140,7 +145,7 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                 );
             }
         });
-        articles[0].collapsed=false;
+        articles[0].collapsed = false;
 
         $scope.articles = articles;
 

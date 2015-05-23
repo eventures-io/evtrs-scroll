@@ -13,7 +13,11 @@
     </div>
     <div class="row">
         <div class="article-image-view">
-            <img src="{{article.image}}" class="article-image">
+            <carousel interval="-1">
+                <slide ng-repeat="image in article.images" active="slide.active">
+                    <img ng-src="{{image}}" style="margin:auto;">
+                </slide>
+            </carousel>
         </div>
         <div class="col-sm-6">
             <div class="article-content">

@@ -3,8 +3,8 @@
     <hr/>
 
     <div class="image-include">
-        <div ng-show='article.image'>
-            <img src='' class="image-preview">
+        <div ng-repeat="image in article.images">
+                    <img src='{{image}}' class="image-preview">
         </div>
         <div ng-show="includeImg">
             <div ngf-drop ngf-select ng-model="imageFile" class="drop-box"
@@ -30,7 +30,7 @@
         <div class="form-group">
             <text-angular ng-model="article.content"
                           ta-toolbar="[['h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertImg']]"
-                          required/>
+                    />
         </div>
         <button class="form-btn btn-success" type="submit">{{saveAction}}</button>
 

@@ -1,0 +1,86 @@
+/* Header----*/
+.articles-header {
+  h3 {
+    //allow vertical align, remove margin
+    display: inline-block;
+  }
+  background-color: lightgrey;
+  text-align: center;
+  font-weight: bold;
+  height: 60px;
+  vertical-align: middle;
+}
+
+.article-search-bar {
+  .search-box {
+    input {
+      //search icon
+      font-family: 'FontAwesome';
+      font-size: medium;
+      height: calc(50px - 14px);
+    }
+    height: calc(50px - 14px);
+    position: absolute;
+    right: 20px;
+    top: 7px;
+  }
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #e4e4e4;
+  vertical-align: middle;
+
+}
+
+.article-overview {
+  //fix-me: container breaks layout
+  // @extend .container;
+}
+
+/* Thumbnail list view----*/
+.article-list {
+  width: 100%;
+  height: calc(100% + 100px);
+  padding: 5px;
+}
+
+.article-cell {
+  height: 25em;
+  width: 22em;
+  display: table-cell;
+  padding-right: 5px;
+}
+
+.article-thumbnail {
+  h2 {
+    display: inline;
+    font-family: 'Raleway', cursive;
+  }
+  background: lightgray;
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+
+  .article-title {
+    height: 40%;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .article-image {
+    height: 17em;
+    width: 22em;
+    border-radius: 15px 15px 0 0 ;
+    -webkit-filter: grayscale(0.6);
+    filter: grayscale(0.6);
+  }
+
+  .article-image:hover {
+    -webkit-filter: grayscale(0.1);
+    filter: grayscale(0.1);
+    cursor: pointer;
+  }
+
+
+}

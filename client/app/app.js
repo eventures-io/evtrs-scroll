@@ -53,8 +53,6 @@ angular.module('evtrsScrollApp', [
                     $location.path('/login');
                 }
             });
-          //always scroll to top before starting ng-enter animation
-           $window.scroll(0,0);
         });
 
     });
