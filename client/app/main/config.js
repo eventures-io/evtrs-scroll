@@ -17,7 +17,7 @@ angular.module('evtrsScrollApp')
                 templateUrl: 'app/article/article-create.html',
                 controller: 'ArticleCtrl'
             })
-            .state('read', {
+            .state('detail', {
                 url: '/article/:articleId',
                 templateUrl: 'app/article/article-display.html',
                 controller: 'ArticleDisplayCtrl'

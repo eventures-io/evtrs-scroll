@@ -1,9 +1,7 @@
 <div class='article-list'>
     <div class='article-cell' ng-repeat="article in item.content">
         <div class="article-thumbnail">
-            <a ng-href="/article/{{article.id}}">
-                <img src="{{article.image}}" class="article-image">
-            </a>
+                <img src="{{article.image}}" class="article-image" ng-click="showDetailView(article.id)">
             <div class="article-title">
                 <span ng-if="isLoggedIn">
                     <a ng-href="/article/edit/{{article.id}}">

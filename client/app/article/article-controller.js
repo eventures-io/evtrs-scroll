@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
+angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state ) {
 
     $scope.article = {
         images : []
@@ -72,6 +72,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 
                 ArticleResource.save($scope.article)
                     .then(function (data) {
+                        ArticleResource.invalidateCache();
                         $scope.article = data;
                         $scope.saveAction = 'Update';
                         $scope.submitted = false;
@@ -79,19 +80,22 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
                 );
             } else {
                 $scope.article.modDate = new Date();
-                $scope.article.put();
-                $scope.submitted = false;
+                $scope.article.put().then(function() {
+                    ArticleResource.invalidateCache();
+                    $scope.submitted = false;
+                });
+
             }
         }
     };
 
     $scope.delete = function () {
         $scope.article.remove().then(function () {
+            ArticleResource.invalidateCache();
             $state.go('home');
         });
-
-
     }
+
 
 });
 
@@ -113,7 +117,12 @@ angular.module('evtrsScrollApp')
     });
 
 
-angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource) {
+angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource, $state, $timeout) {
+
+    $scope.$on('ACCORDION_LOADED', function() {
+        //Hide loading spinner
+        $scope.modelLoaded = true;
+    });
 
     ArticleResource.getAll().then(function (response) {
         var recent = response.plain();
@@ -145,10 +154,22 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
                 );
             }
         });
-        articles[0].collapsed = false;
-
+        //articles[0].collapsed = false;
         $scope.articles = articles;
 
     });
+
+
+    $scope.showDetailView = function(id){
+        angular.forEach($scope.viewModel, function(article) {
+            article.collapsed = true;
+        });
+
+        $timeout(function() {
+            return $state.go('detail', {articleId : id});
+        }, 1000);
+
+    }
+
 
 });

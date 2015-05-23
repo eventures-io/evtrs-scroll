@@ -10,18 +10,13 @@ angular.module('evtrsScrollApp').directive('cdwsAccordion', function (Auth) {
         scope: {
             viewModel: '='
         },
+        controller: '@',
+        name:'controller',
         link: function (scope, element, attrs) {
             //if false, collapse all other panels on toggleCollapse
             var multipleOpen = attrs.multipleOpen;
-
             scope.isLoggedIn = Auth.isLoggedIn();
-
             scope.modelLoaded = false;
-
-            scope.$on('ACCORDION_LOADED', function() {
-                scope.modelLoaded = true;
-            });
-
             scope.contentTemplateUrl = attrs.contentTemplate;
 
             scope.toggleCollapse = function (index) {

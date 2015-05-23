@@ -33,12 +33,16 @@ h4 {
 
 /*ANIMATIONS-----------*/
 .ng-enter {
-  animation: fadeIn 0.2s 0.1 both ease-in;
+  //animation: fadeIn 0.5s 0.5 both ease-in;
+  -webkit-transition-delay: 2s;
+  transition-delay: 2s;
+  transform: scale(0.1, 1);
 }
 
 .ng-leave {
-  z-index: 999;
-  animation: fadeOut 0.1s;
+//  z-index: 999;
+//  transition-delay: 0.6s;
+//  transform: scale(0.1, 0.1);
 }
 
 @keyframes slideDown {
@@ -76,6 +80,10 @@ h4 {
     top: 0;
   }
 }
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangular) {
+angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangular, $cacheFactory) {
 
     var articles = Restangular.all('articles');
 
@@ -17,7 +17,7 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
     };
 
     var getAll = function() {
-        return articles.getList();
+        return articles.withHttpConfig({ cache: true }).getList();
     }
 
     var findMatchingTypes = function(type) {
@@ -25,11 +25,16 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
         return  typeQuery.getList();
     }
 
+    var invalidateCache = function() {
+        $cacheFactory.removeAll()
+    }
+
     return {
         getById : getById,
         getAll: getAll,
         save : save,
         getRecent : getRecent,
-        findMatchingTypes : findMatchingTypes
+        findMatchingTypes : findMatchingTypes,
+        invalidateCache : invalidateCache
     };
 });
