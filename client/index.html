@@ -18,6 +18,7 @@
     <!-- build:css(client) app/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -36,6 +37,7 @@
 
 <div ng-include="'app/navbar/navbar.html'"></div>
 <div ui-view></div>
+<toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
 
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -58,6 +60,7 @@
 <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="bower_components/angularjs-toaster/toaster.js"></script>
 <!-- endbower -->
 <!--script src="bower_components/angular-hint/hint.js"></script-->
 <!-- waiting for pull request acceptation-->
@@ -75,6 +78,7 @@
 <script src="app/admin/admin.controller.js"></script>
 <script src="app/article/article-controller.js"></script>
 <script src="app/main/config.js"></script>
+<script src="app/main/interceptor.js"></script>
 <script src="app/navbar/navbar.controller.js"></script>
 <script src="components/accordion/accordion-directive.js"></script>
 <script src="components/article/article.resource.js"></script>

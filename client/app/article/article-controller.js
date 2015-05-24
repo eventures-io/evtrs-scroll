@@ -9,6 +9,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     $scope.includeImg = false;
     $scope.spinner = {};
     $scope.submitted = false;
+    $scope.saveAction = 'Save';
     var preview = angular.element(document.querySelector('.image-preview'));
 
     if ($stateParams.articleId) {
@@ -23,7 +24,6 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
             });
     } else {
         $scope.title = 'Create article';
-        $scope.saveAction = 'Save';
     }
 
     $scope.$on('INSERT_IMAGE', function () {

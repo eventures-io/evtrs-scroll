@@ -19,6 +19,11 @@ h4 {
   padding: 0.2em 0;
 }
 
+#toast-container > .toast-error {
+  background-image: none !important;
+}
+
+
 /*COMPONENTS-----*/
 
 .padding-top {

@@ -10,15 +10,20 @@ angular.module('evtrsScrollApp', [
         'textAngular',
         'restangular',
         'ngFileUpload',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        'toaster'
 
     ])
     .config(function ($httpProvider, RestangularProvider, cfpLoadingBarProvider) {
 
+        $httpProvider.interceptors.push('HttpRequestInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
+        RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
         cfpLoadingBarProvider.includeSpinner = false;
+
+
     })
 
     .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
@@ -47,7 +52,7 @@ angular.module('evtrsScrollApp', [
         };
     })
 
-    .run($rootScope, function ($location, Auth, Restangular, $cacheFactory) {
+    .run(function ($rootScope, $location, Auth, Restangular, $cacheFactory) {
         // Redirect to login if route requires auth and you're not logged in
         Restangular.setResponseInterceptor(function(response, operation) {
             if (operation === 'put' || operation === 'post' || operation === 'delete') {
