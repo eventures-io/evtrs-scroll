@@ -81,7 +81,6 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
             } else {
                 $scope.article.modDate = new Date();
                 $scope.article.put().then(function() {
-                    ArticleResource.invalidateCache();
                     $scope.submitted = false;
                 });
 
@@ -91,7 +90,6 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 
     $scope.delete = function () {
         $scope.article.remove().then(function () {
-            ArticleResource.invalidateCache();
             $state.go('home');
         });
     }

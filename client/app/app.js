@@ -10,13 +10,15 @@ angular.module('evtrsScrollApp', [
         'textAngular',
         'restangular',
         'ngFileUpload',
+        'angular-loading-bar'
 
     ])
-    .config(function ($httpProvider, RestangularProvider) {
+    .config(function ($httpProvider, RestangularProvider, cfpLoadingBarProvider) {
 
         $httpProvider.interceptors.push('authInterceptor');
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
+        cfpLoadingBarProvider.includeSpinner = false;
     })
 
     .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
@@ -45,8 +47,16 @@ angular.module('evtrsScrollApp', [
         };
     })
 
-    .run(function ($rootScope, $location, Auth, $document, $window, $anchorScroll) {
+    .run($rootScope, function ($location, Auth, Restangular, $cacheFactory) {
         // Redirect to login if route requires auth and you're not logged in
+        Restangular.setResponseInterceptor(function(response, operation) {
+            if (operation === 'put' || operation === 'post' || operation === 'delete') {
+                $cacheFactory('http').removeAll();
+            }
+            return response;
+        });
+
+
         $rootScope.$on('$stateChangeStart', function (event, next) {
             Auth.isLoggedInAsync(function (loggedIn) {
                 if (next.authenticate && !loggedIn) {

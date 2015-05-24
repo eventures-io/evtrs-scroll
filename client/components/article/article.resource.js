@@ -25,16 +25,12 @@ angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangula
         return  typeQuery.getList();
     }
 
-    var invalidateCache = function() {
-        $cacheFactory.get('$http').removeAll();
-    }
 
     return {
         getById : getById,
         getAll: getAll,
         save : save,
         getRecent : getRecent,
-        findMatchingTypes : findMatchingTypes,
-        invalidateCache : invalidateCache
+        findMatchingTypes : findMatchingTypes
     };
 });
