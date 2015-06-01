@@ -32,7 +32,7 @@ exports.recent = function (req, res) {
 
     }
 
-    var query = Article.find({}, select);
+    var query = Article.find({}, select).sort({publDate: -1}).limit(10);;
     query.exec(function (err, articles) {
         if (err) {
             return handleError(res, err);
