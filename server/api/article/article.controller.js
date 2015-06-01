@@ -24,7 +24,15 @@ exports.index = function (req, res) {
 
 //Get 5 most recent posts
 exports.recent = function (req, res) {
-    var query = Article.find().sort({publDate: -1}).limit(5);
+
+    var select = {
+        title: 1,
+        type: 1,
+        publDate: 1
+
+    }
+
+    var query = Article.find({}, select);
     query.exec(function (err, articles) {
         if (err) {
             return handleError(res, err);
@@ -36,16 +44,16 @@ exports.recent = function (req, res) {
 //Filter on types
 exports.types = function (req, res) {
     //Use starts with to improve performance /^
-    var query = Article.find({type:{$regex: req.params.type ,$options:"$i"}})
+    var query = Article.find({type: {$regex: req.params.type, $options: "$i"}})
     query.exec(function (err, articles) {
         if (err) {
             return handleError(res, err);
         }
         var result = [];
         _.forEach(articles, function (value, key) {
-           if(_.indexOf(result, value._doc.type) === -1){
-               result.push(value.type);
-           }
+            if (_.indexOf(result, value._doc.type) === -1) {
+                result.push(value.type);
+            }
         });
         return res.json(200, result);
     });

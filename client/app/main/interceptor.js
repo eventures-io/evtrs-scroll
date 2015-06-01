@@ -5,7 +5,7 @@ angular.module('evtrsScrollApp').
 
         return {
             request: function (config) {
-                config.timeout = 10000;
+                config.timeout = 20000;
                 return config || $q.when(config)
             },
             responseError: function (response) {
