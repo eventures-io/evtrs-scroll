@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state ) {
+angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
 
     $scope.article = {
-        images : []
+        images: []
     };
 
     $scope.includeImg = false;
@@ -27,7 +27,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     }
 
     $scope.$on('INSERT_IMAGE', function () {
-        if($scope.article.images.length < 3) {
+        if ($scope.article.images.length < 3) {
             $scope.includeImg = true;
         }
     });
@@ -35,19 +35,32 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     $scope.$watch('imageFile', function () {
         if ($scope.imageFile && $scope.imageFile.length) {
             var file = $scope.imageFile[0];
-            var reader = new FileReader();
             var imageCount = $scope.article.images.length;
 
-            reader.onloadend = function () {
-                $scope.article.images[imageCount] = reader.result;
-                $scope.includeImg = false;
-                $scope.$apply();
-            }
-            if (file) {
-                reader.readAsDataURL(file);
-            } else {
-                $log.error('Could not read image file ');
-            }
+            loadImage.parseMetaData(
+                file,
+                function (data) {
+                    var orientation = data.exif.get('Orientation');
+                    loadImage(
+                        file,
+                        function (canvas) {
+                            if (canvas.type === "error") {
+                                $log.error("Error loading image " + file);
+                            } else {
+                                $scope.article.images[imageCount] = canvas.toDataURL('image/jpeg', 1.0);
+                                $scope.includeImg = false;
+                                $scope.$apply();
+                            }
+                        },
+                        {
+                            canvas: true,
+                            orientation: orientation
+                        }
+                    );
+
+                }
+            );
+
         }
     });
 
@@ -72,7 +85,6 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 
                 ArticleResource.save($scope.article)
                     .then(function (data) {
-                        ArticleResource.invalidateCache();
                         $scope.article = data;
                         $scope.saveAction = 'Update';
                         $scope.submitted = false;
@@ -80,7 +92,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
                 );
             } else {
                 $scope.article.modDate = new Date();
-                $scope.article.put().then(function() {
+                $scope.article.put().then(function () {
                     $scope.submitted = false;
                 });
 
@@ -117,7 +129,7 @@ angular.module('evtrsScrollApp')
 
 angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource, $state, $timeout) {
 
-    $scope.$on('ACCORDION_LOADED', function() {
+    $scope.$on('ACCORDION_LOADED', function () {
         //Hide loading spinner
         $scope.modelLoaded = true;
     });
@@ -158,13 +170,13 @@ angular.module('evtrsScrollApp').controller('AccordionController', function ($sc
     });
 
 
-    $scope.showDetailView = function(id){
-        angular.forEach($scope.viewModel, function(article) {
+    $scope.showDetailView = function (id) {
+        angular.forEach($scope.viewModel, function (article) {
             article.collapsed = true;
         });
 
-        $timeout(function() {
-            return $state.go('detail', {articleId : id});
+        $timeout(function () {
+            return $state.go('detail', {articleId: id});
         }, 1000);
 
     }

@@ -4,7 +4,7 @@
 
     <div class="image-include">
         <div ng-repeat="image in article.images">
-                    <img src='{{image}}' class="image-preview">
+                    <img style="image-orientation: from-image" src='{{image}}' class="image-preview">
         </div>
         <div ng-show="includeImg">
             <div ngf-drop ngf-select ng-model="imageFile" class="drop-box"
@@ -34,8 +34,7 @@
         </div>
         <button class="form-btn btn-success" type="submit">{{saveAction}}</button>
 
-        <button ng-if="saveAction === 'Update'" class="form-btn btn-danger" ng-click="delete()" type="button">Delete
-        </button>
+        <button ng-if="saveAction === 'Update'" class="form-btn btn-danger" ng-click="delete()" type="button">Delete</button>
 
     </form>
 

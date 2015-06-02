@@ -16,14 +16,13 @@ angular.module('evtrsScrollApp', [
     ])
     .config(function ($httpProvider, RestangularProvider, cfpLoadingBarProvider) {
 
-        $httpProvider.interceptors.push('HttpRequestInterceptor');
+        //TODO: filter out 404's & 401's
+        //$httpProvider.interceptors.push('HttpRequestInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
         RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
         cfpLoadingBarProvider.includeSpinner = false;
-
-
     })
 
     .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
@@ -53,7 +52,7 @@ angular.module('evtrsScrollApp', [
     })
 
     .run(function ($rootScope, $location, Auth, Restangular, $cacheFactory) {
-        // Redirect to login if route requires auth and you're not logged in
+
         Restangular.setResponseInterceptor(function(response, operation) {
             if (operation === 'put' || operation === 'post' || operation === 'delete') {
                 $cacheFactory('http').removeAll();
@@ -61,7 +60,7 @@ angular.module('evtrsScrollApp', [
             return response;
         });
 
-
+        // Redirect to login if route requires auth and you're not logged in
         $rootScope.$on('$stateChangeStart', function (event, next) {
             Auth.isLoggedInAsync(function (loggedIn) {
                 if (next.authenticate && !loggedIn) {
