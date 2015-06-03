@@ -12,7 +12,6 @@ angular.module('evtrsScrollApp', [
         'ngFileUpload',
         'angular-loading-bar',
         'toaster'
-
     ])
     .config(function ($httpProvider, RestangularProvider, cfpLoadingBarProvider) {
 

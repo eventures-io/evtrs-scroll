@@ -1,7 +1,6 @@
 'use strict';
 angular.module('evtrsScrollApp').
     factory('HttpRequestInterceptor', function ($rootScope, $q) {
-        var pendingRequests = 0;
 
         return {
             request: function (config) {
@@ -9,11 +8,13 @@ angular.module('evtrsScrollApp').
                 return config || $q.when(config)
             },
             responseError: function (response) {
-                $rootScope.$broadcast('NETWORK_ERROR', {
-                        title: response.status ? response.status : 'NETWORK ERROR',
-                        message: response.statusText ? response.statusText : 'COULD NOT CONNECT'
-                    }
-                );
+                if (response.status !== '401' || response.status !== '404' || response.status !== '403') {
+                    $rootScope.$broadcast('NETWORK_ERROR', {
+                            title: response.status ? response.status : 'NETWORK ERROR',
+                            message: response.statusText ? response.statusText : 'COULD NOT CONNECT'
+                        }
+                    );
+                }
                 return $q.reject(response);
             }
         };
