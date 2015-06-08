@@ -10,9 +10,6 @@
  * 3) Scroll vertically (overflow-y: visible)
  *
  */
-
-
-
 .accordion-wrapper {
   width: 100vw;
 }
@@ -29,7 +26,7 @@
 }
 
 .accordion {
-  visibility: hidden;
+  display: none;
   .outer {
     border: 1px solid #ddd;
     &:after {
@@ -63,7 +60,7 @@
 }
 
 .accordion-visible {
-    visibility: visible;
+    display: block;
 
 }
 

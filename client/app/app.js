@@ -15,8 +15,7 @@ angular.module('evtrsScrollApp', [
     ])
     .config(function ($httpProvider, RestangularProvider, cfpLoadingBarProvider) {
 
-        //TODO: filter out 404's & 401's
-        //$httpProvider.interceptors.push('HttpRequestInterceptor');
+        $httpProvider.interceptors.push('HttpRequestInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({id: '_id'});
