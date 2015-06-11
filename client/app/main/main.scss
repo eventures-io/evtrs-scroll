@@ -32,22 +32,32 @@ h4 {
 
 .container-view {
   @extend .container;
+  height: 100vh;
   padding: 50px 15% 0 15%;
 
 }
 
 /*ANIMATIONS-----------*/
-.ng-enter {
-  //animation: fadeIn 0.5s 0.5 both ease-in;
-  -webkit-transition-delay: 2s;
-  transition-delay: 2s;
-  transform: scale(0.1, 1);
+
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  transition:all .7s ease-in-out;
 }
 
-.ng-leave {
-//  z-index: 999;
-//  transition-delay: 0.6s;
-//  transform: scale(0.1, 0.1);
+[ui-view].ng-enter {
+  opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
+[ui-view].ng-leave {
+  opacity: 0;
+}
+
+[ui-view].ng-leave-active {
+  opacity: 1;
 }
 
 @keyframes slideDown {

@@ -1,5 +1,12 @@
-<div class="container padding-top">
-    <h2>{{title}}</h2>
+<div class="article-container">
+    <div class="row">
+        <div class="col-sm-11">
+            <h2>{{title}}</h2>
+        </div>
+        <div class="col-sm-1">
+            <div class="close-icon" ng-click="close()"></div>
+        </div>
+    </div>
     <hr/>
 
     <div class="image-include">
@@ -29,7 +36,7 @@
         </div>
         <div class="form-group">
             <text-angular ng-model="article.content"
-                          ta-toolbar="[['h1','h2','h3'],['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertImg']]"
+                          ta-toolbar="[['h1','h2','h3', 'h4', 'h5', 'h6'],['bold','italics', 'p', 'pre', 'quote'], ['redo', 'undo', 'clear'], ['ol', 'ul', 'justifyLeft', 'justifyCenter', 'justifyRight'], ['insertImg', 'insertLink']]"
                     />
         </div>
         <button class="form-btn btn-success" type="submit">{{saveAction}}</button>

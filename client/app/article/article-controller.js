@@ -107,6 +107,11 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
     }
 
 
+    $scope.close = function () {
+        $state.go('home');
+    };
+
+
 });
 
 
@@ -119,6 +124,7 @@ angular.module('evtrsScrollApp')
                     $scope.article = data;
                 });
         }
+
 
         $scope.close = function () {
             $state.go('home');
