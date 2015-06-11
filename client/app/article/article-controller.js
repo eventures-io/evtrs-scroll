@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
+angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state, ImageService) {
 
     $scope.article = {
         images: []
@@ -47,6 +47,7 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
                             if (canvas.type === "error") {
                                 $log.error("Error loading image " + file);
                             } else {
+                                createThumbnail(canvas.toDataURL('image/jpeg', 1.0), $scope.article);
                                 $scope.article.images[imageCount] = canvas.toDataURL('image/jpeg', 1.0);
                                 $scope.includeImg = false;
                                 $scope.$apply();
@@ -63,6 +64,19 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
 
         }
     });
+
+
+    var createThumbnail =  function(imgSrc, article) {
+        ImageService.resize(imgSrc, 0.3)
+            .then(function (resizedImage) {
+                article.thumbnail = resizedImage.src;
+            })
+//        // resize by stepping down image size in increments of 2x
+//        imageService.resizeStep($('#myimg')[0], 256, 256)
+//            .then(function (resizedImage) {
+//                // do something with resized image
+//            })
+    }
 
     $scope.findMatchingTypes = function (type) {
         $scope.spinner.show = true;
@@ -145,13 +159,14 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
         var articles = [];
 
         _.forEach(recent, function (value, key) {
+            console.log(value.thumbnail);
             var group = _.find(articles, {group: value.type});
             if (group) {
                 group.content.push(
                     {
                         id: value._id,
                         title: value.title,
-                        image: value.images[0]
+                        thumbnail: value.thumbnail
                     }
                 )
             }
@@ -162,7 +177,7 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
                             {
                                 id: value._id,
                                 title: value.title,
-                                image: value.images[0]
+                                thumbnail: value.thumbnail
                             }
                         ],
                         collapsed: true

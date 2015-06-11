@@ -8,7 +8,7 @@ var ArticleSchema = new Schema({
   type: {type: String, required: true},
   content: {type: String},
   images: {type: Array},
-  thumbnails: {type: Array},
+  thumbnail : {type: String},
   publDate: Date,
   modDate: Date
 });

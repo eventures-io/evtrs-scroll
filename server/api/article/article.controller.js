@@ -14,11 +14,21 @@ var Article = require('./article.model');
 
 // Get list of articles
 exports.index = function (req, res) {
+    var select = {
+        title: 1,
+        thumbnail: 1,
+        type: 1,
+        publDate: 1
+    }
+
+    var query = Article.find({}, select);
     Article.find(function (err, articles) {
-        if (err) {
-            return handleError(res, err);
-        }
-        return res.json(200, articles);
+        query.exec(function (err, articles) {
+            if (err) {
+                return handleError(res, err);
+            }
+            return res.json(200, articles);
+        });
     });
 };
 
@@ -32,7 +42,7 @@ exports.recent = function (req, res) {
 
     }
 
-    var query = Article.find({}, select).sort({publDate: -1}).limit(10);;
+    var query = Article.find({}, select).sort({publDate: -1}).limit(10);
     query.exec(function (err, articles) {
         if (err) {
             return handleError(res, err);
@@ -73,6 +83,13 @@ exports.show = function (req, res) {
     });
 };
 
+var createThumbnail = function(article) {
+    if(!article.thumbnail && article.images.length > 0) {
+        var buf = new Buffer(article.images[0], 'base64');
+
+    }
+
+}
 
 // Creates a new article in the DB.
 exports.create = function (req, res) {
