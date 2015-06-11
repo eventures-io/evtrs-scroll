@@ -1,5 +1,5 @@
 'use strict';
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
     .config(function ($locationProvider, $stateProvider, $urlRouterProvider, $provide) {
 
         $urlRouterProvider

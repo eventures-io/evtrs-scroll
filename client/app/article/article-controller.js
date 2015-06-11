@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
+angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state) {
 
     $scope.article = {
         images: []
@@ -115,7 +115,7 @@ angular.module('evtrsScrollApp').controller('ArticleCtrl', function ($scope, Art
 });
 
 
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
     .controller('ArticleDisplayCtrl', function ($scope, $stateParams, ArticleResource, $state) {
 
         if ($stateParams.articleId) {
@@ -133,7 +133,7 @@ angular.module('evtrsScrollApp')
     });
 
 
-angular.module('evtrsScrollApp').controller('AccordionController', function ($scope, ArticleResource, $state, $timeout) {
+angular.module('plantzrApp').controller('AccordionController', function ($scope, ArticleResource, $state, $timeout) {
 
     $scope.$on('ACCORDION_LOADED', function () {
         //Hide loading spinner

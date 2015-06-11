@@ -3,6 +3,12 @@
    // transition: background .5s ease-in-out, visiblity .5s ease-in-out;
   }
 
+  .navbar-brand {
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
+
+  }
+
   .top-nav-collapse {
     padding: 0;
     background: $header-color;

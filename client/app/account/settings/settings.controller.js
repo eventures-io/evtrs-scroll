@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
   .controller('SettingsCtrl', function ($scope, User, Auth) {
     $scope.errors = {};
 

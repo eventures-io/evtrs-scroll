@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
   .controller('RegistrationCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};

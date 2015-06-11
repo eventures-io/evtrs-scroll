@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
   .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log) {
     var currentUser = {};
     if($cookieStore.get('token')) {

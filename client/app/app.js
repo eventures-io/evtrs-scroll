@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp', [
+angular.module('plantzrApp', [
         'ngCookies',
         'ngResource',
         'ngSanitize',

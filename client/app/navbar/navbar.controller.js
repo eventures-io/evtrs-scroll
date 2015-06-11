@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
     .controller('NavbarCtrl', function ($scope, $location, Auth, toaster) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;

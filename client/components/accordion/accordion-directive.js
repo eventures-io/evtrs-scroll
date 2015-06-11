@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').directive('cdwsAccordion', function (Auth) {
+angular.module('plantzrApp').directive('cdwsAccordion', function (Auth) {
 
     return {
         restrict: 'E',

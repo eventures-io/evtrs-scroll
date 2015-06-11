@@ -1,5 +1,5 @@
 'use strict'
-angular.module('evtrsScrollApp').directive("repeatEnd", function($timeout){
+angular.module('plantzrApp').directive("repeatEnd", function($timeout){
     return {
         restrict: "A",
         link: function (scope, element, attrs) {

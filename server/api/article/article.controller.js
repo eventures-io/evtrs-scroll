@@ -73,8 +73,11 @@ exports.show = function (req, res) {
     });
 };
 
+
 // Creates a new article in the DB.
 exports.create = function (req, res) {
+    var article = req.body;
+
     Article.create(req.body, function (err, article) {
         if (err) {
             return handleError(res, err);

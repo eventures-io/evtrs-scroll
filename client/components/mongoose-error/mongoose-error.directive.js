@@ -3,7 +3,7 @@
 /**
  * Removes server error when user updates input
  */
-angular.module('evtrsScrollApp')
+angular.module('plantzrApp')
   .directive('mongooseError', function () {
     return {
       restrict: 'A',

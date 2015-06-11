@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evtrsScrollApp').factory('ArticleResource', function (Restangular, $cacheFactory) {
+angular.module('plantzrApp').factory('ArticleResource', function (Restangular, $cacheFactory) {
 
     var articles = Restangular.all('articles');
 

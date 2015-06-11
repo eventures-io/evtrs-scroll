@@ -1,5 +1,5 @@
 'use strict';
-angular.module('evtrsScrollApp').
+angular.module('plantzrApp').
     factory('HttpRequestInterceptor', function ($rootScope, $q) {
 
         return {

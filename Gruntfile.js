@@ -144,7 +144,6 @@ module.exports = function (grunt) {
             },
             all: [
                 '<%= yeoman.client %>/{app,components}/**/*.js',
-                '!<%= yeoman.client %>/components/scroll/angular-scroll-mod.js',
                 '!<%= yeoman.client %>/{app,components}/**/*.spec.js',
                 '!<%= yeoman.client %>/{app,components}/**/*.mock.js'
             ],
@@ -325,7 +324,7 @@ module.exports = function (grunt) {
         ngtemplates: {
             options: {
                 // This should be the name of your apps angular module
-                module: 'evtrsScrollApp',
+                module: 'plantzrApp',
                 htmlmin: {
                     collapseBooleanAttributes: true,
                     collapseWhitespace: true,
