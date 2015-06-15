@@ -14,6 +14,13 @@ $accordion-text: #fff;
 $link-color: #009d00;
 
 
+@mixin word-wrap() {
+  word-break:     break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens:    auto;
+  hyphens:         auto;
+}
+
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';

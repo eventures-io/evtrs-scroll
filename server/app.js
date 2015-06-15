@@ -14,6 +14,10 @@ var config = require('./config/environment');
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
+mongoose.connection.on("error", function(error) {
+    console.log("db error: " + error);
+});
+
 // Populate DB with sample data
 if(config.seedDB) { require('./config/seed'); }
 

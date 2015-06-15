@@ -1,0 +1,8 @@
+version: v1beta2
+containers:
+  - name: plantzr-container
+    image: gcr.io/mindful-server-97510/plantzr
+    ports:
+      - name app-port
+        hostPort: 8080
+        containerPort: 8080

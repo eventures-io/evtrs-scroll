@@ -1,0 +1,23 @@
+Project ID: mindful-server-97510 
+
+gcloud preview docker push gcr.io/mindful-server-97510/plantzr
+
+gcloud alpha container kubectl run plantzr-pod --image gcr.io/mindful-server-97510/plantzr
+
+
+
+boot2docker start
+eval "$(boot2docker shellinit)"
+
+
+
+#!/bin/bash
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)
+
+
+
+
+

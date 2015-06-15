@@ -231,7 +231,7 @@ module.exports = function (grunt) {
             target: {
                 src: '<%= yeoman.client %>/index.html',
                 ignorePath: '<%= yeoman.client %>/',
-                exclude: [/bootstrap-sass-official/, /bootstrap.js/, '/json3/', '/es5-shim/', /bootstrap.css/, /font-awesome.css/ ]
+                exclude: [/bootstrap-sass-official/, /bootstrap.js/, '/json3/', '/es5-shim/', /bootstrap.css/, /font-awesome.css/, /blueimp-load-image/]
             }
         },
 
@@ -409,7 +409,7 @@ module.exports = function (grunt) {
             },
             heroku: {
                 options: {
-                    remote: 'git@heroku.com:mean-post.git',
+                    remote: 'git@heroku.com:plantzr.git',
                     branch: 'master'
                 }
             },
@@ -672,7 +672,6 @@ module.exports = function (grunt) {
         'concat',
         'ngAnnotate',
         'copy:dist',
-        'cdnify',
         'cssmin',
         'uglify',
         'rev',
@@ -691,3 +690,4 @@ module.exports = function (grunt) {
         'build'
     ]);
 };
+

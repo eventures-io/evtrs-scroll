@@ -33,7 +33,7 @@
 }
 
 .article-overview {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* Thumbnail list view----*/
@@ -68,8 +68,9 @@
   );
 
   .article-title {
+    @include word-wrap;
     height: 40%;
-    width: 100%;
+    max-width: 100%;
     padding: 1em;
     text-align: center;
   }
@@ -86,6 +87,16 @@
     -webkit-filter: grayscale(0.1);
     filter: grayscale(0.1);
     cursor: pointer;
+  }
+
+  .edit-link {
+    color: #ffffff;
+    cursor: pointer;
+
+  }
+
+  .edit-link:hover {
+    text-decoration: underline;
   }
 
 

@@ -40,15 +40,19 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
             loadImage.parseMetaData(
                 file,
                 function (data) {
-                    var orientation = data.exif.get('Orientation');
+                    var orientation = undefined;
+                    if (data.exif){
+                        orientation = data.exif.get('Orientation');
+                    }
                     loadImage(
                         file,
                         function (canvas) {
                             if (canvas.type === "error") {
                                 $log.error("Error loading image " + file);
                             } else {
-                                createThumbnail(canvas.toDataURL('image/jpeg', 1.0), $scope.article);
-                                $scope.article.images[imageCount] = canvas.toDataURL('image/jpeg', 1.0);
+                                var imgData = canvas.toDataURL('image/jpeg', 1.0)
+                                createThumbnail(imgData, $scope.article);
+                                $scope.article.images[imageCount] = imgData;
                                 $scope.includeImg = false;
                                 $scope.$apply();
                             }
@@ -66,16 +70,13 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
     });
 
 
-    var createThumbnail =  function(imgSrc, article) {
+    var createThumbnail = function (imgSrc, article) {
         ImageService.resize(imgSrc, 0.3)
             .then(function (resizedImage) {
                 article.thumbnail = resizedImage.src;
-            })
-//        // resize by stepping down image size in increments of 2x
-//        imageService.resizeStep($('#myimg')[0], 256, 256)
-//            .then(function (resizedImage) {
-//                // do something with resized image
-//            })
+            },function(error){
+                $log.error('could not create thumbnail', error);
+            });
     }
 
     $scope.findMatchingTypes = function (type) {
@@ -92,11 +93,11 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
     $scope.save = function (form) {
         $scope.submitted = true;
         if (form.$valid) {
+            var type = $scope.article.type;
+            $scope.article.type = type.charAt(0).toUpperCase().concat(type.slice(1).toLowerCase());
+
             if ($scope.saveAction === 'Save') {
                 $scope.article.publDate = new Date();
-                var type = $scope.article.type;
-                $scope.article.type = type.charAt(0).toUpperCase().concat(type.slice(1).toLowerCase());
-
                 ArticleResource.save($scope.article)
                     .then(function (data) {
                         $scope.article = data;
@@ -106,7 +107,8 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
                 );
             } else {
                 $scope.article.modDate = new Date();
-                $scope.article.put().then(function () {
+                $scope.article.put().then(function (updated) {
+                    scope.article = updated;
                     $scope.submitted = false;
                 });
 
@@ -159,7 +161,6 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
         var articles = [];
 
         _.forEach(recent, function (value, key) {
-            console.log(value.thumbnail);
             var group = _.find(articles, {group: value.type});
             if (group) {
                 group.content.push(
@@ -191,13 +192,13 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
     });
 
 
-    $scope.showDetailView = function (id) {
+    $scope.showDetailView = function (id, view) {
         angular.forEach($scope.viewModel, function (article) {
             article.collapsed = true;
         });
 
         $timeout(function () {
-            return $state.go('detail', {articleId: id});
+            return $state.go(view, {articleId: id});
         }, 1000);
 
     }
