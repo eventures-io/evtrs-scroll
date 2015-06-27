@@ -20,12 +20,22 @@ angular.module('plantzrApp')
             .state('detail', {
                 url: '/article/:articleId',
                 templateUrl: 'app/article/article-display.html',
-                controller: 'ArticleDisplayCtrl'
+                controller: 'ArticleDisplayCtrl',
+                resolve: {
+                    article: function (ArticleResource, $stateParams, $state) {
+                        return loadArticle(ArticleResource, $stateParams.articleId, $state)
+                    }
+                }
             })
             .state('edit', {
                 url: '/article/edit/:articleId',
                 templateUrl: 'app/article/article-create.html',
-                controller: 'ArticleCtrl'
+                controller: 'ArticleCtrl',
+                resolve: {
+                    article: function (ArticleResource, $stateParams, $state) {
+                        return loadArticle(ArticleResource, $stateParams.articleId, $state)
+                    }
+                }
             });
 
 
@@ -41,6 +51,19 @@ angular.module('plantzrApp')
 
             return taOptions;
         }]);
+
+
+        var loadArticle = function (ArticleResource, articleId, $state) {
+            return ArticleResource.getById(articleId).then(
+                function (data) {
+                    return data;
+
+                }).catch(function (error) {
+                    $log.error('Could not load article: ' + $stateParams.articleId + ' : ' + error.statusText);
+                    //TODO throw error and use exception handler to redirect
+                    $state.go('home');
+                })
+        }
 
     });
 

@@ -96,10 +96,12 @@ exports.create = function (req, res) {
     var article = req.body;
 
     Article.create(req.body, function (err, article) {
+        console.log("saving new article: " + Article.title);
         if (err) {
+            console.log('Error saving article: ' + JSON.stringify(err));
             return handleError(res, err);
         }
-        console.log("saving new article: " + Article.content);
+
         return res.json(201, article);
     });
 };

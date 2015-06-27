@@ -12,13 +12,13 @@ User.find({}).remove(function() {
   User.create({
     provider: 'local',
     name: 'User',
-    email: 'user@eventures.io',
+    email: 'user@plantz.io',
     password: 'user'
   }, {
     provider: 'local',
     role: 'admin',
     name: 'Admin',
-    email: 'admin@eventures.io',
+    email: 'admin@plantz.io',
     password: 'admin'
   }, function() {
       console.log('finished populating users');
