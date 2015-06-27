@@ -2,6 +2,8 @@
 
 angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state, ImageService) {
 
+
+
     $scope.includeImg = false;
     $scope.spinner = {};
     $scope.submitted = false;
@@ -10,8 +12,14 @@ angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, Article
 
     if ($stateParams.articleId) {
         $scope.title = 'Edit article';
-        $scope.saveAction = 'Update';
-
+        ArticleResource.getById($stateParams.articleId).then(
+            function (data) {
+                $scope.article = data;
+                $scope.saveAction = 'Update';
+            }).catch(function (error) {
+                $log.error('Could not load article: ' + $stateParams.articleId + ' : ' + error.statusText);
+                $state.go('home');
+            });
     } else {
         $scope.title = 'Create article';
         $scope.article = {
@@ -186,14 +194,12 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
 
 
     $scope.showDetailView = function (id, view) {
-
         angular.forEach($scope.viewModel, function (article) {
             article.collapsed = true;
         });
 
         $timeout(function () {
             return $state.go(view, {articleId: id});
-        //wait for the accordion container to close
         }, 1000);
 
     }
