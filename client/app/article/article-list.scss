@@ -7,6 +7,7 @@
   background-color: lightgrey;
   text-align: center;
   font-weight: bold;
+  margin-top: $menu-height;
   height: 60px;
   vertical-align: middle;
 }
@@ -17,19 +18,16 @@
       //search icon
       font-family: 'FontAwesome';
       font-size: medium;
-      height: calc(50px - 14px);
     }
-    height: calc(50px - 14px);
-    position: absolute;
-    right: 20px;
-    top: 7px;
+   float: right;
+   padding:10px;
+
   }
   position: relative;
   width: 100%;
   height: 50px;
   background-color: #e4e4e4;
   vertical-align: middle;
-
 }
 
 .article-overview {

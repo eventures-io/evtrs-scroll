@@ -1,6 +1,7 @@
 @media (min-width: 767px) {
   .navbar {
    // transition: background .5s ease-in-out, visiblity .5s ease-in-out;
+    height: $menu-height;
   }
 
   .navbar-brand {

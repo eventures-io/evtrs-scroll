@@ -2,8 +2,6 @@
 
 angular.module('plantzrApp').controller('ArticleCtrl', function ($scope, ArticleResource, $log, $stateParams, $state, ImageService) {
 
-
-
     $scope.includeImg = false;
     $scope.spinner = {};
     $scope.submitted = false;
@@ -194,6 +192,7 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
 
 
     $scope.showDetailView = function (id, view) {
+
         angular.forEach($scope.viewModel, function (article) {
             article.collapsed = true;
         });

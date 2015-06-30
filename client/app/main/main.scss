@@ -49,7 +49,7 @@ a:hover {
 
 
 [ui-view].ng-enter, [ui-view].ng-leave {
-  transition:all .7s ease-in-out;
+  transition:all .6s ease-in-out;
 }
 
 [ui-view].ng-enter {
@@ -98,11 +98,11 @@ a:hover {
 
 @keyframes enter {
   0% {
-    top: 100%;
+    width: 10px;
   }
 
   100% {
-    top: 0;
+    width: 100%;
   }
 }
 
