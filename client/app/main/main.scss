@@ -31,6 +31,7 @@ a:hover {
   background-image: none !important;
 }
 
+
 /*COMPONENTS-----*/
 
 .padding-top {
@@ -44,64 +45,7 @@ a:hover {
 
 }
 
-/*ANIMATIONS-----------*/
 
-
-.animate-detail.ng-enter, .animate-detail.ng-leave {
-  transition:all 1s ease-in-out;
-}
-
-.animate-detail.ng-enter {
-  opacity: 0;
-}
-
-.animate-detail.ng-enter-active {
-  opacity: 1;
-}
-
-.animate-detail.ng-leave {
-  opacity: 0;
-}
-
-.animate-detail.ng-leave-active {
-  opacity: 1;
-}
-
-@keyframes slideDown {
-  to {
-    transform: translateY(70vh);
-  }
-}
-
-/* fade in */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* fade out */
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes enter {
-  0% {
-    width: 10px;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
 
 
 

@@ -1,13 +1,5 @@
-/*! 
- * angular-loading-bar v0.7.1
- * https://chieffancypants.github.io/angular-loading-bar
- * Copyright (c) 2015 Wes Cruver
- * License: MIT
- */
 
-/* Make clicks pass-through */
-
-$loader-color: #00b800; 
+$loader-color: #00b800;
 
 #loading-bar {
   pointer-events: none;
