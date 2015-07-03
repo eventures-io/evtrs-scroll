@@ -192,7 +192,6 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
 
 
     $scope.showDetailView = function (id, view) {
-
         angular.forEach($scope.viewModel, function (article) {
             article.collapsed = true;
         });
