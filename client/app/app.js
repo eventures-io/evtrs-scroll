@@ -48,7 +48,6 @@ angular.module('plantzrApp', [
             }
         };
     })
-
     .run(function ($rootScope, $location, Auth, Restangular, $cacheFactory) {
 
         Restangular.setResponseInterceptor(function(response, operation) {
@@ -66,6 +65,6 @@ angular.module('plantzrApp', [
                 }
             });
         });
-
+       $rootScope.$on("$stateChangeError", console.log.bind(console));
     });
 

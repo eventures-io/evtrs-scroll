@@ -31,7 +31,6 @@ a:hover {
   background-image: none !important;
 }
 
-
 /*COMPONENTS-----*/
 
 .padding-top {
@@ -48,25 +47,23 @@ a:hover {
 /*ANIMATIONS-----------*/
 
 
-[ui-view].ng-enter, [ui-view].ng-leave {
-  transition:all .6s ease-in-out;
+.animate-detail.ng-enter, .animate-detail.ng-leave {
+  transition:all 1s ease-in-out;
 }
 
-[ui-view].ng-enter {
-  width: 10px;
+.animate-detail.ng-enter {
   opacity: 0;
 }
 
-[ui-view].ng-enter-active {
-  width: 100%;
+.animate-detail.ng-enter-active {
   opacity: 1;
 }
 
-[ui-view].ng-leave {
+.animate-detail.ng-leave {
   opacity: 0;
 }
 
-[ui-view].ng-leave-active {
+.animate-detail.ng-leave-active {
   opacity: 1;
 }
 
