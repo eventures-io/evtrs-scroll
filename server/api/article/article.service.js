@@ -20,13 +20,15 @@ exports.index = function (req, res) {
         type: 1,
         publDate: 1
     }
-
+    var hrstart = process.hrtime();
     var query = Article.find({}, select);
     Article.find(function (err, articles) {
         query.exec(function (err, articles) {
             if (err) {
                 return handleError(res, err);
             }
+            var hrend = process.hrtime(hrstart);
+            console.info("<< Article list query time: %ds %dms >>", hrend[0], hrend[1]/1000000);
             return res.json(200, articles);
         });
     });
@@ -72,6 +74,7 @@ exports.types = function (req, res) {
 
 // Get a single article
 exports.show = function (req, res) {
+    var hrstart = process.hrtime();
     Article.findById(req.params.id, function (err, article) {
         if (err) {
             return handleError(res, err);
@@ -79,6 +82,8 @@ exports.show = function (req, res) {
         if (!article) {
             return res.send(404);
         }
+        var hrend = process.hrtime(hrstart);
+        console.info("<< Article query time: %ds %dms >>", hrend[0], hrend[1]/1000000);
         return res.json(200, article);
     });
 };

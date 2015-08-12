@@ -16,8 +16,6 @@ docker tag codeworks/plantzr gcr.io/mindful-server-97510/plantzr
 $ kubectl run plantzr-pod --image=codeworks/plantzr --port=8080
 
 
-
-
 ###Ports
 OPen Mongo port
 Deploy & manage --> Deployments--> select an instance --> more about this resource

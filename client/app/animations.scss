@@ -1,35 +1,33 @@
-/*ANIMATIONS-----------*/
-
 /*MAIN-VIEW -----------*/
-[ui-view].ng-enter, [ui-view].ng-leave {
+.animate-main.ng-enter, .animate-main.ng-leave {
   transition: all 1.3s ease-in-out;
 }
 
-[ui-view].ng-enter {
+.animate-main.ng-enter {
   opacity: 0;
 }
 
-[ui-view].ng-enter-active {
+.animate-main.ng-enter-active {
   opacity: 1;
 }
 
-[ui-view].ng-leave {
+.animate-main.ng-leave {
   opacity: 0;
 }
 
-[ui-view].ng-leave-active {
+.animate-main.ng-leave-active {
   opacity: 1;
 }
 
 /*ARTICLE-VIEW --------*/
 
-.article-animation.ng-hide-remove {
-  animation : article-slide-in 0.2s ease-out;
+.animate-article.ng-enter {
+  animation : article-slide-in 0.9s ease-out;
 }
 
 @keyframes article-slide-in {
   from {
-     transform : translateX(-60px);
+     transform : translateX(-90px);
   }
   to {
     transform : translateX(0px);

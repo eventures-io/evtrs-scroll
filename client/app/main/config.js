@@ -19,21 +19,13 @@ angular.module('plantzrApp')
             })
             .state('detail', {
                 url: '/article/:articleId',
-                views: {
-                    'detail-view': {
-                        templateUrl: 'app/article/article-display.html',
-                        controller: 'ArticleDisplayCtrl'
-                    }
-                }
+                templateUrl: 'app/article/article-display.html',
+                controller: 'ArticleDisplayCtrl'
             })
             .state('edit', {
                 url: '/article/edit/:articleId',
-                views: {
-                'detail-view': {
                 templateUrl: 'app/article/article-create.html',
                 controller: 'ArticleCtrl'
-                    }
-                }
             });
 
 
