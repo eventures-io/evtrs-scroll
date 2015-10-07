@@ -1,15 +1,7 @@
 #MEAN-POST#
 
-Mean stack based article crud application with accompanying [Android & iPhone apps] (https://github.com/eventures-io/evtrs-ionic)
+Mean stack based crud application with accompanying [mobile app] (https://github.com/eventures-io/evtrs-ionic)
 
-Deployed on Heroku (be patient on first load)
-
-
-
-
-###TODOS###
-
-* Control image file upload size
 
 
 
