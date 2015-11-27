@@ -4,7 +4,7 @@ angular.module('plantzrApp').
 
         return {
             request: function (config) {
-                config.timeout = 60000;
+                config.timeout = 15000;
                 return config || $q.when(config)
             },
             responseError: function (response) {

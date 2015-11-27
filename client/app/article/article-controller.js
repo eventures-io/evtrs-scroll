@@ -157,7 +157,11 @@ angular.module('plantzrApp').controller('AccordionController', function ($scope,
 
     ArticleResource.getAll().then(function (response) {
         var recent = response.plain();
+        if(recent.length < 1){
+            $scope.$broadcast('ACCORDION_LOADED');
+        }
         var articles = [];
+
 
         _.forEach(recent, function (value, key) {
             var group = _.find(articles, {group: value.type});
